@@ -7,6 +7,7 @@ source_urls:
   ems: https://ems.epost.go.kr/front.EmsApplyGoCondition.postal
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
   kpacket: https://ems.epost.go.kr/front.EmsKPacketSendCondition.postal?frnMailDivcdTab=14&frnTranspPartyDivcd=1
 country_codes: [HK]
 collected_at: 2026-11-13
@@ -15,7 +16,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 홍콩(중국)(HK) 국제우편 발송조건
 
-한국에서 홍콩(중국)(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), K-Packet
+한국에서 홍콩(중국)(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등), K-Packet
 
 ## 홍콩(중국) 국제특급(EMS)
 
@@ -122,6 +123,42 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 - 국가명(국가코드) Hong Kong(HK) , 단일 우편번호 사용 : 999077 (from CHN to HKG)
 - 평균송달소요일수(선편) : 20~30일
+- 수취인의 전화번호, 이메일주소가 누락될 경우 배송이 지연될 수 있음
+
+### 금지·제한품목
+
+- 금지품목 : 음식물(육류, 해류), 향수, 폭약, 음란물(잡지, 서적, 그림), 자동차관련 부품은 통관불가
+- 제한품목 : 약품(조제약포함), 곡류, 식품, 살충제, 위험물, 브러쉬(솔) 등은 수입허가서(Import License) 필요, 담배, 주류(화물로 가능), 가죽제품(가죽종류를 상업송장(invoice)에 기재), 인조가죽은 Synthetic Fiber Sample로 기재
+
+### 세관·통관사항
+
+- 관세 : 면세 기준은 50위안 이하, 50위안 초과 시 신고가격에 따라 관세가 부가됨(24.12.1. 시행)
+- 다량 물품의 경우 총 신고가격 800위안을 초과하면 통관 불가(통관 불가 시 세관 계류 또는 반송 처리)
+- 다만, 다량물품이고 총 신고가격 800위안을 초과하더라도 세관에서 개인물품으로 판단할 경우 통관 가능(통관을 위해서는 수취인은 홍콩 세관에서 요구하는 서류 제출 필요)
+- 통관기초정보[국제사업과-772(2012.06.12.카할라국가에 대한 통관기초정보 제공)]
+- 통관회부료: 없음
+- 통관업무 대표전화번호: (852)2815-7711
+
+## 홍콩(중국) 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 1 지역 선편 1 지역
+- 교부보관 기간(일): 항공 60 선편 60
+- 보험취급가액(SDR): 4000(1SDR=1,749원)
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 전국 선편 전국
+- 주소변경/반환청구: 항공 취급안함 선편 취급안함
+
+### 긴급공지
+
+- 국가명(국가코드) Hong Kong(HK) , 단일 우편번호 사용 : 999077 (from CHN to HKG)
+- 도착국가 선편우편물 처리 지연. 평균 송달일수 기준 1~2개월 이상 지연 발생 (우정사업본부 국제사업과, 2021.03.31.)
+
+### 접수 시 주의사항
+
+- 국가명(국가코드) Hong Kong(HK) , 단일 우편번호 사용 : 999077 (from CHN to HKG)
+- 평균송달소요일수(선편) : 20~30일 * UPU 회람 2020-80 (20.06.01.)
 - 수취인의 전화번호, 이메일주소가 누락될 경우 배송이 지연될 수 있음
 
 ### 금지·제한품목

@@ -7,6 +7,7 @@ source_urls:
   ems: https://ems.epost.go.kr/front.EmsApplyGoCondition.postal
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
   kpacket: https://ems.epost.go.kr/front.EmsKPacketSendCondition.postal?frnMailDivcdTab=14&frnTranspPartyDivcd=1
 country_codes: [PL]
 collected_at: 2026-11-13
@@ -15,7 +16,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 폴란드(PL) 국제우편 발송조건
 
-한국에서 폴란드(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), K-Packet
+한국에서 폴란드(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등), K-Packet
 
 ## 폴란드 국제특급(EMS)
 
@@ -113,6 +114,30 @@ CE mark 있는 제품만 가능
 
 - 도착국가 선편우편물 처리 지연. 평균 송달일수 기준 1~2개월 이상 지연 발생 (우정사업본부 국제사업과, 2021.03.31.)
 - 평균송달소요일수(선편) : 100~120일
+
+### 금지·제한품목
+
+- 금지품목: 젤라틴, 육류, 전자제품, 헌옷, 수출회사명의 상품, 생과일류 취급불가
+
+### 세관·통관사항
+
+- 면세한도: 개인 45EUR 이하, 사업자 22EUR(단, 술 면제, 담배는 비면세품)
+
+## 폴란드 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 3 지역 선편 3 지역
+- 교부보관 기간(일): 항공 14 선편 14
+- 보험취급가액(SDR): 4000(1SDR=1,749원)
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 전국 선편 전국
+- 주소변경/반환청구: 항공 취급 선편 취급
+
+### 접수 시 주의사항
+
+- 평균송달소요일수(선편) : 100~120일
+- 도착국가 선편우편물 처리 지연. 평균 송달일수 기준 1~2개월 이상 지연 발생 (우정사업본부 국제사업과, 2021.03.31.)
 
 ### 금지·제한품목
 

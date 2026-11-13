@@ -7,6 +7,7 @@ source_urls:
   ems: https://ems.epost.go.kr/front.EmsApplyGoCondition.postal
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
 country_codes: [PT]
 collected_at: 2026-11-13
 license: 공공저작물(과학기술정보통신부 우정사업본부), 출처 표시 후 비상업적 교육 목적 이용
@@ -14,7 +15,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 포르투갈(PT) 국제우편 발송조건
 
-한국에서 포르투갈(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편)
+한국에서 포르투갈(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등)
 
 ## 포르투갈 국제특급(EMS)
 
@@ -109,6 +110,28 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 - 제한중량(g): 20000
 - 보통소포 배달통지취급: 취급
 - 보험소포 취급여부: 항공 취급
+- 주소변경/반환청구: 항공 취급
+
+### 금지·제한품목
+
+- 금지품목 : 회사채권, 수표, 신용카드, 보석류, 의약품, 조제약
+
+### 세관·통관사항
+
+- 면세한도: 선물 45 유로 이하 (2021.09.27. 수정 본부 국제사업과)
+- 기호식품 면세기준(아래 물품중 1가지만 면세가능)
+- 담배 50개피, 주류 1리터(와인은 2리터)
+- 잡화: 향수 50g 화장수 0.25리터 커피 500g
+
+## 포르투갈 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 3 지역 선편 불가
+- 교부보관 기간(일): 항공 30
+- 보험취급가액(SDR): 4000(1SDR=1,749원)
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 전국
 - 주소변경/반환청구: 항공 취급
 
 ### 금지·제한품목
