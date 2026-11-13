@@ -6,3 +6,4 @@ venv/
 chroma_db/
 data/raw/
 .streamlit/secrets.toml
+evals/results*.json
