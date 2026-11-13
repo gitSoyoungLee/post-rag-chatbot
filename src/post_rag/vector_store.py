@@ -61,20 +61,14 @@ class RegulationRetriever:
         country_documents = self.store.similarity_search(
             query,
             k=max(k * 2, 8),
-            filter={"country_code": country_code},
+            filter=_where(country_code, service_type),
         )
         common_documents = self.store.similarity_search(
             query,
             k=max(k, 4),
-            filter={"country_code": "ALL"},
+            filter=_where("ALL", service_type),
         )
         documents = country_documents + common_documents
-        if service_type:
-            documents = [
-                document
-                for document in documents
-                if document.metadata.get("service_type") in {service_type, "ALL"}
-            ]
         unique: list[Document] = []
         seen: set[tuple[str, str]] = set()
         for document in documents:
@@ -86,6 +80,22 @@ class RegulationRetriever:
 
     def general(self, query: str, k: int = 5) -> list[Evidence]:
         return _as_evidence(self.store.similarity_search(query, k=k))
+
+
+def _where(country_code: str, service_type: str | None) -> dict:
+    """국가·서비스 조건을 검색 단계에서 함께 건다.
+
+    검색 후 파이썬에서 서비스를 거르면, 여러 서비스가 섞인 국가 문서에서 상위 k개가
+    다른 서비스 청크로 채워져 요청한 서비스의 근거가 사라질 수 있다.
+    """
+    if not service_type:
+        return {"country_code": country_code}
+    return {
+        "$and": [
+            {"country_code": country_code},
+            {"service_type": {"$in": [service_type, "ALL"]}},
+        ]
+    }
 
 
 def _as_evidence(documents: Iterable[Document]) -> list[Evidence]:
