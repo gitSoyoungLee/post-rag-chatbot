@@ -7,6 +7,7 @@ source_urls:
   ems: https://ems.epost.go.kr/front.EmsApplyGoCondition.postal
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
 country_codes: [HU]
 collected_at: 2026-11-13
 license: 공공저작물(과학기술정보통신부 우정사업본부), 출처 표시 후 비상업적 교육 목적 이용
@@ -14,7 +15,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 헝가리(HU) 국제우편 발송조건
 
-한국에서 헝가리(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편)
+한국에서 헝가리(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등)
 
 ## 헝가리 국제특급(EMS)
 
@@ -121,6 +122,30 @@ ropa.eu/eli/reg_impl/2019/2072/oj)
 ### 배달특이사항
 
 - 금지품목: 발송품에 따라 위생증명서, 동물검역증명서 첨부
+
+### 세관·통관사항
+
+- 면세한도: 선물 45 EUR 이하 (2021.09.27. 수정 본부 국제사업과)
+- UPU 회람 2021-12 (21.03.15.) 식물 및 씨앗류 반입 관련 규정 안내
+- 헝가리로 발송되는 식물위생(phytosanitary) 물품(식물 또는 씨앗류)이 들어있는 국제우편물은 반드시 접수국가에서 발행한 식물위생 증명서 첨부해야하며 증명서가 없는 경우 반입불가
+- 해당 증명서가 적용되는 식물류, 식물 제품, 기타 물품 등이 증명서가 발행된 국가에서 출발한 일자로부터 최대 14일 이전에 발행된 것이어야 함.
+자세한 사항은 유럽 연합 웹사이트에서 확인 (eur-lex.europa.eu/eli/reg_impl/2019/2072/oj)
+
+## 헝가리 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 3 지역 선편 불가
+- 교부보관 기간(일): 항공 30
+- 보험취급가액(SDR): 4000(1SDR=1,749원)
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 전국
+- 주소변경/반환청구: 항공 취급
+
+### 금지·제한품목
+
+- 금지품목: 발송품에 따라 위생증명서, 동물검역증명서 첨부
+- 제한품목: 의류, 신발
 
 ### 세관·통관사항
 

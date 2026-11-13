@@ -6,6 +6,7 @@ source_name: 우체국 국제우편 국가별 발송조건
 source_urls:
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
 country_codes: [PF]
 collected_at: 2026-11-13
 license: 공공저작물(과학기술정보통신부 우정사업본부), 출처 표시 후 비상업적 교육 목적 이용
@@ -13,7 +14,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 폴리네시아(프랑스)(PF) 국제우편 발송조건
 
-한국에서 폴리네시아(프랑스)(으)로 보낼 수 있는 서비스: EMS프리미엄, 국제소포(항공/선편)
+한국에서 폴리네시아(프랑스)(으)로 보낼 수 있는 서비스: EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등)
 
 ## 폴리네시아(프랑스) EMS프리미엄
 
@@ -67,5 +68,26 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 ### 접수 시 주의사항
 
 - 서신포함 불가
+- 기기 내 장치된 경우 최대 4개의 리튬셀(전지) 또는 2개의 리튬 배터리 허용
+(UPU회람-115, ‘18.8.20.)
+
+## 폴리네시아(프랑스) 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 4 지역 선편 불가
+- 교부보관 기간(일): 항공 15
+- 보험취급가액(SDR): 2205(1SDR=1,749원)
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 적용지역에한함
+- 주소변경/반환청구: 항공 취급
+
+### 긴급공지
+
+- 국제항공우편 접수 재개 (24.04.22.)
+
+### 접수 시 주의사항
+
+- 보험서장: Papeet RP; Papeete CMP지역에 한함
 - 기기 내 장치된 경우 최대 4개의 리튬셀(전지) 또는 2개의 리튬 배터리 허용
 (UPU회람-115, ‘18.8.20.)

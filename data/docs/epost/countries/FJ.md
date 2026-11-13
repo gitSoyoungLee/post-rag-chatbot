@@ -7,6 +7,7 @@ source_urls:
   ems: https://ems.epost.go.kr/front.EmsApplyGoCondition.postal
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
 country_codes: [FJ]
 collected_at: 2026-11-13
 license: 공공저작물(과학기술정보통신부 우정사업본부), 출처 표시 후 비상업적 교육 목적 이용
@@ -14,7 +15,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 피지(FJ) 국제우편 발송조건
 
-한국에서 피지(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편)
+한국에서 피지(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등)
 
 ## 피지 국제특급(EMS)
 
@@ -112,4 +113,23 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 ### 세관·통관사항
 
 - 상품은 세관신고서(CN23) 2매 첨부
+- 면세한도 : 상품견본/선물/상품 200 FJD(피지 달러)
+
+## 피지 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 4 지역 선편 불가
+- 교부보관 기간(일): 항공 60
+- 보험취급가액(SDR): 0
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 취급안함
+- 주소변경/반환청구: 항공 취급
+
+### 긴급공지
+
+- 국제항공우편 접수 재개 (24.04.22.)
+
+### 세관·통관사항
+
 - 면세한도 : 상품견본/선물/상품 200 FJD(피지 달러)

@@ -7,6 +7,7 @@ source_urls:
   ems: https://ems.epost.go.kr/front.EmsApplyGoCondition.postal
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
   kpacket: https://ems.epost.go.kr/front.EmsKPacketSendCondition.postal?frnMailDivcdTab=14&frnTranspPartyDivcd=1
 country_codes: [FR]
 collected_at: 2026-11-13
@@ -15,7 +16,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 프랑스(FR) 국제우편 발송조건
 
-한국에서 프랑스(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), K-Packet
+한국에서 프랑스(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등), K-Packet
 
 ## 프랑스 국제특급(EMS)
 
@@ -154,6 +155,44 @@ MS 접수 불가
 ### 세관·통관사항
 
   ※ 계약고객우편물(B2C)의 물품에 대하여 부가가치세 부과(시행일자 ’21.7.1.)
+- 통관기초정보[국제사업과-772(2012.06.12.카할라국가에 대한 통관기초정보 제공)]
+- 관세 납부 시기: EMS(배달 시 납부), 소포(우체국 방문 납부)
+- 관세 납부 방법: EMS(현금,수표), 소포(현금,신용카드)
+- 관세 납부 우편물 수령방법: EMS(배달), 소포(배달국 방문)
+- 통관회부료: EMS(18 EUR), 소포(세금이 2300 EUR 이하 3.15 EUR, 세금이 2300 EUR 이상 63.27 EUR)
+- 관세 부과 우편물 보관료: 없음
+- 통관업무 대표전화번호: EMS(00 33(0) 969 391 391), 소포(0825 878 888)
+- 면세한도: 선물 45 EUR 이하
+
+## 프랑스 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 3 지역 선편 3 지역
+- 교부보관 기간(일): 항공 15 선편 15
+- 보험취급가액(SDR): 3475(1SDR=1,749원)
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 전국 선편 전국
+- 주소변경/반환청구: 항공 취급 선편 취급
+
+### 긴급공지
+
+.
+
+### 접수 시 주의사항
+
+- 평균송달소요일수(선편) : 70~90일
+
+### 금지·제한품목
+
+- 금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약, 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지
+
+### 배달특이사항
+
+- 수취인명은 주소지 우편함/문패에 적혀있는 이름과 동일하게 기재(우편함/문패 에 수취인명이 없는경우 배달불가)
+
+### 세관·통관사항
+
 - 통관기초정보[국제사업과-772(2012.06.12.카할라국가에 대한 통관기초정보 제공)]
 - 관세 납부 시기: EMS(배달 시 납부), 소포(우체국 방문 납부)
 - 관세 납부 방법: EMS(현금,수표), 소포(현금,신용카드)

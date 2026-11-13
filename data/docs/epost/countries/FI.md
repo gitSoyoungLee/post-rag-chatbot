@@ -7,6 +7,7 @@ source_urls:
   ems: https://ems.epost.go.kr/front.EmsApplyGoCondition.postal
   premium: https://ems.epost.go.kr/front.EmsApplyGoConditionPremium.postal
   parcel: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1
+  letter: https://ems.epost.go.kr/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1
   kpacket: https://ems.epost.go.kr/front.EmsKPacketSendCondition.postal?frnMailDivcdTab=14&frnTranspPartyDivcd=1
 country_codes: [FI]
 collected_at: 2026-11-13
@@ -15,7 +16,7 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 
 # 핀란드(FI) 국제우편 발송조건
 
-한국에서 핀란드(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), K-Packet
+한국에서 핀란드(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등), K-Packet
 
 ## 핀란드 국제특급(EMS)
 
@@ -107,6 +108,32 @@ license: 공공저작물(과학기술정보통신부 우정사업본부), 출처
 - 보통소포 배달통지취급: 취급
 - 보험소포 취급여부: 항공 취급 선편 취급
 - 주소변경/반환청구: 항공 취급 선편 취급
+
+### 금지·제한품목
+
+- 금지품목: 알코올, 귀금속, 진공포장 되지 않은 음식물, X-Ray
+
+### 세관·통관사항
+
+- UPU 회람 2020-32 (20.3.9.)
+관세 부과 대상 물품이 들어있는 우편물에 대한 통관수수료 통당 2.90유로를 핀란드 세관에서 우편물 수취인에게 부과하며 내용품 가격 22유로를 초과하는 통관 대상 물품에 적용(20.1.31.자 시행)
+- 면세한도: 선물 45 유로 이하 (2021.09.27. 수정 본부 국제사업과)
+- 수리 후 재반입의 경우 상업송장(invoice)상에 warranty repair or repair against costs 문구와 수리비 기재
+
+## 핀란드 국제통상(서신·인쇄물·소형포장물 등)
+
+### 기본 조건
+
+- 요금적용지역: 항공 3 지역 선편 3 지역
+- 교부보관 기간(일): 항공 21 선편 21
+- 보험취급가액(SDR): 4000(1SDR=1,749원)
+- 제한중량(g): 2000
+- 보험소포 취급여부: 항공 전국 선편 전국
+- 주소변경/반환청구: 항공 취급 선편 취급
+
+### 접수 시 주의사항
+
+- 평균송달소요일수(선편): 100 ~ 120일
 
 ### 금지·제한품목
 
