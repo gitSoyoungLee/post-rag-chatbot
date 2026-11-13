@@ -1,0 +1,166 @@
+[
+  {
+    "id": "us_lipbalm_snack_ems",
+    "turns": [
+      {"query": "미국 펜팔에게 립밤과 과자를 선물로 EMS로 보낼 수 있을까?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "US", "preferred_service": "ems"}
+  },
+  {
+    "id": "us_apron",
+    "turns": [
+      {"query": "미국에 앞치마를 EMS로 보내도 돼?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "US", "preferred_service": "ems"}
+  },
+  {
+    "id": "jp_stationery",
+    "turns": [
+      {"query": "일본 펜팔 편지에 스티커와 마스킹테이프를 같이 넣어도 돼?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "JP"}
+  },
+  {
+    "id": "us_battery",
+    "turns": [
+      {"query": "미국으로 보조배터리를 EMS로 보내고 싶어.", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "US", "preferred_service": "ems"}
+  },
+  {
+    "id": "fr_perfume",
+    "turns": [
+      {"query": "프랑스 친구에게 향수를 보내도 될까?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "FR"}
+  },
+  {
+    "id": "jp_medicine",
+    "turns": [
+      {"query": "일본으로 감기약을 보내도 돼?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "JP"}
+  },
+  {
+    "id": "de_chocolate",
+    "turns": [
+      {"query": "독일 펜팔에게 초콜릿을 보내고 싶어.", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "DE"}
+  },
+  {
+    "id": "ca_cosmetics",
+    "turns": [
+      {"query": "캐나다에 핸드크림과 마스크팩을 보내도 될까?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "CA"}
+  },
+  {
+    "id": "au_food",
+    "turns": [
+      {"query": "호주로 김과 라면을 선물로 보내도 돼?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "AU"}
+  },
+  {
+    "id": "gb_candle",
+    "turns": [
+      {"query": "영국에 향초를 보내고 싶은데 괜찮아?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "GB"}
+  },
+  {
+    "id": "jp_services",
+    "turns": [
+      {"query": "일본으로 보낼 때 이용할 수 있는 국제우편 서비스가 뭐야?", "expected_operations": ["lookup_conditions"]}
+    ],
+    "expected_final_slots": {"destination_code": "JP"}
+  },
+  {
+    "id": "us_ems_limit",
+    "turns": [
+      {"query": "미국 EMS는 무게를 몇 kg까지 보낼 수 있어?", "expected_operations": ["lookup_conditions"]}
+    ],
+    "expected_final_slots": {"destination_code": "US", "preferred_service": "ems"}
+  },
+  {
+    "id": "us_ems_rate",
+    "turns": [
+      {"query": "미국으로 비서류 1.5kg을 EMS로 보내면 예상 기본요금이 얼마야?", "expected_operations": ["lookup_conditions", "calculate_ems_rate"]}
+    ],
+    "expected_final_slots": {"destination_code": "US", "preferred_service": "ems", "actual_weight_g": 1500}
+  },
+  {
+    "id": "jp_ems_rate",
+    "turns": [
+      {"query": "일본으로 800g짜리 선물을 EMS로 보내면 얼마 정도 나와?", "expected_operations": ["lookup_conditions", "calculate_ems_rate"]}
+    ],
+    "expected_final_slots": {"destination_code": "JP", "preferred_service": "ems", "actual_weight_g": 800}
+  },
+  {
+    "id": "missing_weight_rate",
+    "turns": [
+      {"query": "캐나다로 EMS 보내면 얼마야?", "expected_missing_fields": ["actual_weight_g"]}
+    ],
+    "expected_final_slots": {"destination_code": "CA", "preferred_service": "ems"}
+  },
+  {
+    "id": "general_volumetric_weight",
+    "turns": [
+      {"query": "국제우편 부피중량이 뭐야?", "expected_operations": ["retrieve_general_regulations"]}
+    ]
+  },
+  {
+    "id": "general_prohibited_items",
+    "turns": [
+      {"query": "국제우편으로 절대 보내면 안 되는 물건에는 뭐가 있어?", "expected_operations": ["retrieve_general_regulations"]}
+    ]
+  },
+  {
+    "id": "out_of_scope_inbound",
+    "turns": [
+      {"query": "미국에서 한국으로 소포를 보내는 방법을 알려줘.", "expected_operations": []}
+    ]
+  },
+  {
+    "id": "multiturn_country_switch",
+    "turns": [
+      {"query": "미국에 립밤과 과자 1.5kg을 EMS로 보내도 돼?", "expected_operations": ["retrieve_by_item", "judge_items"]},
+      {"query": "그럼 일본은?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "JP", "preferred_service": "ems", "actual_weight_g": 1500}
+  },
+  {
+    "id": "multiturn_item_replace",
+    "turns": [
+      {"query": "미국에 립밤과 과자 1kg을 보내려고 해.", "expected_operations": ["retrieve_by_item", "judge_items"]},
+      {"query": "립밤은 빼고 앞치마를 추가하면?", "expected_operations": ["retrieve_by_item", "judge_items"]}
+    ],
+    "expected_final_slots": {"destination_code": "US", "actual_weight_g": 1000},
+    "expected_final_items": ["과자", "앞치마"]
+  },
+  {
+    "id": "multiturn_rate_request",
+    "turns": [
+      {"query": "일본 펜팔에게 스티커와 편지지 800g을 EMS로 보내려고 해.", "expected_operations": ["retrieve_by_item", "judge_items"]},
+      {"query": "예상 기본요금도 알려줘.", "expected_operations": ["lookup_conditions", "calculate_ems_rate"]}
+    ],
+    "expected_final_slots": {"destination_code": "JP", "preferred_service": "ems", "actual_weight_g": 800}
+  },
+  {
+    "id": "multiturn_weight_change",
+    "turns": [
+      {"query": "독일로 앞치마를 EMS로 보내도 돼?", "expected_operations": ["retrieve_by_item", "judge_items"]},
+      {"query": "무게는 2kg이야. 요금은 얼마야?", "expected_operations": ["lookup_conditions", "calculate_ems_rate"]}
+    ],
+    "expected_final_slots": {"destination_code": "DE", "preferred_service": "ems", "actual_weight_g": 2000}
+  },
+  {
+    "id": "multiturn_service_only",
+    "turns": [
+      {"query": "미국에 과자를 보내고 싶어.", "expected_operations": ["retrieve_by_item", "judge_items"]},
+      {"query": "이용할 수 있는 서비스도 알려줘.", "expected_operations": ["lookup_conditions"]}
+    ],
+    "expected_final_slots": {"destination_code": "US"}
+  }
+]

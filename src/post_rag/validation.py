@@ -60,7 +60,7 @@ def safe_fallback(payload: dict) -> str:
         "conflicting": "출처별 규정이 다름",
         "insufficient_evidence": "판단할 근거가 부족함",
     }
-    lines = ["확인한 국제우편 규정에 따르면 다음과 같습니다."]
+    lines = ["확인한 국제우편 규정을 쉽게 정리해 드릴게요."]
     for decision in payload.get("item_decisions", []):
         label = status_labels.get(decision["status"], "확인 필요")
         lines.append(f"- **{decision['item']} — {label}**  \n  {decision['reason']}")

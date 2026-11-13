@@ -82,6 +82,23 @@ uv run pytest -q
 테스트는 국가 조건 조회, 요청 기반 실행 계획, 멀티턴 상태 변경, 조항 청킹, 판정
 인용 검증과 EMS 요금표 파싱을 다룹니다.
 
+## 대화 평가
+
+`evals/questions.json`에는 품목 규정, 서비스 조건, EMS 요금, 일반 규정과 멀티턴을
+포함한 대표 질문이 있습니다. GMS와 색인된 ChromaDB를 사용해 전체 흐름을 평가합니다.
+
+```bash
+uv run python scripts/run_evaluation.py
+```
+
+일부만 빠르게 확인하려면 다음과 같이 실행합니다.
+
+```bash
+uv run python scripts/run_evaluation.py --limit 3
+```
+
+결과는 `evals/results-latest.json`에 저장되며 Git에는 포함되지 않습니다.
+
 ## 데이터
 
 데이터 출처와 이용 조건은 [data/SOURCES.md](data/SOURCES.md)를 참고하세요. 각 답변은
