@@ -69,6 +69,20 @@ class RequestAnalysis(BaseModel):
     updates: list[SlotUpdate] = Field(default_factory=list)
 
 
+class TurnAnalysis(BaseModel):
+    query_type: QueryType
+    requested_outputs: list[RequestedOutput] = Field(default_factory=list)
+    destination_operation: SlotOperation = SlotOperation.KEEP
+    destination_code: str | None = None
+    destination_name: str | None = None
+    items_operation: SlotOperation = SlotOperation.KEEP
+    items: list[Item] = Field(default_factory=list)
+    weight_operation: SlotOperation = SlotOperation.KEEP
+    actual_weight_g: int | None = None
+    service_operation: SlotOperation = SlotOperation.KEEP
+    preferred_service: str | None = None
+
+
 class OperationPlan(BaseModel):
     operations: list[str] = Field(default_factory=list)
     missing_fields: list[str] = Field(default_factory=list)
@@ -120,4 +134,14 @@ class ItemDecision(BaseModel):
     status: ItemStatus
     reason: str
     evidence: list[EvidenceQuote] = Field(default_factory=list)
+
+
+class EmsRate(BaseModel):
+    destination_code: str
+    destination_name: str
+    weight_g: int
+    bracket_kg: float
+    amount_krw: int
+    effective_date: str
+    source_url: str
 
