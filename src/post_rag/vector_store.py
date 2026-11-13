@@ -6,9 +6,9 @@ from pathlib import Path
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
-from langchain_openai import OpenAIEmbeddings
 
 from post_rag.chunking import DocumentChunk, split_markdown_document
+from post_rag.clients import create_embeddings
 from post_rag.config import CHROMA_DIR, DOCS_DIR
 from post_rag.models import Evidence, Item
 
@@ -23,7 +23,7 @@ def build_vector_store(
 ) -> int:
     store = Chroma(
         collection_name=COLLECTION_NAME,
-        embedding_function=embeddings or OpenAIEmbeddings(model="text-embedding-3-small"),
+        embedding_function=embeddings or create_embeddings(),
         persist_directory=str(persist_directory),
     )
     chunks: list[DocumentChunk] = []
@@ -44,7 +44,7 @@ class RegulationRetriever:
     ) -> None:
         self.store = Chroma(
             collection_name=COLLECTION_NAME,
-            embedding_function=embeddings or OpenAIEmbeddings(model="text-embedding-3-small"),
+            embedding_function=embeddings or create_embeddings(),
             persist_directory=str(persist_directory),
         )
 

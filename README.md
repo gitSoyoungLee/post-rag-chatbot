@@ -34,12 +34,19 @@ Python 3.12와 [uv](https://docs.astral.sh/uv/)를 사용합니다.
 uv sync --group dev
 ```
 
-`.env` 또는 실행 환경에 OpenAI API 키를 설정합니다.
+`.env.example`을 참고해 프로젝트 루트의 `.env`에 GMS 키를 직접 입력합니다. `.env`는
+Git에서 제외되므로 커밋되지 않습니다.
 
 ```bash
-OPENAI_API_KEY=...
-OPENAI_MODEL=gpt-4.1-mini
+GMS_KEY=...
+GMS_BASE_URL=https://gms.ssafy.io/gmsapi/api.openai.com/v1
+GMS_CHAT_MODEL=gpt-6.1-sol
+GMS_EMBEDDING_MODEL=text-embedding-3-small
 ```
+
+채팅 모델은 GMS의 OpenAI Responses API 경로를 사용합니다. 문서 색인에도 같은 GMS
+Base URL을 사용하며, 임베딩 모델 제공 여부는 GMS 계정의 사용 가능 모델에 따라
+달라질 수 있습니다.
 
 ## 문서 색인
 
