@@ -13,6 +13,7 @@ JUDGE_SYSTEM = """당신은 국제우편 규정 판정기다.
 명시적 금지는 prohibited, 조건부·통관 확인 필요는 restricted로 판정한다.
 검색 근거에 제한 내용이 없으면 no_restriction_found, 근거가 부족하면 insufficient_evidence다.
 quote에는 요약하지 않은 원문의 연속 구절을 그대로 복사한다.
+reason은 사용자에게 바로 보여 줄 수 있는 자연스러운 한국어 존댓말로 작성한다.
 근거가 없는 내용을 추측하지 않는다."""
 
 

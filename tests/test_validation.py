@@ -1,4 +1,4 @@
-from post_rag.validation import validate_answer
+from post_rag.validation import safe_fallback, validate_answer
 
 
 PAYLOAD = {
@@ -28,3 +28,22 @@ def test_answer_validation_rejects_unknown_citation_and_number() -> None:
         "존재하지 않는 인용: I9E9",
         "출처 없는 수치: 99000원",
     ]
+
+
+def test_safe_fallback_hides_internal_validation_and_status_names() -> None:
+    payload = {
+        "item_decisions": [
+            {
+                "item": "립밤",
+                "status": "prohibited",
+                "reason": "미국 EMS프리미엄에서는 화장품 접수가 금지됩니다.",
+            }
+        ]
+    }
+
+    answer = safe_fallback(payload)
+
+    assert "근거 검증을 통과하지 못해" not in answer
+    assert "prohibited" not in answer
+    assert "**립밤 — 발송 금지**" in answer
+    assert "우체국에서 확인" not in answer
