@@ -22,7 +22,9 @@ OUT_MD_DIR = ROOT / "data" / "docs" / "epost" / "countries"
 BASE = "https://ems.epost.go.kr"
 SERVICES = {
     "ems": ("국제특급(EMS)", "/front.EmsApplyGoCondition.postal"),
+    "premium": ("EMS프리미엄", "/front.EmsApplyGoConditionPremium.postal"),
     "parcel": ("국제소포(항공/선편)", "/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=2&frnTranspPartyDivcd=1"),
+    "letter": ("국제통상(서신·인쇄물·소형포장물 등)", "/front.EmsParcelAirShipSendCondition.postal?frnMailDivcdTab=1&frnTranspPartyDivcd=1"),
     "kpacket": ("K-Packet", "/front.EmsKPacketSendCondition.postal?frnMailDivcdTab=14&frnTranspPartyDivcd=1"),
 }
 TABS = {
@@ -123,9 +125,11 @@ def main() -> None:
         name = names.get(code, code)
 
         # 금지·제한품목은 소포 → EMS → K-Packet 순으로 우선 사용
-        prohibited, restricted = [], []
-        for svc in ("parcel", "ems", "kpacket"):
+        prohibited, restricted, texts = [], [], {}
+        for svc in ("parcel", "ems", "premium", "letter", "kpacket"):
             text = svc_pages.get(svc, {}).get("sections", {}).get("금지·제한품목", "")
+            if text:
+                texts[svc] = text
             if text and not prohibited:
                 prohibited = split_items(text, "금지품목")
                 restricted = split_items(text, "제한품목")
@@ -133,8 +137,9 @@ def main() -> None:
         services = {}
         for svc, page in svc_pages.items():
             f = page["fields"]
+            weight_key = next((k for k in f if "제한중량" in k), None)
             services[svc] = {
-                "max_weight_g": to_int(f.get("제한중량(g)")),
+                "max_weight_g": to_int(f.get(weight_key)) if weight_key else None,
                 "max_size": f.get("최대규격"),
                 "rate_zone": f.get("요금적용지역"),
                 "fields": f,
@@ -147,7 +152,9 @@ def main() -> None:
             "available_services": [SERVICES[s][0] for s in SERVICES if s in svc_pages],
             "prohibited": prohibited,
             "restricted": restricted,
-            "source": "우체국 국제우편 국가별 발송조건",
+            # 정형 추출이 안 되는 국가를 위해 서비스별 원문도 보관
+            "prohibited_text": texts,
+            "source":"우체국 국제우편 국가별 발송조건",
             "source_urls": {s: BASE + SERVICES[s][1] for s in svc_pages},
             "collected_at": collected[code],
         })

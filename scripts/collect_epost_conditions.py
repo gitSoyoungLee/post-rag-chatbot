@@ -34,10 +34,20 @@ SERVICES: dict[str, dict] = {
         "path": "/front.EmsApplyGoCondition.postal",
         "params": {},
     },
+    "premium": {
+        "name": "EMS프리미엄",
+        "path": "/front.EmsApplyGoConditionPremium.postal",
+        "params": {},
+    },
     "parcel": {
         "name": "국제소포(항공/선편)",
         "path": "/front.EmsParcelAirShipSendCondition.postal",
         "params": {"frnMailDivcdTab": "2", "frnTranspPartyDivcd": "1"},
+    },
+    "letter": {
+        "name": "국제통상(서신·인쇄물·소형포장물 등)",
+        "path": "/front.EmsParcelAirShipSendCondition.postal",
+        "params": {"frnMailDivcdTab": "1", "frnTranspPartyDivcd": "1"},
     },
     "kpacket": {
         "name": "K-Packet",
