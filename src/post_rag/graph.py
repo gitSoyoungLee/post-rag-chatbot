@@ -20,7 +20,7 @@ from post_rag.models import (
 )
 from post_rag.planner import plan_operations
 from post_rag.rates import EmsRateCalculator
-from post_rag.state import apply_updates
+from post_rag.state import CACHEABLE_STATUSES, apply_updates, decision_cache_key, relabel_evidence
 from post_rag.vector_store import RegulationRetriever
 from post_rag.validation import safe_fallback, validate_answer
 
@@ -35,6 +35,8 @@ class GraphState(TypedDict, total=False):
     rate_result: dict[str, Any] | None
     answer: str
     query_type: str
+    # 대화 내내 유지: (국가|서비스|품목) → {decision, evidence}
+    decision_cache: dict[str, dict[str, Any]]
 
 
 class PostalAssistant:
@@ -115,7 +117,12 @@ class PostalAssistant:
             for evidence_index, entry in enumerate(entries, 1):
                 entry.evidence_id = f"G{evidence_index}"
             found["__general__"] = [entry.model_dump() for entry in entries]
+        cache = state.get("decision_cache") or {}
+        reuse = "judge_items" in plan.operations
         for item_index, item in enumerate(slots.items, 1):
+            key = decision_cache_key(slots.destination_code, slots.preferred_service, item)
+            if reuse and key in cache:
+                continue  # 판정을 재사용하므로 검색도 생략
             entries = self.retriever.by_item(
                 item,
                 country_code=slots.destination_code or "ALL",
@@ -131,9 +138,18 @@ class PostalAssistant:
         if "judge_items" not in plan.operations:
             return {}
         slots = ShipmentSlots.model_validate(state["slots"])
-        by_item = state.get("evidence_by_item", {})
+        by_item = dict(state.get("evidence_by_item", {}))
+        cache = dict(state.get("decision_cache") or {})
         decisions: list[dict[str, Any]] = []
-        for item in slots.items:
+        for item_index, item in enumerate(slots.items, 1):
+            key = decision_cache_key(slots.destination_code, slots.preferred_service, item)
+            if key in cache:
+                cached_decision, cached_evidence = relabel_evidence(
+                    cache[key]["decision"], cache[key]["evidence"], item_index
+                )
+                by_item[item.normalized_name] = cached_evidence
+                decisions.append(cached_decision)
+                continue
             evidence = [Evidence.model_validate(entry) for entry in by_item.get(item.normalized_name, [])]
             if not evidence:
                 decision = ItemDecision(
@@ -150,7 +166,13 @@ class PostalAssistant:
                         reason="판정 인용문을 원문에서 확인하지 못했습니다.",
                     )
             decisions.append(decision.model_dump())
-        return {"item_decisions": decisions}
+            # 근거 부족은 일시적 검색 실패일 수 있어 캐시하지 않고 다음 턴에 다시 판정한다.
+            if decision.status.value in CACHEABLE_STATUSES:
+                cache[key] = {
+                    "decision": decision.model_dump(),
+                    "evidence": by_item.get(item.normalized_name, []),
+                }
+        return {"item_decisions": decisions, "evidence_by_item": by_item, "decision_cache": cache}
 
     def _calculate_rate(self, state: GraphState) -> GraphState:
         plan = OperationPlan.model_validate(state["plan"])
