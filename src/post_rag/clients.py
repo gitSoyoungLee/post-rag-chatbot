@@ -22,7 +22,6 @@ def create_chat_model() -> ChatOpenAI:
         api_key=require_gms_key(),
         base_url=GMS_BASE_URL,
         use_responses_api=True,
-        temperature=0,
     )
 
 

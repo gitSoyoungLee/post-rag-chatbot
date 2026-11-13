@@ -48,6 +48,8 @@ GMS_EMBEDDING_MODEL=text-embedding-3-small
 Base URL을 사용하며, 임베딩 모델 제공 여부는 GMS 계정의 사용 가능 모델에 따라
 달라질 수 있습니다.
 
+`gpt-6.1-sol` 요청에는 GMS 호환성을 위해 `temperature`를 전달하지 않습니다.
+
 ## 문서 색인
 
 ```bash
