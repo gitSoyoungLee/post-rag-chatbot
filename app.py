@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-import os
 import uuid
 
 import streamlit as st
-from langchain_openai import ChatOpenAI
 
+from post_rag.clients import create_chat_model
+from post_rag.config import GMS_KEY
 from post_rag.graph import PostalAssistant
 from post_rag.vector_store import RegulationRetriever
 
@@ -19,12 +19,12 @@ if "thread_id" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-if not os.getenv("OPENAI_API_KEY"):
-    st.error("OPENAI_API_KEY가 필요합니다. .env 또는 실행 환경에 설정해 주세요.")
+if not GMS_KEY:
+    st.error("GMS_KEY가 필요합니다. 프로젝트 루트의 .env 파일에 직접 입력해 주세요.")
     st.stop()
 
 if "assistant" not in st.session_state:
-    model = ChatOpenAI(model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"), temperature=0)
+    model = create_chat_model()
     st.session_state.assistant = PostalAssistant(model=model, retriever=RegulationRetriever())
 
 with st.sidebar:
@@ -51,8 +51,7 @@ if prompt := st.chat_input("예: 미국 펜팔에게 과자와 립밤 1.5kg을 E
                 answer = result["answer"]
             except Exception as exc:
                 answer = "요청을 처리하지 못했습니다. 설정과 색인 상태를 확인해 주세요."
-                if os.getenv("POST_RAG_DEBUG") == "1":
-                    st.exception(exc)
+                st.caption("상세 오류는 서버 로그에서 확인할 수 있습니다.")
             st.markdown(answer)
     st.session_state.messages.append({"role": "assistant", "content": answer})
 
