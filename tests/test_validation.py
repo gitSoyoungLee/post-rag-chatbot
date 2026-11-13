@@ -1,4 +1,5 @@
 from post_rag.validation import safe_fallback, validate_answer
+from post_rag.answering import message_text
 
 
 PAYLOAD = {
@@ -47,3 +48,15 @@ def test_safe_fallback_hides_internal_validation_and_status_names() -> None:
     assert "prohibited" not in answer
     assert "**립밤 — 발송 금지**" in answer
     assert "우체국에서 확인" not in answer
+
+
+def test_responses_content_blocks_render_as_plain_text() -> None:
+    content = [
+        {
+            "type": "text",
+            "text": "앞치마는 현재 확인한 규정상 보낼 수 있습니다.",
+            "annotations": [],
+        }
+    ]
+
+    assert message_text(content) == "앞치마는 현재 확인한 규정상 보낼 수 있습니다."
