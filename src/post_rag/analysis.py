@@ -19,6 +19,7 @@ SYSTEM_PROMPT = """당신은 국제우편 어시스턴트의 요청 분석기다
 최신 사용자 발화와 현재 상태를 비교해 변경분만 구조화한다.
 사용자가 이전 조건을 생략하면 keep을 사용한다.
 국가 변경은 ISO 2자리 국가코드로 반환한다.
+preferred_service는 ems, premium, parcel, letter, kpacket 중 하나의 소문자 코드로 반환한다.
 물품 카테고리는 다음 값 중 복수 선택한다: {categories}
 일반적인 발송 가능 여부는 item_policy, 서비스 목록·중량 조건 요청은 available_services,
 EMS 가격 요청만 ems_rate를 요청 결과에 넣는다. 묻지 않은 결과를 추가하지 않는다.
@@ -70,11 +71,22 @@ def to_request_analysis(turn: TurnAnalysis) -> RequestAnalysis:
             )
         )
     if turn.service_operation != SlotOperation.KEEP:
+        service_aliases = {
+            "EMS": "ems",
+            "국제특급": "ems",
+            "EMS프리미엄": "premium",
+            "국제소포": "parcel",
+            "국제통상": "letter",
+            "K-Packet": "kpacket",
+        }
+        service = turn.preferred_service
+        if service:
+            service = service_aliases.get(service, service.lower())
         updates.append(
             SlotUpdate(
                 field="preferred_service",
                 operation=turn.service_operation,
-                value=turn.preferred_service,
+                value=service,
             )
         )
     return RequestAnalysis(

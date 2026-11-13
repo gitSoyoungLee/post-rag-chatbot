@@ -58,18 +58,31 @@ class RegulationRetriever:
         categories = " ".join(item.categories)
         service = service_type or "국제우편"
         query = f"{country_code} {service} {item.normalized_name} {categories} 금지 제한 통관"
-        documents = self.store.similarity_search(
+        country_documents = self.store.similarity_search(
             query,
-            k=max(k * 3, 12),
-            filter={"country_code": {"$in": [country_code, "ALL"]}},
+            k=max(k * 2, 8),
+            filter={"country_code": country_code},
         )
+        common_documents = self.store.similarity_search(
+            query,
+            k=max(k, 4),
+            filter={"country_code": "ALL"},
+        )
+        documents = country_documents + common_documents
         if service_type:
             documents = [
                 document
                 for document in documents
                 if document.metadata.get("service_type") in {service_type, "ALL"}
             ]
-        return _as_evidence(documents[:k])
+        unique: list[Document] = []
+        seen: set[tuple[str, str]] = set()
+        for document in documents:
+            key = (str(document.metadata.get("document_id")), str(document.metadata.get("section_path")))
+            if key not in seen:
+                seen.add(key)
+                unique.append(document)
+        return _as_evidence(unique[:k])
 
     def general(self, query: str, k: int = 5) -> list[Evidence]:
         return _as_evidence(self.store.similarity_search(query, k=k))
