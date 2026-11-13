@@ -53,15 +53,22 @@ def validate_answer(answer: str, payload: dict) -> list[str]:
 
 
 def safe_fallback(payload: dict) -> str:
-    lines = ["일부 생성 문장이 근거 검증을 통과하지 못해 확인된 결과만 안내합니다."]
+    status_labels = {
+        "prohibited": "발송 금지",
+        "restricted": "제한 또는 확인 필요",
+        "no_restriction_found": "금지·제한 근거를 찾지 못함",
+        "conflicting": "출처별 규정이 다름",
+        "insufficient_evidence": "판단할 근거가 부족함",
+    }
+    lines = ["확인한 국제우편 규정에 따르면 다음과 같습니다."]
     for decision in payload.get("item_decisions", []):
-        lines.append(f"- {decision['item']}: {decision['status']} — {decision['reason']}")
+        label = status_labels.get(decision["status"], "확인 필요")
+        lines.append(f"- **{decision['item']} — {label}**  \n  {decision['reason']}")
     rate = payload.get("rate_result")
     if rate:
         lines.append(
             f"- EMS 예상 기본요금: {rate['amount_krw']:,}원 "
             f"({rate['bracket_kg']:g}kg 구간, 시행일 {rate['effective_date']})"
         )
-    lines.append("실제 접수 가능 여부와 최종 요금은 우체국에서 확인해 주세요.")
     return "\n".join(lines)
 
