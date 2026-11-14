@@ -6,7 +6,7 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-from post_rag.config import GMS_CHAT_MODEL, GMS_EMBEDDING_MODEL
+from post_rag.config import LLM_BASE_URL, LLM_CHAT_MODEL, LLM_EMBEDDING_MODEL, LLM_TEMPERATURE
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = ROOT / "evals" / "results"
@@ -28,8 +28,10 @@ def run_metadata(cases_path: Path, limit: int | None) -> dict:
         "git_commit": _git("rev-parse", "--short", "HEAD") or "unknown",
         # 커밋되지 않은 코드 변경이 있으면 결과가 해당 커밋과 일치하지 않음을 표시
         "git_dirty": bool(_git("status", "--porcelain", "--", "src", "scripts", "evals/questions.json")),
-        "chat_model": GMS_CHAT_MODEL,
-        "embedding_model": GMS_EMBEDDING_MODEL,
+        "llm_base_url": LLM_BASE_URL,
+        "chat_model": LLM_CHAT_MODEL,
+        "temperature": LLM_TEMPERATURE,
+        "embedding_model": LLM_EMBEDDING_MODEL,
         "cases": str(cases_path.relative_to(ROOT)) if cases_path.is_relative_to(ROOT) else str(cases_path),
         "limit": limit,
     }

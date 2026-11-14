@@ -38,21 +38,23 @@ Python 3.12와 [uv](https://docs.astral.sh/uv/)를 사용합니다.
 uv sync --group dev
 ```
 
-`.env.example`을 참고해 프로젝트 루트의 `.env`에 GMS 키를 직접 입력합니다. `.env`는
-Git에서 제외되므로 커밋되지 않습니다.
+`.env.example`을 참고해 프로젝트 루트의 `.env`에 LLM 설정을 입력합니다. OpenAI 호환 API라면
+업체에 관계없이 쓸 수 있으며, 예시는 Gemini입니다. `.env`는 Git에서 제외되므로 커밋되지 않습니다.
 
 ```bash
-GMS_KEY=...
-GMS_BASE_URL=https://gms.ssafy.io/gmsapi/api.openai.com/v1
-GMS_CHAT_MODEL=gpt-6.1-sol
-GMS_EMBEDDING_MODEL=text-embedding-3-small
+LLM_KEY=...
+LLM_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
+LLM_CHAT_MODEL=gemini-2.5-flash
+LLM_EMBEDDING_MODEL=gemini-embedding-001
+LLM_USE_RESPONSES_API=false
+LLM_TEMPERATURE=0
 ```
 
-채팅 모델은 GMS의 OpenAI Responses API 경로를 사용합니다. 문서 색인에도 같은 GMS
-Base URL을 사용하며, 임베딩 모델 제공 여부는 GMS 계정의 사용 가능 모델에 따라
-달라질 수 있습니다.
-
-`gpt-6.1-sol` 요청에는 GMS 호환성을 위해 `temperature`를 전달하지 않습니다.
+- `LLM_USE_RESPONSES_API`: OpenAI 계열(GMS 포함)만 `true`로 둘 수 있습니다.
+- `LLM_TEMPERATURE`: 비워 두면 값을 보내지 않습니다. 일부 모델은 이 값을 거부합니다.
+- 이전 이름(`GMS_KEY` 등)도 그대로 읽습니다.
+- 색인은 임베딩 모델별로 `chroma_db/<임베딩 모델>/`에 따로 저장됩니다. 임베딩 모델을 바꾸면
+  다시 색인해야 합니다.
 
 ## 문서 색인
 

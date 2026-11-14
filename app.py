@@ -5,7 +5,7 @@ import uuid
 import streamlit as st
 
 from post_rag.clients import create_chat_model
-from post_rag.config import GMS_KEY
+from post_rag.config import LLM_KEY
 from post_rag.graph import PostalAssistant
 from post_rag.vector_store import RegulationRetriever
 
@@ -21,8 +21,8 @@ if "thread_id" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-if not GMS_KEY:
-    st.error("GMS_KEY가 필요합니다. 프로젝트 루트의 .env 파일에 직접 입력해 주세요.")
+if not LLM_KEY:
+    st.error("LLM_KEY가 필요합니다. 프로젝트 루트의 .env 파일에 직접 입력해 주세요.")
     st.stop()
 
 if "assistant" not in st.session_state:
