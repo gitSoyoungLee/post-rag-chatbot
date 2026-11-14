@@ -1,0 +1,1123 @@
+{
+  "description": "품목 판정 정답 세트. 데이터 폴더의 우체국 국가별 발송조건과 공통 안내를 근거로 작성했다. 기준일 2026-11-13.",
+  "statuses": [
+    "prohibited",
+    "restricted",
+    "no_restriction_found",
+    "conflicting",
+    "insufficient_evidence"
+  ],
+  "cases": [
+    {
+      "id": "us-ems-snack",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "과자",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "금지품목 : 음식물",
+      "rationale": "미국 EMS 금지품목에 음식물이 있다."
+    },
+    {
+      "id": "us-ems-lipbalm",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "립밤",
+        "categories": [
+          "화장품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "화장품",
+      "rationale": "미국 EMS 제한품목에 화장품이 있다."
+    },
+    {
+      "id": "us-ems-ramen",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "라면",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "라면(스프 포함)",
+      "rationale": "미국 EMS 금지품목에 라면(스프 포함)이 명시돼 있다."
+    },
+    {
+      "id": "us-ems-sesame-oil",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "참기름",
+        "categories": [
+          "식품",
+          "액체류"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "conflicting"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "식용유(참기름",
+      "rationale": "미국 금지품목에 식용유(참기름, 올리브유 등)가 있다. 공통 안내의 '식용유 가능'보다 국가 규정이 우선한다."
+    },
+    {
+      "id": "us-ems-vitamin",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "비타민 영양제",
+        "categories": [
+          "건강보조식품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "건강보조제(영양제, 비타민",
+      "rationale": "미국 EMS 제한품목에 건강보조제(영양제, 비타민 등)가 있다."
+    },
+    {
+      "id": "us-ems-apron",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "앞치마",
+        "categories": [
+          "의류"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "미국 EMS 규정과 공통 금지물품 어디에도 의류 제한이 없다."
+    },
+    {
+      "id": "us-ems-laptop",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "노트북",
+        "categories": [
+          "전자제품",
+          "배터리"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "리튬 이온·리튬 메탈",
+      "rationale": "리튬 배터리가 들어간 전자기기는 공통 안내에서 발송 불가(노트북 예시 포함)."
+    },
+    {
+      "id": "us-ems-perfume",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "향수",
+        "categories": [
+          "화장품",
+          "액체류",
+          "위험물"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "향수",
+      "rationale": "공통 안내 항공탑재금지물품 표에서 향수는 불가."
+    },
+    {
+      "id": "us-ems-kimchi",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "김치",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted",
+        "conflicting"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "김치 접수 가능",
+      "rationale": "미국 EMS는 김치를 금속 캔 용기 등 조건부로 접수한다. 동시에 음식물 금지 규정도 있어 충돌로 볼 수도 있다."
+    },
+    {
+      "id": "us-ems-cigarette",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "담배",
+        "categories": [
+          "기타"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "담배 및 담배상품",
+      "rationale": "미국 EMS 금지품목에 담배 및 담배상품(종류불문)이 있다."
+    },
+    {
+      "id": "us-ems-lighter",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "일회용 라이터",
+        "categories": [
+          "위험물"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "일회용 라이터",
+      "rationale": "공통 안내에서 일회용 라이터는 불가."
+    },
+    {
+      "id": "us-ems-earphone",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "블루투스 이어폰",
+        "categories": [
+          "전자제품",
+          "배터리"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "리튬 이온·리튬 메탈",
+      "rationale": "리튬 배터리 내장 기기(블루투스 헤드셋 예시)는 발송 불가."
+    },
+    {
+      "id": "jp-ems-skincare",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "스킨 크림",
+        "categories": [
+          "화장품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-JP"
+      ],
+      "expected_phrase": "화장품(화주가 수입허가서",
+      "rationale": "일본 EMS 제한품목에 화장품(수입허가서 필요)이 있다."
+    },
+    {
+      "id": "jp-ems-jerky",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "육포",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-JP"
+      ],
+      "expected_phrase": "육류",
+      "rationale": "일본 EMS 금지품목에 육류가 있다."
+    },
+    {
+      "id": "jp-ems-seeds",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "꽃씨",
+        "categories": [
+          "식물"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-JP"
+      ],
+      "expected_phrase": "씨앗(종자류)",
+      "rationale": "일본 EMS 금지품목에 씨앗(종자류)이 있다."
+    },
+    {
+      "id": "jp-ems-sticker",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "스티커",
+        "categories": [
+          "문구류"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "일본 EMS 규정과 공통 금지물품에 문구류 제한이 없다."
+    },
+    {
+      "id": "jp-ems-ginseng",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "인삼",
+        "categories": [
+          "건강보조식품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-JP"
+      ],
+      "expected_phrase": "인삼(6뿌리까지 허용)",
+      "rationale": "일본 EMS 제한품목: 인삼 6뿌리까지 허용."
+    },
+    {
+      "id": "jp-ems-cold-medicine",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "감기약",
+        "categories": [
+          "의약품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-JP"
+      ],
+      "expected_phrase": "의약품",
+      "rationale": "일본 EMS 금지품목에 의약품이 있다."
+    },
+    {
+      "id": "jp-ems-aa-battery",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "AA 건전지",
+        "categories": [
+          "배터리"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found",
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "건전지 (AA/AAA)",
+      "rationale": "공통 안내에서 비충전식 AA/AAA 건전지는 가능. '비충전식 한정' 조건을 제한으로 볼 수도 있다."
+    },
+    {
+      "id": "jp-ems-nail-polish",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "매니큐어",
+        "categories": [
+          "화장품",
+          "액체류",
+          "위험물"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "매니큐어",
+      "rationale": "공통 안내에서 매니큐어는 인화성(DG마크) 확인 필요."
+    },
+    {
+      "id": "cn-ems-gold-ring",
+      "country_code": "CN",
+      "service": "ems",
+      "item": {
+        "name": "금반지",
+        "categories": [
+          "귀중품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-CN"
+      ],
+      "expected_phrase": "금/은제품",
+      "rationale": "중국 EMS 금지품목에 금/은제품이 있다."
+    },
+    {
+      "id": "cn-ems-used-clothes",
+      "country_code": "CN",
+      "service": "ems",
+      "item": {
+        "name": "헌옷",
+        "categories": [
+          "의류"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-CN"
+      ],
+      "expected_phrase": "헌옷",
+      "rationale": "중국 반입금지 기타 품목에 헌옷이 있다."
+    },
+    {
+      "id": "cn-ems-liquor",
+      "country_code": "CN",
+      "service": "ems",
+      "item": {
+        "name": "소주",
+        "categories": [
+          "식품",
+          "액체류"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-CN"
+      ],
+      "expected_phrase": "제한품목 : 무선송수신기, 통신보안기, 담배, 술",
+      "rationale": "중국 EMS 제한품목에 술이 있다. 공통 안내도 주류는 확인 필요."
+    },
+    {
+      "id": "au-ems-rice",
+      "country_code": "AU",
+      "service": "ems",
+      "item": {
+        "name": "쌀",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-AU"
+      ],
+      "expected_phrase": "쌀(Rice)",
+      "rationale": "호주 식물위생조치로 쌀 원물·분말 접수 금지."
+    },
+    {
+      "id": "au-ems-pet-treat",
+      "country_code": "AU",
+      "service": "ems",
+      "item": {
+        "name": "강아지 육포 간식",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-AU"
+      ],
+      "expected_phrase": "반려동물 음식",
+      "rationale": "호주 금지품목: 동물을 재료로 한 반려동물 음식."
+    },
+    {
+      "id": "gb-ems-herbal-medicine",
+      "country_code": "GB",
+      "service": "ems",
+      "item": {
+        "name": "한약",
+        "categories": [
+          "의약품",
+          "액체류"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-GB"
+      ],
+      "expected_phrase": "액체류(화장품, 한약 등) 접수불가",
+      "rationale": "영국 EMS는 액체류(한약 등) 접수 불가, 음식물(한약 등)은 통지 없이 폐기."
+    },
+    {
+      "id": "gb-ems-hand-warmer",
+      "country_code": "GB",
+      "service": "ems",
+      "item": {
+        "name": "핫팩",
+        "categories": [
+          "기타"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found",
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "핫팩",
+      "rationale": "공통 안내에서 핫팩은 가능, 영국 규정에도 제한이 없다."
+    },
+    {
+      "id": "de-ems-power-bank",
+      "country_code": "DE",
+      "service": "ems",
+      "item": {
+        "name": "보조배터리",
+        "categories": [
+          "배터리",
+          "전자제품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-DE",
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "리튬 배터리",
+      "rationale": "독일 EMS 금지품목과 공통 안내 모두 리튬 배터리 불가."
+    },
+    {
+      "id": "de-ems-watch",
+      "country_code": "DE",
+      "service": "ems",
+      "item": {
+        "name": "손목시계",
+        "categories": [
+          "귀중품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-DE"
+      ],
+      "expected_phrase": "보석류, 시계",
+      "rationale": "독일 EMS 금지품목에 시계가 있다."
+    },
+    {
+      "id": "de-ems-lipbalm",
+      "country_code": "DE",
+      "service": "ems",
+      "item": {
+        "name": "립밤",
+        "categories": [
+          "화장품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-DE"
+      ],
+      "expected_phrase": "화장품은 성분 및 제품설명이 독일어로",
+      "rationale": "독일은 화장품 성분·설명이 독일어로 없으면 통관 불가."
+    },
+    {
+      "id": "fr-ems-perfume",
+      "country_code": "FR",
+      "service": "ems",
+      "item": {
+        "name": "향수",
+        "categories": [
+          "화장품",
+          "액체류",
+          "위험물"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-FR",
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "향수",
+      "rationale": "프랑스 EMS 금지품목과 공통 안내 모두 향수 불가."
+    },
+    {
+      "id": "fr-ems-toy",
+      "country_code": "FR",
+      "service": "ems",
+      "item": {
+        "name": "장난감",
+        "categories": [
+          "기타"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-FR"
+      ],
+      "expected_phrase": "장난감",
+      "rationale": "프랑스 EMS 제한품목: 장난감은 적합성인증서 필요."
+    },
+    {
+      "id": "fr-ems-electric-mat",
+      "country_code": "FR",
+      "service": "ems",
+      "item": {
+        "name": "전기장판",
+        "categories": [
+          "전자제품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "conflicting"
+      ],
+      "expected_sources": [
+        "epost-country-FR"
+      ],
+      "expected_phrase": "전기매트 및 장판",
+      "rationale": "프랑스 금지품목에 전기매트 및 장판(통관 불가)이 있다. 공통 안내의 '가능'보다 국가 규정이 우선한다."
+    },
+    {
+      "id": "ca-ems-flowers",
+      "country_code": "CA",
+      "service": "ems",
+      "item": {
+        "name": "생화 꽃다발",
+        "categories": [
+          "식물"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-CA"
+      ],
+      "expected_phrase": "식물, 꽃",
+      "rationale": "캐나다 EMS 금지품목에 식물, 꽃이 있다."
+    },
+    {
+      "id": "ca-ems-pocket-knife",
+      "country_code": "CA",
+      "service": "ems",
+      "item": {
+        "name": "주머니칼",
+        "categories": [
+          "위험물"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-CA"
+      ],
+      "expected_phrase": "칼, 총기류",
+      "rationale": "캐나다 EMS 금지품목에 칼이 있다."
+    },
+    {
+      "id": "vn-ems-greeting-card",
+      "country_code": "VN",
+      "service": "ems",
+      "item": {
+        "name": "연하장",
+        "categories": [
+          "문구류"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-VN"
+      ],
+      "expected_phrase": "연하장",
+      "rationale": "베트남 EMS 금지품목에 연하장이 있다."
+    },
+    {
+      "id": "vn-ems-magazine",
+      "country_code": "VN",
+      "service": "ems",
+      "item": {
+        "name": "잡지",
+        "categories": [
+          "기타"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-VN"
+      ],
+      "expected_phrase": "잡지",
+      "rationale": "베트남 EMS 금지품목에 잡지가 있다."
+    },
+    {
+      "id": "th-ems-snack",
+      "country_code": "TH",
+      "service": "ems",
+      "item": {
+        "name": "과자",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-TH"
+      ],
+      "expected_phrase": "음식물",
+      "rationale": "태국 EMS 금지품목에 음식물이 있다."
+    },
+    {
+      "id": "th-ems-letter-paper",
+      "country_code": "TH",
+      "service": "ems",
+      "item": {
+        "name": "편지지",
+        "categories": [
+          "문구류"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-TH"
+      ],
+      "expected_phrase": "미사용 우편엽서 및 편지지",
+      "rationale": "태국 EMS 금지품목에 미사용 우편엽서 및 편지지가 있다."
+    },
+    {
+      "id": "sg-ems-gum",
+      "country_code": "SG",
+      "service": "ems",
+      "item": {
+        "name": "껌",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-SG"
+      ],
+      "expected_phrase": "껌",
+      "rationale": "싱가포르 EMS 금지품목에 껌이 있다."
+    },
+    {
+      "id": "sg-ems-kimchi",
+      "country_code": "SG",
+      "service": "ems",
+      "item": {
+        "name": "김치",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-SG"
+      ],
+      "expected_phrase": "김치(정식 수입 통관 절차 필요)",
+      "rationale": "싱가포르 EMS 제한품목: 김치는 정식 수입 통관 절차 필요."
+    },
+    {
+      "id": "tw-ems-red-ginseng",
+      "country_code": "TW",
+      "service": "ems",
+      "item": {
+        "name": "홍삼",
+        "categories": [
+          "건강보조식품"
+        ]
+      },
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "expected_sources": [
+        "epost-country-TW"
+      ],
+      "expected_phrase": "인삼 및 인삼가공품은 수취인이 수입면허",
+      "rationale": "대만 EMS 제한품목: 인삼 및 인삼가공품은 수입면허 제출 후 통관."
+    },
+    {
+      "id": "tw-ems-green-tea",
+      "country_code": "TW",
+      "service": "ems",
+      "item": {
+        "name": "녹차",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-TW"
+      ],
+      "expected_phrase": "차 및 농축액",
+      "rationale": "대만 EMS 금지품목에 차 및 농축액이 있다."
+    },
+    {
+      "id": "hk-ems-perfume",
+      "country_code": "HK",
+      "service": "ems",
+      "item": {
+        "name": "향수",
+        "categories": [
+          "화장품",
+          "액체류",
+          "위험물"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-HK",
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "향수",
+      "rationale": "홍콩 EMS 금지품목과 공통 안내 모두 향수 불가."
+    },
+    {
+      "id": "nz-ems-e-cigarette",
+      "country_code": "NZ",
+      "service": "ems",
+      "item": {
+        "name": "전자담배",
+        "categories": [
+          "전자제품",
+          "배터리"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-NZ",
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "전자담배",
+      "rationale": "뉴질랜드 금지품목에 전자담배(Vaporisers)가 있고, 공통 안내도 전자담배(리튬 배터리)는 불가."
+    },
+    {
+      "id": "us-parcel-snack",
+      "country_code": "US",
+      "service": "parcel",
+      "item": {
+        "name": "과자",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-US"
+      ],
+      "expected_phrase": "금지품목 : 음식물",
+      "rationale": "미국 국제소포 금지품목에 음식물이 있다."
+    },
+    {
+      "id": "jp-parcel-cold-medicine",
+      "country_code": "JP",
+      "service": "parcel",
+      "item": {
+        "name": "감기약",
+        "categories": [
+          "의약품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-JP"
+      ],
+      "expected_phrase": "의약품",
+      "rationale": "일본 국제소포 금지품목에 의약품이 있다."
+    },
+    {
+      "id": "de-letter-power-bank",
+      "country_code": "DE",
+      "service": "letter",
+      "item": {
+        "name": "보조배터리",
+        "categories": [
+          "배터리",
+          "전자제품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-DE",
+        "epost-common-sendable-items"
+      ],
+      "expected_phrase": "리튬 배터리",
+      "rationale": "독일 국제통상은 모든 우편물에 리튬 배터리/셀 접수 금지."
+    },
+    {
+      "id": "au-letter-kimchi",
+      "country_code": "AU",
+      "service": "letter",
+      "item": {
+        "name": "김치",
+        "categories": [
+          "식품"
+        ]
+      },
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "expected_sources": [
+        "epost-country-AU"
+      ],
+      "expected_phrase": "식품류(특히 김치류)",
+      "rationale": "호주 국제통상 금지품목에 식품류(특히 김치류)가 있다."
+    },
+    {
+      "id": "us-ems-book",
+      "country_code": "US",
+      "service": "ems",
+      "item": {
+        "name": "책",
+        "categories": [
+          "기타"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "US EMS 규정과 공통 금지물품에 해당 품목 제한이 없다."
+    },
+    {
+      "id": "jp-ems-handkerchief",
+      "country_code": "JP",
+      "service": "ems",
+      "item": {
+        "name": "손수건",
+        "categories": [
+          "의류"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "JP EMS 규정과 공통 금지물품에 해당 품목 제한이 없다."
+    },
+    {
+      "id": "gb-ems-postcard",
+      "country_code": "GB",
+      "service": "ems",
+      "item": {
+        "name": "엽서",
+        "categories": [
+          "문구류"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "GB EMS 규정과 공통 금지물품에 해당 품목 제한이 없다."
+    },
+    {
+      "id": "ca-ems-keyring",
+      "country_code": "CA",
+      "service": "ems",
+      "item": {
+        "name": "키링",
+        "categories": [
+          "기타"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "CA EMS 규정과 공통 금지물품에 해당 품목 제한이 없다."
+    },
+    {
+      "id": "au-ems-new-tshirt",
+      "country_code": "AU",
+      "service": "ems",
+      "item": {
+        "name": "새 티셔츠",
+        "categories": [
+          "의류"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "호주 금지품목의 '헌옷'은 중고 의류다. 새 의류에는 제한이 없다."
+    },
+    {
+      "id": "de-ems-book",
+      "country_code": "DE",
+      "service": "ems",
+      "item": {
+        "name": "책",
+        "categories": [
+          "기타"
+        ]
+      },
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "expected_sources": [],
+      "expected_phrase": null,
+      "rationale": "DE EMS 규정과 공통 금지물품에 해당 품목 제한이 없다."
+    }
+  ]
+}
