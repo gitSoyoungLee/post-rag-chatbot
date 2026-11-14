@@ -33,24 +33,32 @@ class ItemJudge:
         )
 
 
-# Markdown 서식 기호. 모델이 표(`| ... |`)나 굵게(`**`)를 빼고 인용해도 글자 내용이 같으면 인정한다.
-_MARKUP_RE = re.compile(r"[|*#`>_]+")
-# 말줄임표로 이어 붙인 인용은 조각마다 원문에 있어야 한다.
-_ELLIPSIS_RE = re.compile(r"\.{2,}|…|⋯")
+# Markdown 서식·이스케이프 기호. 모델이 표(`| ... |`)나 굵게(`**`)를 빼고 인용해도 인정한다.
+_MARKUP_RE = re.compile(r"[|*#`>_\\]+")
+# 앞뒤가 띄어진 목록 기호(` - 용기는`)는 모델이 자주 생략한다. `리튬 이온·리튬`처럼 붙은 기호는 유지.
+_BULLET_RE = re.compile(r"(?:^|(?<=\s))[-•·ㅇ](?=\s)")
+# 생략 표시로 이어 붙인 인용은 조각마다 원문에 있어야 한다.
+_ELLIPSIS_RE = re.compile(r"\[\s*(?:\.{2,}|…)\s*\]|\(\s*(?:\.{2,}|…)\s*\)|\.{2,}|…|⋯")
 _MIN_FRAGMENT_CHARS = 2
 
 
 def normalize_quote(text: str) -> str:
     text = _MARKUP_RE.sub(" ", text)
+    text = _BULLET_RE.sub(" ", text)
     return re.sub(r"\s+", " ", text).strip(" -·:")
 
 
+def _compact(text: str) -> str:
+    """띄어쓰기 차이(`(식육가공품) : 소고기` ↔ `(식육가공품): 소고기`)를 무시하고 글자 순서만 비교한다."""
+    return re.sub(r"\s+", "", normalize_quote(text))
+
+
 def quote_in_source(quote: str, source: str) -> bool:
-    """인용문의 모든 조각(말줄임표 기준)이 원문에 그대로 있는지 확인한다."""
-    normalized_source = normalize_quote(source)
-    fragments = [normalize_quote(part) for part in _ELLIPSIS_RE.split(quote)]
+    """인용문의 모든 조각(생략 표시 기준)이 원문에 같은 글자 순서로 있는지 확인한다."""
+    compact_source = _compact(source)
+    fragments = [_compact(part) for part in _ELLIPSIS_RE.split(quote)]
     fragments = [part for part in fragments if len(part) >= _MIN_FRAGMENT_CHARS]
-    return bool(fragments) and all(part in normalized_source for part in fragments)
+    return bool(fragments) and all(part in compact_source for part in fragments)
 
 
 def validate_decision(decision: ItemDecision, evidence: list[Evidence]) -> list[str]:

@@ -76,3 +76,29 @@ def test_quote_with_ellipsis_requires_every_fragment() -> None:
 
 def test_quote_may_include_evidence_title() -> None:
     assert validate_decision(_prohibited("보낼 수 없는 물품 리튬 이온"), TABLE_EVIDENCE) == []
+
+
+SOURCE_WITH_BULLETS = [
+    Evidence(
+        evidence_id="E1",
+        document_id="country-SG",
+        title="싱가포르 발송조건",
+        content="- 김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정\n(식육가공품) : 소고기가 포함된 카레 \\* 예시",
+        country_code="SG",
+        service_type="ems",
+        source_type="우체국안내",
+    )
+]
+
+
+def test_quote_ignores_bullets_spacing_and_escapes() -> None:
+    for quote in ("김치 접수 가능 용기는 금속 재질의", "(식육가공품): 소고기가 포함된 카레 예시"):
+        assert validate_decision(_prohibited(quote), SOURCE_WITH_BULLETS) == []
+
+
+def test_skipped_text_without_ellipsis_is_rejected() -> None:
+    # 중간 내용을 생략 표시 없이 건너뛴 인용은 원문에 없는 연속 구절이다
+    assert validate_decision(_prohibited("김치 접수 가능 포장 용기(캔)로 한정"), SOURCE_WITH_BULLETS) == [
+        "근거에 없는 인용문: E1"
+    ]
+    assert validate_decision(_prohibited("김치 접수 가능 [...] 포장 용기(캔)로 한정"), SOURCE_WITH_BULLETS) == []
