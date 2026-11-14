@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -7,9 +8,9 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_core.embeddings import Embeddings
 
-from post_rag.chunking import DocumentChunk, split_markdown_document
+from post_rag.chunking import SERVICE_NAMES, DocumentChunk, split_markdown_document
 from post_rag.clients import create_embeddings
-from post_rag.config import CHROMA_DIR, DOCS_DIR
+from post_rag.config import CHROMA_DIR, COUNTRIES_PATH, DOCS_DIR
 from post_rag.models import Evidence, Item
 
 
@@ -45,6 +46,10 @@ class RegulationRetriever:
     ) -> None:
         # 공통 문서(모든 국가에 적용되는 금지물품 등)에 항상 남겨 둘 근거 자리 수
         self.common_slots = common_slots
+        self.country_names = {
+            country["code"]: country["name_ko"]
+            for country in json.loads(COUNTRIES_PATH.read_text(encoding="utf-8"))
+        }
         self.store = Chroma(
             collection_name=COLLECTION_NAME,
             embedding_function=embeddings or create_embeddings(),
@@ -58,16 +63,25 @@ class RegulationRetriever:
         service_type: str | None = None,
         k: int = 5,
     ) -> list[Evidence]:
-        categories = " ".join(item.categories)
-        service = service_type or "국제우편"
-        query = f"{country_code} {service} {item.normalized_name} {categories} 금지 제한 통관"
-        country = self.store.similarity_search_with_score(
-            query, k=max(k * 2, 8), filter=_where(country_code, service_type)
+        country_name = self.country_names.get(country_code, country_code)
+        country = self._hybrid(
+            item_query(item, country_name, service_type), item, max(k * 2, 8), _where(country_code, service_type)
         )
-        common = self.store.similarity_search_with_score(
-            query, k=max(k, 4), filter=_where("ALL", service_type)
-        )
+        # 공통 문서는 모든 국가에 적용되므로 국가·서비스가 아니라 품목 중심으로 검색한다.
+        common = self._hybrid(common_item_query(item), item, max(k, 4), _where("ALL", service_type))
         return _as_evidence(_merge_country_and_common(country, common, k, self.common_slots))
+
+    def _hybrid(self, query: str, item: Item, k: int, where: dict) -> list[Document]:
+        """품목명이 글자 그대로 들어 있는 청크를 먼저, 그 뒤에 의미 검색 결과를 둔다.
+
+        의미 검색만 쓰면 '향수'처럼 짧은 품목명이 분류어(화장품·액체류)가 비슷한 다른
+        행에 밀린다. 품목명이 원문에 없으면 의미 검색 결과만 남는다.
+        """
+        keyword = self.store.similarity_search(
+            query, k=k, filter=where, where_document={"$contains": item.normalized_name}
+        )
+        semantic = self.store.similarity_search(query, k=k, filter=where)
+        return _unique(keyword + semantic)
 
     def general(self, query: str, k: int = 5) -> list[Evidence]:
         return _as_evidence(self.store.similarity_search(query, k=k))
@@ -89,34 +103,51 @@ def _where(country_code: str, service_type: str | None) -> dict:
     }
 
 
-def _unique(scored: list[tuple[Document, float]]) -> list[tuple[Document, float]]:
-    """같은 문서·섹션에서 나온 청크는 가장 가까운 하나만 남긴다."""
+SERVICE_LABELS = {code: label for label, code in SERVICE_NAMES.items()}
+
+
+def item_query(item: Item, country_name: str, service_type: str | None) -> str:
+    """청크 앞머리(`경로: 미국 > 미국 국제특급(EMS) > 금지·제한품목`)와 같은 표현으로 검색한다.
+
+    국가·서비스 코드(US, ems)로 검색하면 한글로 된 청크와 표현이 달라 재현율이 떨어진다.
+    """
+    service = SERVICE_LABELS.get(service_type or "", "국제우편")
+    categories = " ".join(item.categories)
+    return f"{country_name} {service} 금지·제한품목 {item.normalized_name} {categories}"
+
+
+def common_item_query(item: Item) -> str:
+    categories = " ".join(item.categories)
+    return f"{item.normalized_name} {categories} 보낼 수 있는 물품 보낼 수 없는 물품"
+
+
+def _unique(documents: list[Document]) -> list[Document]:
+    """같은 청크가 키워드·의미 검색에 모두 나오면 하나만 남긴다(순서 유지)."""
     seen: set[tuple[str, str]] = set()
     result = []
-    for document, score in scored:
-        key = (str(document.metadata.get("document_id")), str(document.metadata.get("section_path")))
+    for document in documents:
+        key = (str(document.metadata.get("document_id")), document.page_content)
         if key not in seen:
             seen.add(key)
-            result.append((document, score))
+            result.append(document)
     return result
 
 
 def _merge_country_and_common(
-    country: list[tuple[Document, float]],
-    common: list[tuple[Document, float]],
+    country: list[Document],
+    common: list[Document],
     k: int,
     common_slots: int,
 ) -> list[Document]:
-    """국가 문서와 공통 문서를 거리 순으로 합치되, 공통 문서 자리를 최소한 보장한다.
+    """국가 문서와 공통 문서를 합치되, 공통 문서 자리를 최소한 보장한다.
 
     국가 문서 뒤에 공통 문서를 이어 붙이고 앞에서 k개를 자르면, 국가 문서가 k개 이상일 때
     공통 문서(리튬 배터리·향수 등 모든 국가에 적용되는 금지물품)가 항상 잘려 나간다.
     """
-    country, common = _unique(country), _unique(common)
     reserved = common[: min(common_slots, k)]
-    rest = sorted(country + common[len(reserved):], key=lambda pair: pair[1])
-    picked = reserved + rest[: k - len(reserved)]
-    return [document for document, _ in sorted(picked, key=lambda pair: pair[1])]
+    picked = country[: k - len(reserved)]
+    picked += common[len(reserved) : len(reserved) + (k - len(reserved) - len(picked))]
+    return picked + reserved
 
 
 def _as_evidence(documents: Iterable[Document]) -> list[Evidence]:

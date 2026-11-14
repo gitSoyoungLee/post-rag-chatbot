@@ -1,0 +1,3466 @@
+{
+  "meta": {
+    "run_at": "2026-11-14T02:16:27",
+    "git_commit": "8f3ccb8",
+    "git_dirty": false,
+    "chat_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small",
+    "cases": "evals/golden_items.json",
+    "limit": null,
+    "top_k": 5
+  },
+  "summary": {
+    "accuracy": {
+      "correct": 38,
+      "total": 55,
+      "rate": 0.691
+    },
+    "strict_accuracy": {
+      "correct": 37,
+      "total": 55,
+      "rate": 0.673
+    },
+    "accuracy_by_expected_status": {
+      "no_restriction_found": {
+        "correct": 6,
+        "total": 10,
+        "rate": 0.6
+      },
+      "prohibited": {
+        "correct": 21,
+        "total": 34,
+        "rate": 0.618
+      },
+      "restricted": {
+        "correct": 11,
+        "total": 11,
+        "rate": 1.0
+      }
+    },
+    "retrieval_recall": {
+      "correct": 38,
+      "total": 47,
+      "rate": 0.809
+    },
+    "accuracy_when_retrieved": {
+      "correct": 30,
+      "total": 38,
+      "rate": 0.789
+    },
+    "accuracy_when_missed": {
+      "correct": 2,
+      "total": 9,
+      "rate": 0.222
+    },
+    "citation_failures": 3,
+    "confusion": [
+      {
+        "expected": "no_restriction_found",
+        "predicted": "insufficient_evidence",
+        "count": 4
+      },
+      {
+        "expected": "no_restriction_found",
+        "predicted": "no_restriction_found",
+        "count": 6
+      },
+      {
+        "expected": "prohibited",
+        "predicted": "conflicting",
+        "count": 1
+      },
+      {
+        "expected": "prohibited",
+        "predicted": "insufficient_evidence",
+        "count": 4
+      },
+      {
+        "expected": "prohibited",
+        "predicted": "no_restriction_found",
+        "count": 1
+      },
+      {
+        "expected": "prohibited",
+        "predicted": "prohibited",
+        "count": 20
+      },
+      {
+        "expected": "prohibited",
+        "predicted": "restricted",
+        "count": 8
+      },
+      {
+        "expected": "restricted",
+        "predicted": "restricted",
+        "count": 11
+      }
+    ],
+    "avg_latency_s": {
+      "retrieval": 1.16,
+      "judge": 2.89
+    }
+  },
+  "results": [
+    {
+      "id": "us-ems-snack",
+      "country_code": "US",
+      "service": "ems",
+      "item": "과자",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "과자와 같은 음식물은 미국으로 국제우편 발송 시 금지되어 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등..."
+        },
+        {
+          "evidence_id": "I1E2",
+          "quote": "음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 2.54,
+        "judge": 3.0
+      }
+    },
+    {
+      "id": "us-ems-lipbalm",
+      "country_code": "US",
+      "service": "ems",
+      "item": "립밤",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "미국으로 보낼 경우 화장품은 제한품목에 해당돼요. 발송 전에 구체적인 통관 규정을 확인해야 해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.65,
+        "judge": 2.39
+      }
+    },
+    {
+      "id": "us-ems-ramen",
+      "country_code": "US",
+      "service": "ems",
+      "item": "라면",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "라면은 미국으로 발송 시 금지품목으로 분류되어 있어요. 스프를 포함한 라면을 보내는 것은 허용되지 않아요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.49,
+        "judge": 2.93
+      }
+    },
+    {
+      "id": "us-ems-sesame-oil",
+      "country_code": "US",
+      "service": "ems",
+      "item": "참기름",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "conflicting"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "참기름은 미국으로의 국제우편을 통해 발송할 수 없는 금지품목이에요. 미국 국제우편 발송조건에 따르면 식용유, 특히 참기름과 올리브유 등은 금지품목으로 명시되어 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n외국으로부터 아프리카돼지열병(ASF), 조류인플루엔자(HPAI) 등 가축전염병과 해외 병해충의 유입을 방지하기 위하여 국제우편을 통한 외국산 축산물, 식물의 반입을 엄격히 제한\n\n가. 검역 신청\n- 국제우편(EMS,소포,통상)을 통해 검역대상품인 지정검역물을 반입하는 수취인은 지정검역물을 검역관에게 신고하여 검역을 받아야 하며, 서류심사 및 현물 검사를 통해 이상이 없는 경우에만 개방\n\n    ⇒ 신고대상 검역물은 아래의 반입제한 및 반입가능 품목 참고\n-"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.93,
+        "judge": 2.69
+      }
+    },
+    {
+      "id": "us-ems-vitamin",
+      "country_code": "US",
+      "service": "ems",
+      "item": "비타민 영양제",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "비타민과 같은 건강보조 식품은 미국으로의 국제우편 발송 시 제한 품목에 해당해요. 발송 가능 여부는 추가적인 서류나 검토가 필요할 수 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n충(병원균), 잡초 종자 등 |\n\n※ 상업적으로 제조된 일부 축산물 및 가공 처리된 농산물은 반입 가능\n\n[동물검역] 반입 제한 품목\n\n[식물검역] 반입 제한 품목\n\n##### 반입 가능 품목\n\n국제우편물 동·식물검역 반입 가능 품목 상세 안내\n\n|  |  |\n| --- | --- |\n| 동물검역 대상물건 | * (유가공품) 5kg의 미만의 상업적으로 제조된 유가공품 * (육가공품) 5kg의 미만의 멸균처리된 통조림, 병조림, 레토르트 축산물 ⇒ 다만 소고"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.27,
+        "judge": 2.33
+      }
+    },
+    {
+      "id": "us-ems-apron",
+      "country_code": "US",
+      "service": "ems",
+      "item": "앞치마",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": null,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거에는 앞치마와 관련된 제한이나 금지에 대한 내용이 없어서, 특별한 제한 없이 발송이 가능할 것으로 보여요.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.36,
+        "judge": 3.26
+      }
+    },
+    {
+      "id": "us-ems-laptop",
+      "country_code": "US",
+      "service": "ems",
+      "item": "노트북",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "노트북은 리튬 이온 배터리가 포함된 전자기기로, 이런 배터리가 있는 물품은 발송이 금지되어 있어요. 배터리를 분리 후 본체만 보내는 것도 허용되지 않습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "리튬 이온·리튬 메탈 등의 배터리 및 해당 배터리가 포함된 모든 전자기기 | **불가** | ... \n*배터리 포함된 물품 예시 :  노트북..."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n| 품목 | 가능여부 | 발송조건 및 사유 |\n| --- | --- | --- |\n| **임의용기에 포장된 액체/분말류** | **확인필요** | 검사용 시료,샘플용 화장품,토너,잉크,접착제, 각종 가루 등 내용물을 알수 없는 액체 또는 분말은 물질안전보건자료(MSDS) 첨부 필요 |\n| **식품/씨앗/도검** "
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.92,
+        "judge": 2.43
+      }
+    },
+    {
+      "id": "us-ems-perfume",
+      "country_code": "US",
+      "service": "ems",
+      "item": "향수",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "향수는 '화장품'에 해당하므로, 미국으로 발송 시 제한품목으로 분류돼요. 통관 확인이 필요할 수 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.18,
+        "judge": 2.39
+      }
+    },
+    {
+      "id": "us-ems-kimchi",
+      "country_code": "US",
+      "service": "ems",
+      "item": "김치",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted",
+        "conflicting"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "김치를 보낼 수 있는지 여부는 목적지에 따라 달라집니다. 미국으로 김치를 보낼 때는 알래스카와 하와이를 제외하고 접수가 가능합니다. 다만, 포장을 잘해야 하고 통관 사항을 신경 써야 합니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "김치, 한약, 액젓, 된장 등 액체류를 포함한 음식은 포장 부실로 인해 운송ㆍ배달과정에서 파손 혹은 부패가 발생할 수 있으며 내용품이 훼손되어 재포장이 불가할 경우에는 수취인에게 통보 없이 폐기처리될 수 있습니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "- 김치 접수 가능(알래스카, 하와이 제외) - 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.06,
+        "judge": 3.69
+      }
+    },
+    {
+      "id": "us-ems-cigarette",
+      "country_code": "US",
+      "service": "ems",
+      "item": "담배",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거에는 담배의 국제우편 발송에 대한 명시적인 규정이 없어, 담배가 금지, 제한 또는 허용되는지를 판정할 수 없어요. 추가적인 근거가 필요해요.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 배달소요일수\n\n통관이 필요하지 않는 서류(우편물 접수번호가 EE로 시작됨)의 경우에 한해서만 서울지역에서 (일부지역 제외) 오전 12시까지 접수하면 직항편이 있는 도시지역 (도쿄, 홍콩, 싱가포르 등)에는 다음날 또는 3~4일내에 배달되며 기타지역과 국가에는 4~6일 이내에 배달됩니다.\n\n###### 다음의 경우는 1일이 추가소요됩니다.\n\n* 서울지역에서 12시 이후 접수한 것\n* 서울지역 이외의 지방에서 접수한 것\n* 배달지가 도착국가"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.91,
+        "judge": 2.21
+      }
+    },
+    {
+      "id": "us-ems-lighter",
+      "country_code": "US",
+      "service": "ems",
+      "item": "일회용 라이터",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거에서는 일회용 라이터에 관련된 명시적 규정이나 제한 사항을 찾을 수 없어요. 추가적인 정보를 확인해 보세요.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류\n\n##### EMS (Express Mail Service)\n\n* EMS는 전세계 우체국 간에 특별 우편운송망을 통해 가장 빠르고 안전하게 우편물을 배달하는 특급우편서비스입니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.48,
+        "judge": 2.3
+      }
+    },
+    {
+      "id": "us-ems-earphone",
+      "country_code": "US",
+      "service": "ems",
+      "item": "블루투스 이어폰",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1"
+      ],
+      "raw_decision": {
+        "status": "prohibited",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "리튬 이온·리튬 메탈 등의 배터리 및 해당 배터리가 포함된 모든 전자기기 | **불가** | ① 니켈류 배터리를 제외한 충전 사용하는 배터리는 종류, 용량에 상관없이 발송 불가 ② 배터리 분리가 가능할 경우에는 분리 후 배터리를 제외한 본체만 발송 가능 아이패드 등 일체(내장)형도 예외없이 발송 불가 \u001b배터리 포함된 물품 예시 :  노트북,휴대폰무선충전기,태블릿PC,전자책,아이폰,이발기,전자담배,전자사전,체온기,호버보드,혈압계,휴대폰,블루투스헤드셋,완구·장난감 등"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n| 품목 | 가능여부 | 발송조건 및 사유 |\n| --- | --- | --- |\n| **임의용기에 포장된 액체/분말류** | **확인필요** | 검사용 시료,샘플용 화장품,토너,잉크,접착제, 각종 가루 등 내용물을 알수 없는 액체 또는 분말은 물질안전보건자료(MSDS) 첨부 필요 |\n| **식품/씨앗/도검** "
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.91,
+        "judge": 4.05
+      }
+    },
+    {
+      "id": "jp-ems-skincare",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "스킨 크림",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "일본으로 스킨 크림을 보내려면 화주가 수입허가서와 약품 취급 허가서를 제출해야 해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E3",
+          "quote": "- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\nMSDS 첨부 필요 (수량 제한 없음) |\n| **변압기** | 확인필요 | 가정용 변압기 한정 |\n| **TV/모니터** | 확인필요 | 충전식 포터블 모니터/TV는 불가 |\n| **어댑터** | 가능 |  |\n| **OTP 카드 자동차 키** | 가능 | 최대 2개 허용, 충전식 자동차 키는 불가 (단추형 전"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.93,
+        "judge": 2.52
+      }
+    },
+    {
+      "id": "jp-ems-jerky",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "육포",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "육포는 육류 가공품으로, 일본으로의 발송 시 제한 품목에 포함됩니다. 특히, 음식물은 10kg 미만일 경우에만 제한적으로 발송이 가능하며, 훈제제품은 금지되어 있습니다. 따라서, 육포를 발송하려면 일본의 통관 조건을 준수해야 하므로 제한 사항이 있습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E2",
+          "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류)... - 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용)..."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n충(병원균), 잡초 종자 등 |\n\n※ 상업적으로 제조된 일부 축산물 및 가공 처리된 농산물은 반입 가능\n\n[동물검역] 반입 제한 품목\n\n[식물검역] 반입 제한 품목\n\n##### 반입 가능 품목\n\n국제우편물 동·식물검역 반입 가능 품목 상세 안내\n\n|  |  |\n| --- | --- |\n| 동물검역 대상물건 | * (유가공품) 5kg의 미만의 상업적으로 제조된 유가공품 * (육가공품) 5kg의 미만의 멸균처리된 통조림, 병조림, 레토르트 축산물 ⇒ 다만 소고"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.93,
+        "judge": 3.53
+      }
+    },
+    {
+      "id": "jp-ems-seeds",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "꽃씨",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "일본으로의 국제우편 발송 시 씨앗(종자류)은 명시적으로 금지되어 있어요. 그러니 꽃씨는 보낼 수 없어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E2",
+          "quote": "금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 세관·통관사항\n\n(일본 관세청 안내 사이트) http://www.post.japanpost.jp/int/use/receive_en.html\n- 관세지불시기 및 방법 : 배달시/ 현금만 가능\n- 관세납부우편물 수령방법 : 배달 또는 세관 방문\n- 관세가 300,000 JPY(일본 엔)이하 시 배달, 300,000 JYP(일본 엔)초과 시 배달국 방문\n- 통관회부료 : 200 JPY(일본 엔)\n- 통관업무 대표전화번호 : Tokyo int"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.91,
+        "judge": 2.76
+      }
+    },
+    {
+      "id": "jp-ems-sticker",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "스티커",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": null,
+      "citation_errors": [
+        "근거에 없는 인용문: I1E3"
+      ],
+      "raw_decision": {
+        "status": "no_restriction_found",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "| 통관대행 불가 | * 세관 계류 시(서류 포함) 해당국의 수취인이 직접 통관해야 합니다.    - 통관으로 인한 배달지연에 대해서는 손해배상이 불가합니다. * EMS프리미엄은 통관대행 가능하며, 02-3700-5199로 문의주시기 바랍니다. |"
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다."
+          },
+          {
+            "evidence_id": "I1E3",
+            "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼)... 등의 물품 발송금지"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 긴급공지\n\n- 우편 물량 및 항공 운송편(환적 등)에 따라 발송 및 배달이 지연될 수 있으며, 배달보장서비스 제공 불가"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.06,
+        "judge": 3.15
+      }
+    },
+    {
+      "id": "jp-ems-ginseng",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "인삼",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "인삼은 일본으로의 발송 시 6뿌리까지 허용되며, 제한이 있습니다. 그렇기 때문에 이 규정을 준수해야 해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n충(병원균), 잡초 종자 등 |\n\n※ 상업적으로 제조된 일부 축산물 및 가공 처리된 농산물은 반입 가능\n\n[동물검역] 반입 제한 품목\n\n[식물검역] 반입 제한 품목\n\n##### 반입 가능 품목\n\n국제우편물 동·식물검역 반입 가능 품목 상세 안내\n\n|  |  |\n| --- | --- |\n| 동물검역 대상물건 | * (유가공품) 5kg의 미만의 상업적으로 제조된 유가공품 * (육가공품) 5kg의 미만의 멸균처리된 통조림, 병조림, 레토르트 축산물 ⇒ 다만 소고"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.2,
+        "judge": 2.3
+      }
+    },
+    {
+      "id": "jp-ems-cold-medicine",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "감기약",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "감기약은 의약품에 해당하므로, 일본에서는 발송이 금지된 의약품으로 분류됩니다. 따라서 수출에 제한이 있습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E5",
+          "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.16,
+        "judge": 2.91
+      }
+    },
+    {
+      "id": "jp-ems-aa-battery",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "AA 건전지",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found",
+        "restricted"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거에는 AA 건전지를 특별히 금지하거나 제한하는 정보가 없습니다. 따라서 이 정보를 바탕으로는 AA 건전지의 국제우편 발송 여부를 명확히 판단할 수 없습니다.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\nMSDS 첨부 필요 (수량 제한 없음) |\n| **변압기** | 확인필요 | 가정용 변압기 한정 |\n| **TV/모니터** | 확인필요 | 충전식 포터블 모니터/TV는 불가 |\n| **어댑터** | 가능 |  |\n| **OTP 카드 자동차 키** | 가능 | 최대 2개 허용, 충전식 자동차 키는 불가 (단추형 전"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "law-notice-prohibited-items",
+          "service_type": "ALL",
+          "content": "문서: 국제우편금지물품\n경로: 국제우편금지물품\n\n표시가 있는 물품\n2) 음란한 문서, 도화 그 밖의 사회질서에 해가 되는 물건으로서 법령으로 이동, 판매, 반포를 금하는 것. 다만, 법적?행정적 목적으로 공공기관에서 등기우편으로 발송하는 것은 예외로 한다.\n3) 밀수품, 밀반출 문화재, 불법 군수품, 부정임산물 등 위법한 물건\n4) 기타 국내법령 및 고시 등에서 우편으로 발송하는 것이 금지된 물품\n5) 항공기 내에 반입이 금지된 물품(항공우편물 한하여 적용)\n6) 선박 내에 반입이 금지된 물품(선박우편물 한하여 적용)\n7) 그 밖에"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.16,
+        "judge": 2.37
+      }
+    },
+    {
+      "id": "jp-ems-nail-polish",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "매니큐어",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "매니큐어는 화장품에 해당되며, 일본으로 보낼 때는 수입허가서와 약품취급 허가서를 제출해야 해요. 따라서 조건부 발송이 가능해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n| 품목 | 가능여부 | 발송조건 및 사유 |\n| --- | --- | --- |\n| **임의용기에 포장된 액체/분말류** | **확인필요** | 검사용 시료,샘플용 화장품,토너,잉크,접착제, 각종 가루 등 내용물을 알수 없는 액체 또는 분말은 물질안전보건자료(MSDS) 첨부 필요 |\n| **식품/씨앗/도검** "
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.07,
+        "judge": 3.0
+      }
+    },
+    {
+      "id": "cn-ems-gold-ring",
+      "country_code": "CN",
+      "service": "ems",
+      "item": "금반지",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "근거에 따르면 금, 은, 귀석, 보석 등 귀중품은 국제특급 서비스에서 손해배상이 불가하며, 중국의 경우 금제품 자체가 발송 금지 품목으로 정의되어 있습니다. 따라서 금반지를 발송하려면 해당 국가의 통관 조건을 주의 깊게 확인해야 합니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "주화, 은행권, 법정통화 또는 각종 지참인불유가증권, 여행자수표, 가공 또는 비가공의 백금, 금, 은, 귀석, 보석 등 귀중품"
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "금지품목 : 중국정치, 경제, 문화, 도덕적으로유해한인쇄물, 사진, 영상, 녹음등, 각종무기류(탄약/폭발성물품), 위조화폐 및 유가증권, 골동품, 금/은제품, 마약류 및 마취 성분있는 약물, 독약, 위험/유해한 병균, 식/약품"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-CN",
+          "service_type": "ems",
+          "content": "문서: 중국 국제우편 발송조건\n경로: 중국(CN) 국제우편 발송조건 > 중국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 중국정치, 경제, 문화, 도덕적으로유해한인쇄물, 사진, 영상, 녹음등, 각종무기류(탄약/폭발성물품), 위조화폐 및 유가증권, 골동품, 금/은제품, 마약류 및 마취 성분있는 약물, 독약, 위험/유해한 병균, 식/약품\n- 중국행 동물 및 식물 제품류 반입 금지 안내\n① 동물 및 그 제품류\n- 갑각류 포함 살아있는 동물 및 동물유래성분이 포함된 사료 반입금지\n- 기생충 등 동식물 병원체 및 기타 고위험 바이오"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-CN",
+          "service_type": "ems",
+          "content": "문서: 중국 국제우편 발송조건\n경로: 중국(CN) 국제우편 발송조건 > 중국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22>\n* 통관 유의사항 : 고객은 발송"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.46,
+        "judge": 3.0
+      }
+    },
+    {
+      "id": "cn-ems-used-clothes",
+      "country_code": "CN",
+      "service": "ems",
+      "item": "헌옷",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "헌옷은 중국으로의 국제특급우편(EMS) 발송 시 금지된 품목이에요. 다른 법률에 명시된 금지사항에 따라 반입이 제한됩니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "기타 반입금지 동식물 검역물품\n- 그외 : 헌옷, 자전거, 카메라, 침대보, 선풍기, 레코드, 재봉틀, 녹음기, TV, 손목시계, 개인선물, 곡류, 여권, 포르노 물품, 유골, 후추 스프레이 (UPU회람-71, ‘18.5.28.)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 특수취급의 종류\n\n국제특급우편물의 특수취급의 종류는 다음과 같습니다.\n\n* 배달통지\n* 보험취급"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-CN",
+          "service_type": "ems",
+          "content": "문서: 중국 국제우편 발송조건\n경로: 중국(CN) 국제우편 발송조건 > 중국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 중국정치, 경제, 문화, 도덕적으로유해한인쇄물, 사진, 영상, 녹음등, 각종무기류(탄약/폭발성물품), 위조화폐 및 유가증권, 골동품, 금/은제품, 마약류 및 마취 성분있는 약물, 독약, 위험/유해한 병균, 식/약품\n- 중국행 동물 및 식물 제품류 반입 금지 안내\n① 동물 및 그 제품류\n- 갑각류 포함 살아있는 동물 및 동물유래성분이 포함된 사료 반입금지\n- 기생충 등 동식물 병원체 및 기타 고위험 바이오"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-CN",
+          "service_type": "ems",
+          "content": "문서: 중국 국제우편 발송조건\n경로: 중국(CN) 국제우편 발송조건 > 중국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22>\n* 통관 유의사항 : 고객은 발송"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.51,
+        "judge": 2.5
+      }
+    },
+    {
+      "id": "cn-ems-liquor",
+      "country_code": "CN",
+      "service": "ems",
+      "item": "소주",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "소주는 주류에 해당하며, 중국으로 발송 시 제한 품목에 포함되어 있어 세관의 통제를 받을 수 있어요. 술 발송은 조건부로 제한되어 있기 때문에 사전에 세관 규정을 잘 확인하셔야 해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E2",
+          "quote": "- 제한품목 : 무선송수신기, 통신보안기, 담배, 술, 멸종위기의 진귀한 동물, 식물 (샘플 포함) 및 각종 종자, 번식 재료, 국가화폐, 세관에서 입국제한한 기타물품"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-CN",
+          "service_type": "ems",
+          "content": "문서: 중국 국제우편 발송조건\n경로: 중국(CN) 국제우편 발송조건 > 중국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 중국정치, 경제, 문화, 도덕적으로유해한인쇄물, 사진, 영상, 녹음등, 각종무기류(탄약/폭발성물품), 위조화폐 및 유가증권, 골동품, 금/은제품, 마약류 및 마취 성분있는 약물, 독약, 위험/유해한 병균, 식/약품\n- 중국행 동물 및 식물 제품류 반입 금지 안내\n① 동물 및 그 제품류\n- 갑각류 포함 살아있는 동물 및 동물유래성분이 포함된 사료 반입금지\n- 기생충 등 동식물 병원체 및 기타 고위험 바이오"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-CN",
+          "service_type": "ems",
+          "content": "문서: 중국 국제우편 발송조건\n경로: 중국(CN) 국제우편 발송조건 > 중국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22>\n* 통관 유의사항 : 고객은 발송"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.21,
+        "judge": 2.44
+      }
+    },
+    {
+      "id": "au-ems-rice",
+      "country_code": "AU",
+      "service": "ems",
+      "item": "쌀",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "호주로 쌀을 국제우편으로 발송하는 것은 금지되어 있어요. 호주의 검역당국에서 쌀의 원물 및 분말 형태의 반입을 허용하지 않기 때문이에요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "오스트레일리아(호주) 검역당국의 식물위생조치(수입금지)로 다음 대상식물의 원물 및 분말 접수금지 - 쌀(Rice)..."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n외국으로부터 아프리카돼지열병(ASF), 조류인플루엔자(HPAI) 등 가축전염병과 해외 병해충의 유입을 방지하기 위하여 국제우편을 통한 외국산 축산물, 식물의 반입을 엄격히 제한\n\n가. 검역 신청\n- 국제우편(EMS,소포,통상)을 통해 검역대상품인 지정검역물을 반입하는 수취인은 지정검역물을 검역관에게 신고하여 검역을 받아야 하며, 서류심사 및 현물 검사를 통해 이상이 없는 경우에만 개방\n\n    ⇒ 신고대상 검역물은 아래의 반입제한 및 반입가능 품목 참고\n-"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-AU",
+          "service_type": "ems",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-AU",
+          "service_type": "ems",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목\n- 통관 불허로 인한 배달불능 우편물은 손해배상 불가(압수, 폐기 또는 반송처리 될 수 있으며 세관 결정에 따름)\n- 담배 :담배 제품 수입 금지 (2019.7.1) 허위로 세관신고서 작성하거나 담배 제품이 전체 또는 일부 포함된 소포 모두 세관 압류, 폐기조치(담배 제외한 물품만 일부 배달 및 반송 불가)\n- 동물을 재료로한 반려동물 음식(발견 시 즉시 폐기"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-AU",
+          "service_type": "ems",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제특급(EMS) > 세관·통관사항\n\n- 면세한도 : 1000 AUD\n- 호주 세관 사이트 : www.homeaffairs.gov.au\n- 음식물 검역 전세계 가장 엄격, 대부분의 음식물 통관불능으로 폐기, 반송 될 수 있음\n- 세관 반송 6개월까지 소요 될 수 있음"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.98,
+        "judge": 2.22
+      }
+    },
+    {
+      "id": "au-ems-pet-treat",
+      "country_code": "AU",
+      "service": "ems",
+      "item": "강아지 육포 간식",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "강아지 육포 간식은 동물성 성분이 포함된 사료 및 육가공품의 일종으로 국제우편을 통한 수입이 불가능합니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "대부분의 육류, 육가공품, 동물성 성분이 포함된 있는 사료, 알 등은 국제우편으로 수입이 불가   * (식육) 쇠고기, 면양육, 사슴육, 돼지고기, 닭고기, 오리고기, 쥐고기, 삶거나 튀긴 고기 등 * (식육가공품) : 소고기가 포함된 카레 및 스프, 소시지, 햄, 육포, 식육성분이 포함된 과자류, 식육이 포함된 라면 등 * (사료) 동물성 성분이 포함된 애완동물사료, 간식류, 조사료 * (유가공품) 5kg의 이상 상업적으로 제조된 유가공품, 상업적으로 제조되지 않은 유가공품 * (알 및 알가공품) 종란, 식품용란, 난백분, 난분 등 * (기타 동물 생산물) 녹용, 뼈, 뿔 등"
+        },
+        {
+          "evidence_id": "I1E5",
+          "quote": "동물을 재료로한 반려동물 음식(발견 시 즉시 폐기처분, 22.10.17)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n외국으로부터 아프리카돼지열병(ASF), 조류인플루엔자(HPAI) 등 가축전염병과 해외 병해충의 유입을 방지하기 위하여 국제우편을 통한 외국산 축산물, 식물의 반입을 엄격히 제한\n\n가. 검역 신청\n- 국제우편(EMS,소포,통상)을 통해 검역대상품인 지정검역물을 반입하는 수취인은 지정검역물을 검역관에게 신고하여 검역을 받아야 하며, 서류심사 및 현물 검사를 통해 이상이 없는 경우에만 개방\n\n    ⇒ 신고대상 검역물은 아래의 반입제한 및 반입가능 품목 참고\n-"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-AU",
+          "service_type": "ems",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024."
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-AU",
+          "service_type": "ems",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목\n- 통관 불허로 인한 배달불능 우편물은 손해배상 불가(압수, 폐기 또는 반송처리 될 수 있으며 세관 결정에 따름)\n- 담배 :담배 제품 수입 금지 (2019.7.1) 허위로 세관신고서 작성하거나 담배 제품이 전체 또는 일부 포함된 소포 모두 세관 압류, 폐기조치(담배 제외한 물품만 일부 배달 및 반송 불가)\n- 동물을 재료로한 반려동물 음식(발견 시 즉시 폐기"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.91,
+        "judge": 4.22
+      }
+    },
+    {
+      "id": "gb-ems-herbal-medicine",
+      "country_code": "GB",
+      "service": "ems",
+      "item": "한약",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "한약은 한약방이나 건강원에서 제조·포장된 경우에 한해 발송이 가능해요. 하지만 자가제조한 한약은 발송이 불가해요. 각 국가의 통관 규정에 따라 반송이나 폐기될 수 있으며, 손해배상은 불가하다는 점을 유의해야 해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "한약재, 건초·건어물, 의약품 등은 그 해석이 광범위하고, 통관여부는 해당국에서 판단하므로 우체국에서 접수되더라도 해당국의 통관불허로 반송되거나 폐기처분될 수 있습니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "한약 | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로, 한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-GB",
+          "service_type": "ems",
+          "content": "문서: 영국 국제우편 발송조건\n경로: 영국(GB) 국제우편 발송조건 > 영국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 부도덕한 내용의 서류, 광물성 제품, 외설비디오, 외설적인 음반 및 인쇄물, 칼날이 나오는 칼, 감옥에서 만든 상품, 전파송신기, 복권 및 관련 광고,물개 가죽제품, 진공포장 안된 음식물, 사람 또는 동물 유해/유골\n- 제한품목 : 동물제품, 식물 및 식물제품, 채소류, 무기류, Textile sample(5~10kg는 원산지 증명서 없이 통관가능), 생선 및 육류반입 제한중량은 1kg(초과 시 수의검역"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-GB",
+          "service_type": "ems",
+          "content": "문서: 영국 국제우편 발송조건\n경로: 영국(GB) 국제우편 발송조건 > 영국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 긴급성과 지연, 분실 간접적 피해가 큰 서류로 반드시 EMS 프리미엄으로 접수 문의. - 시행 : '21. 2. 23.\n- 포장상태와 관계없이 김치 전체 접수중지\n사유 : 성수기 항공 운송편 부족과 접수 물량증가로 인한 발송지연 접수중지: 2020.11. ~\n<출처: 우정사업본부 국제사업과, 2021. 10. 28.>\n- 사서함"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.94,
+        "judge": 2.85
+      }
+    },
+    {
+      "id": "gb-ems-hand-warmer",
+      "country_code": "GB",
+      "service": "ems",
+      "item": "핫팩",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found",
+        "restricted"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거 자료에는 핫팩의 발송에 관한 명확한 정보가 없습니다. 핫팩이 리튬 배터리나 위험 물질을 포함한 경우 제한이 있을 수 있지만, 해당 사항을 확인할 수 있는 근거가 발견되지 않았습니다.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\nMSDS 첨부 필요 (수량 제한 없음) |\n| **변압기** | 확인필요 | 가정용 변압기 한정 |\n| **TV/모니터** | 확인필요 | 충전식 포터블 모니터/TV는 불가 |\n| **어댑터** | 가능 |  |\n| **OTP 카드 자동차 키** | 가능 | 최대 2개 허용, 충전식 자동차 키는 불가 (단추형 전"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-GB",
+          "service_type": "ems",
+          "content": "문서: 영국 국제우편 발송조건\n경로: 영국(GB) 국제우편 발송조건 > 영국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 부도덕한 내용의 서류, 광물성 제품, 외설비디오, 외설적인 음반 및 인쇄물, 칼날이 나오는 칼, 감옥에서 만든 상품, 전파송신기, 복권 및 관련 광고,물개 가죽제품, 진공포장 안된 음식물, 사람 또는 동물 유해/유골\n- 제한품목 : 동물제품, 식물 및 식물제품, 채소류, 무기류, Textile sample(5~10kg는 원산지 증명서 없이 통관가능), 생선 및 육류반입 제한중량은 1kg(초과 시 수의검역"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-GB",
+          "service_type": "ems",
+          "content": "문서: 영국 국제우편 발송조건\n경로: 영국(GB) 국제우편 발송조건 > 영국 국제특급(EMS) > 기본 조건\n\n- 요금적용지역: GB 지역\n- 취급지역: 전지역\n- 도착통지: 취급\n- 최대규격: 길이<= 1.5m , 길이+둘레<= 3m\n- 제한중량(g): 30,000\n- 배달횟수: 1\n- 배달소요일수(서류): 6\n- 배달불능시 보관기간: 21\n- 배달불가요일: 토,일,공\n- 세관신고서 작성기준: 모두첨부"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.2,
+        "judge": 2.24
+      }
+    },
+    {
+      "id": "de-ems-power-bank",
+      "country_code": "DE",
+      "service": "ems",
+      "item": "보조배터리",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제시된 근거에 따르면 보조배터리는 리튬 배터리가 포함된 물품으로 간주되어 독일로의 국제우편 발송이 금지되어 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E3",
+          "quote": "- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\nMSDS 첨부 필요 (수량 제한 없음) |\n| **변압기** | 확인필요 | 가정용 변압기 한정 |\n| **TV/모니터** | 확인필요 | 충전식 포터블 모니터/TV는 불가 |\n| **어댑터** | 가능 |  |\n| **OTP 카드 자동차 키** | 가능 | 최대 2개 허용, 충전식 자동차 키는 불가 (단추형 전"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계\n- 제한품목 : 전파제품(허가증 필요), 화학제품(허가증 필요), 담배(납세표시 첩부), 포장의약품(허가증 필요), 동물 및 식물제품(위생 등소비적정 허가증, 품질보증서 필요) 직물(Textile)-1000 EUR 이하 원산지증명서 "
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 포장상태와 관계없이 김치 전체 접수중지\n사유 : 성수기 항공 운송편부족과 접수 물량증가로 인한 발송지연 접수중지: 2020.11. ~ <출처: 우정사업본부 국제사업과, 2021. 10. 2"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 긴급공지\n\n- 우편 물량 및 항공 운송편(환적 등)에 따라 발송 및 배달이 지연될 수 있음\n- 변경된 유럽관세 정책으로 인해 독일행 45유로 초과의 개인우편물(C2C)의 경우에는 EMS프리미엄 접수"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.35,
+        "judge": 3.22
+      }
+    },
+    {
+      "id": "de-ems-watch",
+      "country_code": "DE",
+      "service": "ems",
+      "item": "손목시계",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "독일로 수출되는 손목시계는 금지품목에 해당해 발송이 불가능해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E5",
+          "quote": "- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 배달소요일수\n\n통관이 필요하지 않는 서류(우편물 접수번호가 EE로 시작됨)의 경우에 한해서만 서울지역에서 (일부지역 제외) 오전 12시까지 접수하면 직항편이 있는 도시지역 (도쿄, 홍콩, 싱가포르 등)에는 다음날 또는 3~4일내에 배달되며 기타지역과 국가에는 4~6일 이내에 배달됩니다.\n\n###### 다음의 경우는 1일이 추가소요됩니다.\n\n* 서울지역에서 12시 이후 접수한 것\n* 서울지역 이외의 지방에서 접수한 것\n* 배달지가 도착국가"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 긴급공지\n\n- 우편 물량 및 항공 운송편(환적 등)에 따라 발송 및 배달이 지연될 수 있음\n- 변경된 유럽관세 정책으로 인해 독일행 45유로 초과의 개인우편물(C2C)의 경우에는 EMS프리미엄 접수"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계\n- 제한품목 : 전파제품(허가증 필요), 화학제품(허가증 필요), 담배(납세표시 첩부), 포장의약품(허가증 필요), 동물 및 식물제품(위생 등소비적정 허가증, 품질보증서 필요) 직물(Textile)-1000 EUR 이하 원산지증명서 "
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.9,
+        "judge": 2.36
+      }
+    },
+    {
+      "id": "de-ems-lipbalm",
+      "country_code": "DE",
+      "service": "ems",
+      "item": "립밤",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "립밤이 화장품에 속할 수 있으며, 독일로 보낼 때에는 화장품의 성분 및 제품설명이 독일어로 기재되어야 통관이 가능해요. 따라서, 해당 조건을 충족해야 립밤을 보낼 수 있습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E3",
+          "quote": "화장품은 성분 및 제품설명이 독일어로 기재 되어있지 않은 경우 통관불능으로 반송처리 ('21.04.14.추가)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n| 품목 | 가능여부 | 발송조건 및 사유 |\n| --- | --- | --- |\n| **임의용기에 포장된 액체/분말류** | **확인필요** | 검사용 시료,샘플용 화장품,토너,잉크,접착제, 각종 가루 등 내용물을 알수 없는 액체 또는 분말은 물질안전보건자료(MSDS) 첨부 필요 |\n| **식품/씨앗/도검** "
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계\n- 제한품목 : 전파제품(허가증 필요), 화학제품(허가증 필요), 담배(납세표시 첩부), 포장의약품(허가증 필요), 동물 및 식물제품(위생 등소비적정 허가증, 품질보증서 필요) 직물(Textile)-1000 EUR 이하 원산지증명서 "
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 포장상태와 관계없이 김치 전체 접수중지\n사유 : 성수기 항공 운송편부족과 접수 물량증가로 인한 발송지연 접수중지: 2020.11. ~ <출처: 우정사업본부 국제사업과, 2021. 10. 2"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.06,
+        "judge": 2.39
+      }
+    },
+    {
+      "id": "fr-ems-perfume",
+      "country_code": "FR",
+      "service": "ems",
+      "item": "향수",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "향수는 국제우편 항공탑재금지물품으로 명시되어 있어 발송이 불가능해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E3",
+          "quote": "| **향수** | 불가 |"
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "- 금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약(의약품), 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\nSDS 내용 확인 후 판단 가능 (접수 전 국제우편물류센터 확인 필요)** |\n| **치과용 접착제** | 가능 |  |\n| **향수** | 불가 |  |\n| **휘발유** | 불가 |  |\n| **식용유** | 가능 | 완제품/미개봉 제품 한정 |\n| **엔진오일, 윤활유, 기계오일류** | 확인필요 | MSD"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-FR",
+          "service_type": "ems",
+          "content": "문서: 프랑스 국제우편 발송조건\n경로: 프랑스(FR) 국제우편 발송조건 > 프랑스 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약(의약품), 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지\n- 제한품목 : 장난감, 안전모자, 자전거, 모터자전거는 적합성인증서 필요"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-FR",
+          "service_type": "ems",
+          "content": "문서: 프랑스 국제우편 발송조건\n경로: 프랑스(FR) 국제우편 발송조건 > 프랑스 국제특급(EMS) > 세관·통관사항\n\n※ 계약고객우편물(B2C)의 물품에 대하여 부가가치세 부과 (시행일자 : EU국가 ’21.7.1.)\n* 통관기초정보[국제사업과-772(2012.06.12.카할라국가에 대한 통관기초정보 제공)]- 관세 납부 방법:\n- EMS(배달 시) : 현금,수표책\n- 통관회부료 : EMS(21EUR)\n- 관세 부과 우편물 보관료 : 없음- 통관업무 대표전화번호: EMS(00 33(0) 969 391 391)\n- 상업 및 개인물품"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.9,
+        "judge": 2.7
+      }
+    },
+    {
+      "id": "fr-ems-toy",
+      "country_code": "FR",
+      "service": "ems",
+      "item": "장난감",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "프랑스로 장난감을 보내려면 적합성 인증서가 필요해요. 따라서 장난감을 보낼 때 주의가 필요합니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "제한품목 : 장난감, 안전모자, 자전거, 모터자전거는 적합성인증서 필요"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-FR",
+          "service_type": "ems",
+          "content": "문서: 프랑스 국제우편 발송조건\n경로: 프랑스(FR) 국제우편 발송조건 > 프랑스 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약(의약품), 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지\n- 제한품목 : 장난감, 안전모자, 자전거, 모터자전거는 적합성인증서 필요"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-FR",
+          "service_type": "ems",
+          "content": "문서: 프랑스 국제우편 발송조건\n경로: 프랑스(FR) 국제우편 발송조건 > 프랑스 국제특급(EMS) > 긴급공지\n\n- 우편 물량 및 항공 운송편(환적 등)에 따라 발송 및 배달이 지연될 수 있으며, 배달보장서비스 제공 불가"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.18,
+        "judge": 2.45
+      }
+    },
+    {
+      "id": "fr-ems-electric-mat",
+      "country_code": "FR",
+      "service": "ems",
+      "item": "전기장판",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "conflicting"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "프랑스로 전기장판을 보낼 수 없어요. 전기매트 및 장판은 통관 불가 품목으로 명시되어 있답니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약(의약품), 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n| 품목 | 가능여부 | 발송조건 및 사유 |\n| --- | --- | --- |\n| **임의용기에 포장된 액체/분말류** | **확인필요** | 검사용 시료,샘플용 화장품,토너,잉크,접착제, 각종 가루 등 내용물을 알수 없는 액체 또는 분말은 물질안전보건자료(MSDS) 첨부 필요 |\n| **식품/씨앗/도검** "
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-FR",
+          "service_type": "ems",
+          "content": "문서: 프랑스 국제우편 발송조건\n경로: 프랑스(FR) 국제우편 발송조건 > 프랑스 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약(의약품), 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지\n- 제한품목 : 장난감, 안전모자, 자전거, 모터자전거는 적합성인증서 필요"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-FR",
+          "service_type": "ems",
+          "content": "문서: 프랑스 국제우편 발송조건\n경로: 프랑스(FR) 국제우편 발송조건 > 프랑스 국제특급(EMS) > 긴급공지\n\n- 우편 물량 및 항공 운송편(환적 등)에 따라 발송 및 배달이 지연될 수 있으며, 배달보장서비스 제공 불가"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.2,
+        "judge": 2.54
+      }
+    },
+    {
+      "id": "ca-ems-flowers",
+      "country_code": "CA",
+      "service": "ems",
+      "item": "생화 꽃다발",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "캐나다로의 국제우편물 발송 조건에 따르면 식물과 꽃은 금지품목으로 분류되어 있어요. 따라서 생화 꽃다발을 캐나다로 보낼 수 없어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "금지품목 : 유골, 살아있는 동물(조류 및 곤충), 식물, 꽃 현금, 유가증권, 8피트(ft) 이상 물건, 담배 및 주류, 칼, 총기류 및 그 부품, 위험한 물건, 보행기(안전상 이유로 사용금지)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n충(병원균), 잡초 종자 등 |\n\n※ 상업적으로 제조된 일부 축산물 및 가공 처리된 농산물은 반입 가능\n\n[동물검역] 반입 제한 품목\n\n[식물검역] 반입 제한 품목\n\n##### 반입 가능 품목\n\n국제우편물 동·식물검역 반입 가능 품목 상세 안내\n\n|  |  |\n| --- | --- |\n| 동물검역 대상물건 | * (유가공품) 5kg의 미만의 상업적으로 제조된 유가공품 * (육가공품) 5kg의 미만의 멸균처리된 통조림, 병조림, 레토르트 축산물 ⇒ 다만 소고"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-CA",
+          "service_type": "ems",
+          "content": "문서: 캐나다 국제우편 발송조건\n경로: 캐나다(CA) 국제우편 발송조건 > 캐나다 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 유골, 살아있는 동물(조류 및 곤충), 식물, 꽃 현금, 유가증권, 8피트(ft) 이상 물건, 담배 및 주류, 칼, 총기류 및 그 부품, 위험한 물건, 보행기(안전상 이유로 사용금지)\n- 제한품목 : 전체 농산물(수입허가증/인증서), 의약품(처방전), 상업적 목적으로 반입하는 의류(수입허가서), 주류"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-CA",
+          "service_type": "ems",
+          "content": "문서: 캐나다 국제우편 발송조건\n경로: 캐나다(CA) 국제우편 발송조건 > 캐나다 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22>\n* 통관 유의사항 : 고객은"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.9,
+        "judge": 2.47
+      }
+    },
+    {
+      "id": "ca-ems-pocket-knife",
+      "country_code": "CA",
+      "service": "ems",
+      "item": "주머니칼",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "주머니칼에 대한 명확한 금지 또는 제한 규정이 제공된 자료에서 확인되지 않았어요. 따라서 주머니칼에 대한 명확한 판정을 내리기는 어려워요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "UPU에서 정한 금지물품(UPU 협약 제19조, 통상·소포 공통) - 마약류, 향정신성물질, 외설적이거나 비도덕적인 물품 - 폭발성·가연성(스프레이, 향수, 부탄가스) 물질, 방사성 물질 또는 기타 위험한 물질"
+        },
+        {
+          "evidence_id": "I1E1",
+          "quote": "배달 국가에서 수입이나 유포를 금하는 물품 - 국가별 수입금지 물품은 각국의 관계 법률에 따라 다릅니다."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "law-postal-act-rule",
+          "service_type": "ALL",
+          "content": "문서: 우편법 시행규칙\n경로: 우편법 시행규칙 > 제2장 우편역무 <개정 1997. 12. 31.> > 제29조(보험통상 및 보험소포의 취급조건 등)\n\n① 통화를 우편물로 발송하려는 경우에는 제25조제1항제2호가목에 따른 보험통상으로 한다. 다만, 제25조제1항제7호에 따른 민원우편의 경우에는 그러하지 아니하다.\n② 제1항에서 규정한 사항 외에 제25조제1항제2호에 따른 보험통상 또는 보험소포 취급우편물의 세부종류, 취급한도, 취급방법 및 절차 등 보험취급에 필요한 사항은 우정사업본부장이 정하여 고시한다.\n[전문개정 2018. 2."
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-CA",
+          "service_type": "ems",
+          "content": "문서: 캐나다 국제우편 발송조건\n경로: 캐나다(CA) 국제우편 발송조건 > 캐나다 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22>\n* 통관 유의사항 : 고객은"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-CA",
+          "service_type": "ems",
+          "content": "문서: 캐나다 국제우편 발송조건\n경로: 캐나다(CA) 국제우편 발송조건 > 캐나다 국제특급(EMS) > 긴급공지\n\n- 우편 물량 및 항공 운송편(환적 등)에 따라 발송 및 배달이 지연될 수 있으며, 배달보장서비스 제공 불가"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.41,
+        "judge": 3.27
+      }
+    },
+    {
+      "id": "vn-ems-greeting-card",
+      "country_code": "VN",
+      "service": "ems",
+      "item": "연하장",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "연하장은 베트남으로의 국제우편물 발송 시 금지품목에 해당하여 보낼 수 없어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E2",
+          "quote": "- 금지품목 : 중고물품(used goods), 전자제품, 담배, 건어물, 육가공품, 혈액, 본드, 송금수표(money order), 주식, 신용카드, 처방약품, 미술품, 정치적인쇄물, 신문, 담배,캔 이외의 음식물, 연하장, 마이크로필름/카드, 라벨, 초대장, 보석, 잡지, 지도, 개인서신(서류발송 시 항공우편봉투에 넣지 말것),동전, 은행권, 수표, 유가증권, 금,은, 보석류, 기타 귀중품, 무기·폭죽·독성 화학물질··금지 문화상품,·우측 핸들 차량·폐기물·석면 제품"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-VN",
+          "service_type": "ems",
+          "content": "문서: 베트남 국제우편 발송조건\n경로: 베트남(VN) 국제우편 발송조건 > 베트남 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 중고물품(used goods), 전자제품, 담배, 건어물, 육가공품, 혈액, 본드, 송금수표(money order), 주식, 신용카드, 처방약품, 미술품, 정치적인쇄물, 신문, 담배,캔 이외의 음식물, 연하장, 마이크로필름/카드, 라벨, 초대장, 보석, 잡지, 지도, 개인서신(서류발송 시 항공우편봉투에 넣지 말것),동전, 은행권, 수표, 유가증권, 금,은, 보석류, 기타 귀중품, 무기·폭죽·독성 화"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-VN",
+          "service_type": "ems",
+          "content": "문서: 베트남 국제우편 발송조건\n경로: 베트남(VN) 국제우편 발송조건 > 베트남 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 포장상태와 관계없이 김치 전체 접수중지\n사유 : 성수기 항공 운송편부족과 접수 물량증가로 인한 발송지연 접수중지: 2020.11. ~ <출처: 우정사업본부 국제사업과, 2021. 10."
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.43,
+        "judge": 3.45
+      }
+    },
+    {
+      "id": "vn-ems-magazine",
+      "country_code": "VN",
+      "service": "ems",
+      "item": "잡지",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "잡지에 대한 명시적인 제한이나 금지 사항이 발견되지 않았어요. 따라서, 관련 규정에서는 잡지를 EMS로 보낼 수 있는 것으로 보입니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로... 취급합니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "통관이 필요하지 않는 서류(우편물 접수번호가 EE로 시작됨)의 경우에 한해서만... 배달됩니다."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 배달소요일수\n\n통관이 필요하지 않는 서류(우편물 접수번호가 EE로 시작됨)의 경우에 한해서만 서울지역에서 (일부지역 제외) 오전 12시까지 접수하면 직항편이 있는 도시지역 (도쿄, 홍콩, 싱가포르 등)에는 다음날 또는 3~4일내에 배달되며 기타지역과 국가에는 4~6일 이내에 배달됩니다.\n\n###### 다음의 경우는 1일이 추가소요됩니다.\n\n* 서울지역에서 12시 이후 접수한 것\n* 서울지역 이외의 지방에서 접수한 것\n* 배달지가 도착국가"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-VN",
+          "service_type": "ems",
+          "content": "문서: 베트남 국제우편 발송조건\n경로: 베트남(VN) 국제우편 발송조건 > 베트남 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 포장상태와 관계없이 김치 전체 접수중지\n사유 : 성수기 항공 운송편부족과 접수 물량증가로 인한 발송지연 접수중지: 2020.11. ~ <출처: 우정사업본부 국제사업과, 2021. 10."
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.21,
+        "judge": 2.65
+      }
+    },
+    {
+      "id": "th-ems-snack",
+      "country_code": "TH",
+      "service": "ems",
+      "item": "과자",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "과자와 같은 음식물은 통관 보류 및 불허 판정을 받는 경우가 많아 주의가 필요하며, 태국으로 보낼 경우 음식물에 대한 특정 제한이 있을 수 있습니다. 개인적인 용도로 적절한 양만 보낼 경우에는 FDA 허가가 필요하지 않지만, 기타 상황에서는 주의가 필요합니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "* 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "- 금지품목 : ... 음식물, 곡물, ..."
+        },
+        {
+          "evidence_id": "I1E2",
+          "quote": "- 개인 음식물: 적절한 양(세관에 의해 판단)은 FDA허가서 필요 없음"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-TH",
+          "service_type": "ems",
+          "content": "문서: 타이(태국) 국제우편 발송조건\n경로: 타이(태국)(TH) 국제우편 발송조건 > 타이(태국) 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관 유"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-TH",
+          "service_type": "ems",
+          "content": "문서: 타이(태국) 국제우편 발송조건\n경로: 타이(태국)(TH) 국제우편 발송조건 > 타이(태국) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : (UPU 회람 2019-70)리튭배터리/셀 포함 금지\n전자게임, 모조수공품, 미사용 우편엽서 및 편지지, 독극물, 연쇄편지, 산동물(꿀벌,거머리,누에는 제외), 총기류, 외설잡지, 술, 혈액, 의약품, 음식물, 곡물, 귀금속, 담배, 비디오게임, 액체(LIQUIDS), China 원산지 제품 발송 불가\n- 제한품목 : 비처방약품\n(약: 30일치를 넘지 않는 태국에서 구할수 없는 약은"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.2,
+        "judge": 3.92
+      }
+    },
+    {
+      "id": "th-ems-letter-paper",
+      "country_code": "TH",
+      "service": "ems",
+      "item": "편지지",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "편지지는 태국으로의 국제우편 발송 시 금지 품목에 포함되어 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "금지품목 : (UPU 회람 2019-70)리튭배터리/셀 포함 금지 전자게임, 모조수공품, 미사용 우편엽서 및 편지지, 독극물, 연쇄편지, 산동물(꿀벌,거머리,누에는 제외), 총기류, 외설잡지, 술, 혈액, 의약품, 음식물, 곡물, 귀금속, 담배, 비디오게임, 액체(LIQUIDS), China 원산지 제품 발송 불가"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-TH",
+          "service_type": "ems",
+          "content": "문서: 타이(태국) 국제우편 발송조건\n경로: 타이(태국)(TH) 국제우편 발송조건 > 타이(태국) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : (UPU 회람 2019-70)리튭배터리/셀 포함 금지\n전자게임, 모조수공품, 미사용 우편엽서 및 편지지, 독극물, 연쇄편지, 산동물(꿀벌,거머리,누에는 제외), 총기류, 외설잡지, 술, 혈액, 의약품, 음식물, 곡물, 귀금속, 담배, 비디오게임, 액체(LIQUIDS), China 원산지 제품 발송 불가\n- 제한품목 : 비처방약품\n(약: 30일치를 넘지 않는 태국에서 구할수 없는 약은"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-TH",
+          "service_type": "ems",
+          "content": "문서: 타이(태국) 국제우편 발송조건\n경로: 타이(태국)(TH) 국제우편 발송조건 > 타이(태국) 국제특급(EMS) > 긴급공지\n\n- 우편 물량 및 항공 운송편(환적 등)에 따라 발송 및 배달이 지연될 수 있으며, 배달보장서비스 제공 불가"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.92,
+        "judge": 2.88
+      }
+    },
+    {
+      "id": "sg-ems-gum",
+      "country_code": "SG",
+      "service": "ems",
+      "item": "껌",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "싱가포르로 보내는 국제우편에서 껌은 금지 품목으로 명시되어 있습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "금지품목 : 조미료, 총기류, 껌, 양도 가능한 채권, 마약류, 코뿌르 화산암"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-SG",
+          "service_type": "ems",
+          "content": "문서: 싱가포르 국제우편 발송조건\n경로: 싱가포르(SG) 국제우편 발송조건 > 싱가포르 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 조미료, 총기류, 껌, 양도 가능한 채권, 마약류, 코뿌르 화산암\n- 제한품목 : 백지수표(5kg미만), 무기명의 신용카드(10개 미만), 신문(10부), 정기간행물(5kg 미만), 주류(10리터 이하), 가축 사료(400SGD[싱가포르 달러] 미만), 담배(2kg이하),김치(정식 수입 통관 절차 필요)"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-SG",
+          "service_type": "ems",
+          "content": "문서: 싱가포르 국제우편 발송조건\n경로: 싱가포르(SG) 국제우편 발송조건 > 싱가포르 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관 유의사항 : "
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.21,
+        "judge": 3.27
+      }
+    },
+    {
+      "id": "sg-ems-kimchi",
+      "country_code": "SG",
+      "service": "ems",
+      "item": "김치",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": false,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "김치는 발송 가능하지만, 발효식품 특성으로 인해 운송 중 부패 위험이 있으며 상대국 세관에서 악취를 이유로 폐기될 수 있어요. 포장을 철저히 하고, 발송 국가의 통관 요건을 확인해야 해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "* 김치, 한약, 액젓, 된장 등 액체류를 포함한 음식은 포장 부실로 인해 운송ㆍ배달과정에서 파손 혹은 부패가 발생할 수 있으며 내용품이 훼손되어 재포장이 불가할 경우에는 수취인에게 통보 없이 폐기처리될 수 있습니다."
+        },
+        {
+          "evidence_id": "I1E5",
+          "quote": "김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n충(병원균), 잡초 종자 등 |\n\n※ 상업적으로 제조된 일부 축산물 및 가공 처리된 농산물은 반입 가능\n\n[동물검역] 반입 제한 품목\n\n[식물검역] 반입 제한 품목\n\n##### 반입 가능 품목\n\n국제우편물 동·식물검역 반입 가능 품목 상세 안내\n\n|  |  |\n| --- | --- |\n| 동물검역 대상물건 | * (유가공품) 5kg의 미만의 상업적으로 제조된 유가공품 * (육가공품) 5kg의 미만의 멸균처리된 통조림, 병조림, 레토르트 축산물 ⇒ 다만 소고"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-SG",
+          "service_type": "ems",
+          "content": "문서: 싱가포르 국제우편 발송조건\n경로: 싱가포르(SG) 국제우편 발송조건 > 싱가포르 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관 유의사항 : "
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.03,
+        "judge": 3.66
+      }
+    },
+    {
+      "id": "tw-ems-red-ginseng",
+      "country_code": "TW",
+      "service": "ems",
+      "item": "홍삼",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "홍삼 및 인삼 가공품은 수취인이 수입면허를 제출한 후에만 통관이 가능하다고 해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E4",
+          "quote": "제한품목: 의류(제조자와 원산지가 표시돼 있어야 하고 중국이 원산지면 반입금지), 음식물(10kg 이하(유통기한/제조일자/원산지)), 인삼 및 인삼가공품은 수취인이 수입면허 제출 후 통관가능"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n충(병원균), 잡초 종자 등 |\n\n※ 상업적으로 제조된 일부 축산물 및 가공 처리된 농산물은 반입 가능\n\n[동물검역] 반입 제한 품목\n\n[식물검역] 반입 제한 품목\n\n##### 반입 가능 품목\n\n국제우편물 동·식물검역 반입 가능 품목 상세 안내\n\n|  |  |\n| --- | --- |\n| 동물검역 대상물건 | * (유가공품) 5kg의 미만의 상업적으로 제조된 유가공품 * (육가공품) 5kg의 미만의 멸균처리된 통조림, 병조림, 레토르트 축산물 ⇒ 다만 소고"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-TW",
+          "service_type": "ems",
+          "content": "문서: 타이완(대만) 국제우편 발송조건\n경로: 타이완(대만)(TW) 국제우편 발송조건 > 타이완(대만) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목\n- 동물, 동물의 생산물(부산물), 육가공품, 유가공품, 과일, 씨앗, 골동품, 아스파라가스, 무알콜음료, 장뇌, 동전수집품, 총기류, 도박용 물품, 보석류, 복권 및 관련 광고, 당밀, 유리 유사물질, 설탕, 차 및 농축액, 담배 및 담배제품, 주류\n- 돼지고기(건조, 분말 등 가공된 형태도 모두 포함) , 최초 발견 시 수취인에게 200,000 TWD 벌금 부과, 2회 이상 발"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-TW",
+          "service_type": "ems",
+          "content": "문서: 타이완(대만) 국제우편 발송조건\n경로: 타이완(대만)(TW) 국제우편 발송조건 > 타이완(대만) 국제특급(EMS) > 세관·통관사항\n\n- 관세 : 면세 기준은 50위안 이하, 50위안 초과 시 신고가격에 따라 관세가 부가됨(24.12.1. 시행)\n- 다량 물품의 경우 총 신고가격 800위안을 초과하면 통관 불가(통관 불가 시 세관 계류 또는 반송 처리)\n- 다만, 다량물품이고 총 신고가격 800위안을 초과하더라도 세관에서 개인물품으로 판단할 경우 통관 가능(통관을 위해서는 수취인은 대만 세관에서 요구하는 서류 제출 필요)\n-"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.14,
+        "judge": 3.29
+      }
+    },
+    {
+      "id": "tw-ems-green-tea",
+      "country_code": "TW",
+      "service": "ems",
+      "item": "녹차",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "EMS 공통사항에 따르면 음식물류의 경우 통관 문제로 주의가 필요하며, 타이완의 경우 차는 금지 품목에 해당됩니다. 따라서 녹차는 해외 발송 시 제한이 있으며, 특히 타이완으로 보낼 수 없습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "* 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "- 금지품목... 차 및 농축액"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-TW",
+          "service_type": "ems",
+          "content": "문서: 타이완(대만) 국제우편 발송조건\n경로: 타이완(대만)(TW) 국제우편 발송조건 > 타이완(대만) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목\n- 동물, 동물의 생산물(부산물), 육가공품, 유가공품, 과일, 씨앗, 골동품, 아스파라가스, 무알콜음료, 장뇌, 동전수집품, 총기류, 도박용 물품, 보석류, 복권 및 관련 광고, 당밀, 유리 유사물질, 설탕, 차 및 농축액, 담배 및 담배제품, 주류\n- 돼지고기(건조, 분말 등 가공된 형태도 모두 포함) , 최초 발견 시 수취인에게 200,000 TWD 벌금 부과, 2회 이상 발"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-TW",
+          "service_type": "ems",
+          "content": "문서: 타이완(대만) 국제우편 발송조건\n경로: 타이완(대만)(TW) 국제우편 발송조건 > 타이완(대만) 국제특급(EMS) > 세관·통관사항\n\n- 관세 : 면세 기준은 50위안 이하, 50위안 초과 시 신고가격에 따라 관세가 부가됨(24.12.1. 시행)\n- 다량 물품의 경우 총 신고가격 800위안을 초과하면 통관 불가(통관 불가 시 세관 계류 또는 반송 처리)\n- 다만, 다량물품이고 총 신고가격 800위안을 초과하더라도 세관에서 개인물품으로 판단할 경우 통관 가능(통관을 위해서는 수취인은 대만 세관에서 요구하는 서류 제출 필요)\n-"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.97,
+        "judge": 2.98
+      }
+    },
+    {
+      "id": "hk-ems-perfume",
+      "country_code": "HK",
+      "service": "ems",
+      "item": "향수",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "홍콩(중국) 국제우편 발송조건에 따르면 향수는 금지품목으로 지정되어 있어 발송할 수 없어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "- 금지품목 : 음식물(육류, 해류), 향수, 폭약, 음란물(잡지, 서적, 그림), 자동차관련 부품은 통관불가"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-HK",
+          "service_type": "ems",
+          "content": "문서: 홍콩(중국) 국제우편 발송조건\n경로: 홍콩(중국)(HK) 국제우편 발송조건 > 홍콩(중국) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물(육류, 해류), 향수, 폭약, 음란물(잡지, 서적, 그림), 자동차관련 부품은 통관불가\n- 제한품목 : 약품(조제약포함), 곡류, 식품, 살충제, 위험물, 브러쉬(솔) 등은 수입허가서(Import License) 필요, 담배, 주류(화물로 가능), 가죽제품(가죽종류를 상업송장(invoice)에 기재), 인조가죽은 Synthetic Fiber Sample로 기재"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n화칼슘** | 확인필요 | MSDS 내용 확인 후 판단 가능 (접수 전 국제우편물류센터 확인 필요) |\n| **제습제** | 가능 | 가능 |\n| **자동차용 배터리** | 불가 |  |\n| **빙초산** | 불가 |  |\n| **변기 세정제** | 확인필요 | DG마크 미부착된 완제품일 경우 가능 |\n| **구"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-HK",
+          "service_type": "ems",
+          "content": "문서: 홍콩(중국) 국제우편 발송조건\n경로: 홍콩(중국)(HK) 국제우편 발송조건 > 홍콩(중국) 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024.10.22.>\n-통관 유의사항"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.06,
+        "judge": 2.14
+      }
+    },
+    {
+      "id": "nz-ems-e-cigarette",
+      "country_code": "NZ",
+      "service": "ems",
+      "item": "전자담배",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "전자담배는 항공 탑재가 금지된 품목이며, 뉴질랜드로의 국제우편 발송 시 금지 품목으로 분류되어 있어 보낼 수 없어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "배터리 포함된 물품 예시 : 노트북,휴대폰무선충전기,태블릿PC,전자책,아이폰,이발기,전자담배,전자사전,체온기,호버보드,혈압계,휴대폰,블루투스헤드셋,완구·장난감 등"
+        },
+        {
+          "evidence_id": "I1E2",
+          "quote": "금지품목 : 흡연·약물 기구 (대마초·메탐페타민용 파이프, 전자담배(Vaporisers) 등)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n| 품목 | 가능여부 | 발송조건 및 사유 |\n| --- | --- | --- |\n| **임의용기에 포장된 액체/분말류** | **확인필요** | 검사용 시료,샘플용 화장품,토너,잉크,접착제, 각종 가루 등 내용물을 알수 없는 액체 또는 분말은 물질안전보건자료(MSDS) 첨부 필요 |\n| **식품/씨앗/도검** "
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-NZ",
+          "service_type": "ems",
+          "content": "문서: 뉴질랜드 국제우편 발송조건\n경로: 뉴질랜드(NZ) 국제우편 발송조건 > 뉴질랜드 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 흡연·약물 기구 (대마초·메탐페타민용 파이프, 전자담배(Vaporisers) 등), 특정 무기류-플릭 나이프(flick knives), 버터플라이 나이프, 소드스틱(swordsticks), 너클더스터(knuckle dusters), 고출력 소형 자석( “buckyballs”), 범죄 목적 물품\n- 수류탄류의 반입을 철저히 금지(뇌관 제외된 장식품, 장난감, 모형류도 반입 금지)\n- 제한품목 :"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-NZ",
+          "service_type": "ems",
+          "content": "문서: 뉴질랜드 국제우편 발송조건\n경로: 뉴질랜드(NZ) 국제우편 발송조건 > 뉴질랜드 국제특급(EMS) > 세관·통관사항\n\n- 면세한도: 1000NZD (487SDR)\n- 수취인이 개인일 경우 비자와 여권의 모든 페이지 제출 필요, 신상품, 담배와 주류가 포함된 물품은 모두 과세대상\n- 사기 우편물에 대한 폐기(압수)등 조치"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.95,
+        "judge": 3.04
+      }
+    },
+    {
+      "id": "us-parcel-snack",
+      "country_code": "US",
+      "service": "parcel",
+      "item": "과자",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "과자는 국제우편을 통해 미국으로 보낼 수 있지만, 식품은 통관 절차가 까다로울 수 있습니다. 특히 과자에 육류 성분이 포함되어 있으면 반입이 불가합니다. 따라서 정확한 성분을 사전 확인하고, 미국 FDA에 사전신고를 해야 합니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등"
+        },
+        {
+          "evidence_id": "I1E2",
+          "quote": "음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "미국 FDA 사전신고 사이트 접속 → 사전신고용 계정개설 → 식품발송 사전신고 및 승인번호 획득 → 우편물 접수(주소 기표지에 FDA 승인번호 기재)"
+        },
+        {
+          "evidence_id": "I1E5",
+          "quote": "(식육가공품) : 소고기가 포함된 카레 및 스프, 소시지, 햄, 육포, 식육성분이 포함된 과자류"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-country-US",
+          "service_type": "parcel",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제소포(항공/선편) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초 , 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 의약품(양약, 한약, 영양제등), 건강보조제, 건강식품(홍삼, 인삼등)비알콜음료, 혈액(Airfreight mode)\n- 개별 진공포장된 한약은 나무포장하여 발송가능하며 송장상에 Health "
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 기타 국제우편으로 접수 불가능한 품목 안내\n\n다음 물품들은 국제우편으로 접수할 수 없습니다. (통상/소포 공통)\n\n##### UPU 규정에 따른 금지물품\n\n**내용물의 성질이나 그 포장이 직원이나 일반 대중에게 위험을 주거나, 다른 소포,우편장비 또는 제 3자의 소유물을 오염시키거나 훼손할 수 있는 물품**\n\n**배달국가에서 수입이나 유포를 "
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-us-food-prior-notice",
+          "service_type": "ALL",
+          "content": "문서: 미국행 식품 사전신고\n경로: 미국행 식품 사전신고 > 미국으로 식품을 발송할 때 유의사항 > 사전신고 요령\n\n##### 사전신고 시기\n\n* 우체국에 우편물을 접수하시기 전에 미리 사전신고를 마친 후 접수하여야 합니다.\n\n##### 사전신고 수단\n\n* 미국 FDA에서 운영하는 사전신고 인터넷 사이트에 접속하여 신고하여야 합니다.\n* 우편 및 전화 등에 의한 신고는 불가능합니다.\n\n* FDA 인터넷 사이트 : http://www.fda.gov\n* FDA 사전신고 사이트 : https://www.access.fda.gov\n\n###"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n외국으로부터 아프리카돼지열병(ASF), 조류인플루엔자(HPAI) 등 가축전염병과 해외 병해충의 유입을 방지하기 위하여 국제우편을 통한 외국산 축산물, 식물의 반입을 엄격히 제한\n\n가. 검역 신청\n- 국제우편(EMS,소포,통상)을 통해 검역대상품인 지정검역물을 반입하는 수취인은 지정검역물을 검역관에게 신고하여 검역을 받아야 하며, 서류심사 및 현물 검사를 통해 이상이 없는 경우에만 개방\n\n    ⇒ 신고대상 검역물은 아래의 반입제한 및 반입가능 품목 참고\n-"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.22,
+        "judge": 3.62
+      }
+    },
+    {
+      "id": "jp-parcel-cold-medicine",
+      "country_code": "JP",
+      "service": "parcel",
+      "item": "감기약",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "감기약은 일반적으로 의료용 제품으로 분류되며, 일본에서는 의약품의 국제우편 발송이 금지되어 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E3",
+          "quote": "금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품,\n요리되지 않은(육류, 생선, 계란 또는 유제품) 냉동식료품, 훈제제품 또는 생식품, 화기, 부품 및 부속품, 탄약 등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 기타 국제우편으로 접수 불가능한 품목 안내\n\n다음 물품들은 국제우편으로 접수할 수 없습니다. (통상/소포 공통)\n\n##### UPU 규정에 따른 금지물품\n\n**내용물의 성질이나 그 포장이 직원이나 일반 대중에게 위험을 주거나, 다른 소포,우편장비 또는 제 3자의 소유물을 오염시키거나 훼손할 수 있는 물품**\n\n**배달국가에서 수입이나 유포를 "
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-JP",
+          "service_type": "parcel",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제소포(항공/선편) > 금지·제한품목\n\n- 육류 통관 강화(아프리카돼지열병 관련 국가로부터의 수입 금지) (UPU 회람 2019-92, 2019.6.10)\nwww.maff.go.jp/aqs/english/news/im_prohibit.html (참조)\n(일본 관세청 안내 사이트)http://www.post.japanpost.jp/int/use/receive_en.html\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(1"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "law-notice-prohibited-items",
+          "service_type": "ALL",
+          "content": "문서: 국제우편금지물품\n경로: 국제우편금지물품\n\n국제우편금지물품 [시행 2018. 10. 4.] [과학기술정보통신부고시 제2018-65호, 2018. 9. 28., 제정]\n국제우편금지물품\n[시행 2018. 10. 4.] [과학기술정보통신부고시 제2018-65호, 2018. 9. 28., 제정]\n우정사업본부(국제사업과), 044-200-8288\n1 . UPU 협약에서 정한 금지물품\n가. 부정행위를 조장하거나 정당한 우편요금 지급을 회피하려는 의도에서 발송된 우편물\n나. 내용물의 성질이나 포장으로 인하여 직원이나 일반 대중에게 위험을 "
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "parcel",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제소포(항공/선편) > 긴급공지\n\n- 국제 항공우편물(통상, 소포, K-Packet) 접수 재개(09/09부터) (우정사업본부 국제사업과, 2022.09.08.)\n- 도착국가 선편우편물 처리 지연. 평균 송달일수 기준 1~2개월 이상 지연발생(우정사업본부 국제사업과, 2021.03.31.)\n- 항공스페이스 부족으로 항공우편물 운송지연. 접수 시 고객 사전 안내 및\n시한성 있는 우편물은 반드시 지연 안내 (서울청 국제영업과, 2021.09.14.)"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.02,
+        "judge": 2.63
+      }
+    },
+    {
+      "id": "de-letter-power-bank",
+      "country_code": "DE",
+      "service": "letter",
+      "item": "보조배터리",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "보조배터리에 사용되는 리튬 배터리는 독일로 보내는 모든 우편물에 대해 접수가 금지되어 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E2",
+          "quote": "모든 우편물에 대해 리튬 배터리/셀 접수 금지(UPU 회람 2019-47)(20190430)"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\nMSDS 첨부 필요 (수량 제한 없음) |\n| **변압기** | 확인필요 | 가정용 변압기 한정 |\n| **TV/모니터** | 확인필요 | 충전식 포터블 모니터/TV는 불가 |\n| **어댑터** | 가능 |  |\n| **OTP 카드 자동차 키** | 가능 | 최대 2개 허용, 충전식 자동차 키는 불가 (단추형 전"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-DE",
+          "service_type": "letter",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제통상(서신·인쇄물·소형포장물 등) > 금지·제한품목\n\n- 금지품목: 총기류, 불법선전물, 외설적이거나\n부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,\n살아있는 동물, 무기류, 음료\n- 수입제한품목: 전파제품(허가증 필요),\n화학제품(허가증 필요), 담배(납세표시 첩부),\n포장의약품(허가증 필요), 동물 및 식물제품(위생 등\n소비적정 허가증, 품질보증서 필요) 직물(Textile)-\n1000 EUR 이하 시 원산지증명서 및 수입허가서 필요,\n전파제품"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-DE",
+          "service_type": "letter",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제통상(서신·인쇄물·소형포장물 등) > 세관·통관사항\n\n- 통관허용한도: 1000 EUR (초과 시 정식통관 절차 필요)\n- 상품에는 상업송장(invoice), 수입면장 및\n원산지증명서 첨부\n- 상업견본에 CN22, 상업송장(invoice) 1매 첨부\n또는 ADR에 따라 물질안전보건자료(MSDS) 첨부\n- 개인이 녹화한 CD/DVD, 공모전 응모작품,\n전시출품 작품, 수리 목적의 시계 등은 모두 세관에\n계류\n- 의약품은 폐기/반송, 대부분의 음식물은 통관"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-DE",
+          "service_type": "letter",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제통상(서신·인쇄물·소형포장물 등) > 기본 조건\n\n- 요금적용지역: 항공 3 지역 선편 불가\n- 교부보관 기간(일): 항공 30\n- 보험취급가액(SDR): 0\n- 제한중량(g): 2000\n- 보험소포 취급여부: 항공 취급안함\n- 주소변경/반환청구: 항공 취급"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-DE",
+          "service_type": "ALL",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건\n\n한국에서 독일(으)로 보낼 수 있는 서비스: 국제특급(EMS), EMS프리미엄, 국제소포(항공/선편), 국제통상(서신·인쇄물·소형포장물 등), K-Packet"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.24,
+        "judge": 2.15
+      }
+    },
+    {
+      "id": "au-letter-kimchi",
+      "country_code": "AU",
+      "service": "letter",
+      "item": "김치",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "conflicting",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": true,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "김치는 일부 국가로 보낼 수 있지만, 호주로는 금지된 품목이네요. 자세한 정보가 필요해요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E2",
+          "quote": "김치 발송가능국가 한정 김치 접수 가능."
+        },
+        {
+          "evidence_id": "I1E5",
+          "quote": "- 금지품목 : 식품류(특히 김치류)..."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-quarantine",
+          "service_type": "ALL",
+          "content": "문서: 국제우편물 동·식물 검역 안내\n경로: 국제우편물 동·식물 검역 안내\n\n충(병원균), 잡초 종자 등 |\n\n※ 상업적으로 제조된 일부 축산물 및 가공 처리된 농산물은 반입 가능\n\n[동물검역] 반입 제한 품목\n\n[식물검역] 반입 제한 품목\n\n##### 반입 가능 품목\n\n국제우편물 동·식물검역 반입 가능 품목 상세 안내\n\n|  |  |\n| --- | --- |\n| 동물검역 대상물건 | * (유가공품) 5kg의 미만의 상업적으로 제조된 유가공품 * (육가공품) 5kg의 미만의 멸균처리된 통조림, 병조림, 레토르트 축산물 ⇒ 다만 소고"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\n인 필요)** |\n| **구강 청결제** | 가능 | 완제품일 경우 가능 |\n| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |\n| **홍삼농축액** | **확인필요*"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-us-food-prior-notice",
+          "service_type": "ALL",
+          "content": "문서: 미국행 식품 사전신고\n경로: 미국행 식품 사전신고 > 미국으로 식품을 발송할 때 유의사항\n\n미국은 자국으로 수입되는 식품에 의한 테러의 위협에 대처하기 위하여 공공보건 및 바이오테러리즘 대응법률(The Bio-Terrorism Act)을 제정하여 시행하고 있습니다.\n이에 따라 미국으로 식품을 발송하시는 경우에는 미국 식품의약품안전청(FDA)에 사전신고하셔야 하며, 사전신고가 부적절하거나 사전신고 없이 발송된 우편물은 미국에 정상적으로 배달되지 않고 반송되거나 폐기될 수 있습니다.\n\n##### 다음의 경우에는 사전신고가 면제되"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-us-food-prior-notice",
+          "service_type": "ALL",
+          "content": "문서: 미국행 식품 사전신고\n경로: 미국행 식품 사전신고 > 미국으로 식품을 발송할 때 유의사항 > 사전신고 요령\n\n##### 사전신고 시기\n\n* 우체국에 우편물을 접수하시기 전에 미리 사전신고를 마친 후 접수하여야 합니다.\n\n##### 사전신고 수단\n\n* 미국 FDA에서 운영하는 사전신고 인터넷 사이트에 접속하여 신고하여야 합니다.\n* 우편 및 전화 등에 의한 신고는 불가능합니다.\n\n* FDA 인터넷 사이트 : http://www.fda.gov\n* FDA 사전신고 사이트 : https://www.access.fda.gov\n\n###"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-AU",
+          "service_type": "letter",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제통상(서신·인쇄물·소형포장물 등) > 금지·제한품목\n\n- 금지품목 : 식품류(특히 김치류),침구(털제품),의약품,헌옷,통조림,축산물,과일류,동물부산물,귀금속,여권 등\n- 음식물(부패 여부와 관계없이 음식물 전체로 확대), 밀짚과 기타 식물재료가 포함된 생산품, 동식물 관련 생산품 등\n- 제한품목: 육류, 기타 동물제품, 가루분유, 고체우유(호주검역당국의 허가) 식품, 생수(Mineral Water), 청량"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.34,
+        "judge": 2.27
+      }
+    },
+    {
+      "id": "us-ems-book",
+      "country_code": "US",
+      "service": "ems",
+      "item": "책",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": null,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거에는 책에 대한 금지나 제한 사항이 명시되지 않았어요. 따라서 책은 EMS를 통해 국제적으로 발송하는 데 특별한 제한이 없는 것으로 보여요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "* 통관운송도중 폐기 시 동봉물품도 함께 폐기되거나 오염될 수 있으므로 서류, 서적 등 중요물품 및 고가품은 별도로 발송할 것을 권장합니다."
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 긴급공지\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나 가격, 개수, 중량, HS code 등의 세관신고서를 정확하게 작성하지 않을 경우) 사전통보 없이 반송 및 압수, 폐기 될 수 있으며, 행방조사를 통한 반송, 분실사유 확인 및 손해배상 불가(발송인과 폐기 승인 후 접수"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등\n- 제한품목 : 비알콜음료, 혈액(Airfreight mode), 화장품\n-의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-US",
+          "service_type": "ems",
+          "content": "문서: 미국 국제우편 발송조건\n경로: 미국(US) 국제우편 발송조건 > 미국 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능(알래스카, 하와이 제외)\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>\n- 통관"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.91,
+        "judge": 2.58
+      }
+    },
+    {
+      "id": "jp-ems-handkerchief",
+      "country_code": "JP",
+      "service": "ems",
+      "item": "손수건",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": null,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거 자료에는 손수건에 대한 금지나 제한 사항이 명시되어 있지 않아요. 따라서 손수건은 국제우편 발송에 특별한 제한 없이 보낼 수 있을 것으로 보여요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "EMS 국가별 공통사항"
+        },
+        {
+          "evidence_id": "I1E2",
+          "quote": "보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)"
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "국제특급(EMS) 서비스 안내"
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "일본 국제우편 발송조건"
+        },
+        {
+          "evidence_id": "I1E5",
+          "quote": "일본 국제우편 발송조건"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-sendable-items",
+          "service_type": "ALL",
+          "content": "문서: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)\n경로: 보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품) > 항공탑재금지물품 > 주로 적발되는 항공탑재금지물품 > 항공탑재금지 물품 상세 예시\n\nMSDS 첨부 필요 (수량 제한 없음) |\n| **변압기** | 확인필요 | 가정용 변압기 한정 |\n| **TV/모니터** | 확인필요 | 충전식 포터블 모니터/TV는 불가 |\n| **어댑터** | 가능 |  |\n| **OTP 카드 자동차 키** | 가능 | 최대 2개 허용, 충전식 자동차 키는 불가 (단추형 전"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 금지·제한품목\n\n- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지\n- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-JP",
+          "service_type": "ems",
+          "content": "문서: 일본 국제우편 발송조건\n경로: 일본(JP) 국제우편 발송조건 > 일본 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 일본행 EMS 김치 접수 전면 시행 주의사항 안내 (23.11.06.부터)\n- 일본 전 지역. 단, 오키나와(우편번호 앞 두자리가 90XXX로 시작)는 제외\n- 총괄국(포장센터가 있는 소속국"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.92,
+        "judge": 2.61
+      }
+    },
+    {
+      "id": "gb-ems-postcard",
+      "country_code": "GB",
+      "service": "ems",
+      "item": "엽서",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": null,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거들에서는 엽서의 금지나 제한에 대한 언급이 없습니다. 따라서 엽서는 특별한 제한 없이 발송할 수 있어요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다."
+        },
+        {
+          "evidence_id": "I1E2",
+          "quote": ") - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실) - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능"
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "- 금지품목 : 부도덕한 내용의 서류, 광물성 제품, 외설비디오, 외설적인 음반 및 인쇄물..."
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-country-GB",
+          "service_type": "ems",
+          "content": "문서: 영국 국제우편 발송조건\n경로: 영국(GB) 국제우편 발송조건 > 영국 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 부도덕한 내용의 서류, 광물성 제품, 외설비디오, 외설적인 음반 및 인쇄물, 칼날이 나오는 칼, 감옥에서 만든 상품, 전파송신기, 복권 및 관련 광고,물개 가죽제품, 진공포장 안된 음식물, 사람 또는 동물 유해/유골\n- 제한품목 : 동물제품, 식물 및 식물제품, 채소류, 무기류, Textile sample(5~10kg는 원산지 증명서 없이 통관가능), 생선 및 육류반입 제한중량은 1kg(초과 시 수의검역"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-GB",
+          "service_type": "ems",
+          "content": "문서: 영국 국제우편 발송조건\n경로: 영국(GB) 국제우편 발송조건 > 영국 국제특급(EMS) > 기본 조건\n\n- 요금적용지역: GB 지역\n- 취급지역: 전지역\n- 도착통지: 취급\n- 최대규격: 길이<= 1.5m , 길이+둘레<= 3m\n- 제한중량(g): 30,000\n- 배달횟수: 1\n- 배달소요일수(서류): 6\n- 배달불능시 보관기간: 21\n- 배달불가요일: 토,일,공\n- 세관신고서 작성기준: 모두첨부"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 0.9,
+        "judge": 3.01
+      }
+    },
+    {
+      "id": "ca-ems-keyring",
+      "country_code": "CA",
+      "service": "ems",
+      "item": "키링",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
+      "retrieval_hit": null,
+      "citation_errors": [
+        "근거에 없는 인용문: I1E2"
+      ],
+      "raw_decision": {
+        "status": "no_restriction_found",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·소포 공통) - 마약류, 향정신성물질, 외설적이거나 비도덕적인 물품 - 폭발성·가연성(스프레이, 향수, 부탄가스) 물질, 방사성 물질 또는 기타 위험한 물질 * 배달 국가에서 수입이나 유포를 금하는 물품 - 국가별 수입금지 물품은 각국의 관계 법률에 따라 다릅니다."
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "상품과 유가물품에는 '세관신고서(CN23)'가 인쇄된 상품용 주소기표지를 사용하여야 합니다."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n국제특급(EMS) 국가별 공통사항에 대한 구분, 접수 시 필수 확인사항의 정보를 제공하는 표입니다.\n\n| 구분 | 접수 시 필수 확인사항 |\n| --- | --- |\n| 국가별 휴일정보 | * www.epost.kr 에서 수시로 각 국가별 휴일정보 확인 가능합니다. * 중동지역 일부 국가의 경우 목, 금이 우리나라 공휴일인 경우가 있으니 주의하시기 바랍니다. |\n| 금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-CA",
+          "service_type": "ems",
+          "content": "문서: 캐나다 국제우편 발송조건\n경로: 캐나다(CA) 국제우편 발송조건 > 캐나다 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22>\n* 통관 유의사항 : 고객은"
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-CA",
+          "service_type": "ems",
+          "content": "문서: 캐나다 국제우편 발송조건\n경로: 캐나다(CA) 국제우편 발송조건 > 캐나다 국제특급(EMS) > 기본 조건\n\n- 요금적용지역: CA 지역\n- 취급지역: 전지역\n- 도착통지: 취급\n- 최대규격: 길이<= 1.5m , 길이+둘레<= 3m\n- 제한중량(g): 30,000\n- 배달횟수: 1\n- 배달소요일수(서류): 6\n- 배달불능시 보관기간: 15\n- 배달불가요일: 토,일,공\n- 세관신고서 작성기준: 모두첨부"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.18,
+        "judge": 3.84
+      }
+    },
+    {
+      "id": "au-ems-new-tshirt",
+      "country_code": "AU",
+      "service": "ems",
+      "item": "새 티셔츠",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": null,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 여러 규정 자료를 검토한 결과, 새 티셔츠에 대한 금지나 제한 규정은 찾아볼 수 없었어요. 따라서 특별한 제한 없이 국제 우편으로 보낼 수 있을 것 같아요.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "* 통관대행 불가 | * 세관 계류 시(서류 포함) 해당국의 수취인이 직접 통관해야 합니다."
+        },
+        {
+          "evidence_id": "I1E5",
+          "quote": "- 식품류,침구(털제품),의약품,헌옷,통조림,축산물,과일류,동물부산물,귀금속,여권 등 밀짚과 기타 식물재료가 포함된 생산품, 동식물 관련 생산품 등"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n)    - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등 |\n| 음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다. * 음식물류는 내용품의 변질에 대한 보상이 불가합니다.(보험취급"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 특수취급의 종류\n\n국제특급우편물의 특수취급의 종류는 다음과 같습니다.\n\n* 배달통지\n* 보험취급"
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-AU",
+          "service_type": "ems",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 김치 접수 가능\n* 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024."
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-AU",
+          "service_type": "ems",
+          "content": "문서: 오스트레일리아(호주) 국제우편 발송조건\n경로: 오스트레일리아(호주)(AU) 국제우편 발송조건 > 오스트레일리아(호주) 국제특급(EMS) > 금지·제한품목\n\n- 금지품목\n- 통관 불허로 인한 배달불능 우편물은 손해배상 불가(압수, 폐기 또는 반송처리 될 수 있으며 세관 결정에 따름)\n- 담배 :담배 제품 수입 금지 (2019.7.1) 허위로 세관신고서 작성하거나 담배 제품이 전체 또는 일부 포함된 소포 모두 세관 압류, 폐기조치(담배 제외한 물품만 일부 배달 및 반송 불가)\n- 동물을 재료로한 반려동물 음식(발견 시 즉시 폐기"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.6,
+        "judge": 3.91
+      }
+    },
+    {
+      "id": "de-ems-book",
+      "country_code": "DE",
+      "service": "ems",
+      "item": "책",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "strict_correct": true,
+      "retrieval_hit": null,
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거 중 '책'에 대한 금지 또는 제한 규정은 없습니다. 따라서 현재 확인되는 바로는 책은 특별한 제한 없이 발송 가능합니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자)"
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계"
+        },
+        {
+          "evidence_id": "I1E5",
+          "quote": "- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의"
+        }
+      ],
+      "retrieved": [
+        {
+          "evidence_id": "I1E1",
+          "document_id": "epost-common-ems-common-notice",
+          "service_type": "ALL",
+          "content": "문서: EMS 국가별 공통사항\n경로: EMS 국가별 공통사항 > 국가별 공통사항\n\n지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자) |"
+        },
+        {
+          "evidence_id": "I1E2",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내 > 특성 > 종류 > 주소기표지 및 첨부서류\n\n* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다.\n* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다.\n* 상업목적의 수출·입 물품에는 세관공무원이 참고할 수 있도록 다음 서류를 봉투에 넣어 우편물 표면에 첨부하여야 통관이 쉽게 이루어집니다.\n\n  • 상업송장(당해 회사명과 주소가 인쇄된 서식에 내용품과 가격을 기재한"
+        },
+        {
+          "evidence_id": "I1E3",
+          "document_id": "epost-common-service-ems",
+          "service_type": "ems",
+          "content": "문서: 국제특급(EMS) 서비스 안내\n경로: 국제특급(EMS) 서비스 안내\n\n* EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로 우정사업본부가 외국의 공신력 있는 우편당국과 체결한 특별협정에 따라 취급합니다."
+        },
+        {
+          "evidence_id": "I1E4",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 금지·제한품목\n\n- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계\n- 제한품목 : 전파제품(허가증 필요), 화학제품(허가증 필요), 담배(납세표시 첩부), 포장의약품(허가증 필요), 동물 및 식물제품(위생 등소비적정 허가증, 품질보증서 필요) 직물(Textile)-1000 EUR 이하 원산지증명서 "
+        },
+        {
+          "evidence_id": "I1E5",
+          "document_id": "epost-country-DE",
+          "service_type": "ems",
+          "content": "문서: 독일 국제우편 발송조건\n경로: 독일(DE) 국제우편 발송조건 > 독일 국제특급(EMS) > 접수 시 주의사항\n\n- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의 - 지연, 분실 시 간접피해 보상 불가 - 시행 : '21. 2. 23\n- 포장상태와 관계없이 김치 전체 접수중지\n사유 : 성수기 항공 운송편부족과 접수 물량증가로 인한 발송지연 접수중지: 2020.11. ~ <출처: 우정사업본부 국제사업과, 2021. 10. 2"
+        }
+      ],
+      "latency_s": {
+        "retrieval": 1.26,
+        "judge": 3.84
+      }
+    }
+  ]
+}
