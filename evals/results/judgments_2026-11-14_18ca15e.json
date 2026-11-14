@@ -1,7 +1,7 @@
 {
   "meta": {
-    "run_at": "2026-11-14T02:16:27",
-    "git_commit": "8f3ccb8",
+    "run_at": "2026-11-14T02:11:58",
+    "git_commit": "18ca15e",
     "git_dirty": false,
     "chat_model": "gpt-4o",
     "embedding_model": "text-embedding-3-small",
@@ -11,30 +11,30 @@
   },
   "summary": {
     "accuracy": {
-      "correct": 38,
+      "correct": 30,
       "total": 55,
-      "rate": 0.691
+      "rate": 0.545
     },
     "strict_accuracy": {
-      "correct": 37,
+      "correct": 29,
       "total": 55,
-      "rate": 0.673
+      "rate": 0.527
     },
     "accuracy_by_expected_status": {
       "no_restriction_found": {
-        "correct": 6,
+        "correct": 5,
         "total": 10,
-        "rate": 0.6
+        "rate": 0.5
       },
       "prohibited": {
-        "correct": 21,
+        "correct": 17,
         "total": 34,
-        "rate": 0.618
+        "rate": 0.5
       },
       "restricted": {
-        "correct": 11,
+        "correct": 8,
         "total": 11,
-        "rate": 1.0
+        "rate": 0.727
       }
     },
     "retrieval_recall": {
@@ -43,61 +43,56 @@
       "rate": 0.809
     },
     "accuracy_when_retrieved": {
-      "correct": 30,
+      "correct": 24,
       "total": 38,
-      "rate": 0.789
+      "rate": 0.632
     },
     "accuracy_when_missed": {
-      "correct": 2,
+      "correct": 1,
       "total": 9,
-      "rate": 0.222
+      "rate": 0.111
     },
-    "citation_failures": 3,
+    "citation_failures": 18,
     "confusion": [
       {
         "expected": "no_restriction_found",
         "predicted": "insufficient_evidence",
-        "count": 4
+        "count": 5
       },
       {
         "expected": "no_restriction_found",
         "predicted": "no_restriction_found",
-        "count": 6
-      },
-      {
-        "expected": "prohibited",
-        "predicted": "conflicting",
-        "count": 1
+        "count": 5
       },
       {
         "expected": "prohibited",
         "predicted": "insufficient_evidence",
-        "count": 4
-      },
-      {
-        "expected": "prohibited",
-        "predicted": "no_restriction_found",
-        "count": 1
+        "count": 14
       },
       {
         "expected": "prohibited",
         "predicted": "prohibited",
-        "count": 20
+        "count": 16
       },
       {
         "expected": "prohibited",
         "predicted": "restricted",
-        "count": 8
+        "count": 4
+      },
+      {
+        "expected": "restricted",
+        "predicted": "insufficient_evidence",
+        "count": 3
       },
       {
         "expected": "restricted",
         "predicted": "restricted",
-        "count": 11
+        "count": 8
       }
     ],
     "avg_latency_s": {
-      "retrieval": 1.16,
-      "judge": 2.89
+      "retrieval": 1.11,
+      "judge": 3.04
     }
   },
   "results": [
@@ -116,11 +111,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "과자와 같은 음식물은 미국으로 국제우편 발송 시 금지되어 있어요.",
+      "reason": "미국으로 국제우편 발송 시, 과자를 포함한 모든 음식물은 금지품목으로 분류되어 있습니다. 따라서 발송이 불가능합니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등..."
+          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등"
         },
         {
           "evidence_id": "I1E2",
@@ -161,7 +156,7 @@
       ],
       "latency_s": {
         "retrieval": 2.54,
-        "judge": 3.0
+        "judge": 3.45
       }
     },
     {
@@ -179,7 +174,7 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "미국으로 보낼 경우 화장품은 제한품목에 해당돼요. 발송 전에 구체적인 통관 규정을 확인해야 해요.",
+      "reason": "립밤은 화장품 범주에 포함되며, 미국으로 국제우편 발송 시 제한 품목으로 분류되어 있어요. 화장품은 제한 조건에 따라 통관 절차가 필요할 수 있음을 주의해 주세요.",
       "quotes": [
         {
           "evidence_id": "I1E1",
@@ -219,8 +214,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.65,
-        "judge": 2.39
+        "retrieval": 1.52,
+        "judge": 2.45
       }
     },
     {
@@ -238,7 +233,7 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "라면은 미국으로 발송 시 금지품목으로 분류되어 있어요. 스프를 포함한 라면을 보내는 것은 허용되지 않아요.",
+      "reason": "라면은 미국으로의 국제우편 발송 시 명시적으로 금지된 품목이에요. 특히, 라면의 스프가 포함된 경우에도 발송할 수 없어서 주의가 필요해요.",
       "quotes": [
         {
           "evidence_id": "I1E1",
@@ -278,8 +273,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.49,
-        "judge": 2.93
+        "retrieval": 1.34,
+        "judge": 3.07
       }
     },
     {
@@ -298,11 +293,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "참기름은 미국으로의 국제우편을 통해 발송할 수 없는 금지품목이에요. 미국 국제우편 발송조건에 따르면 식용유, 특히 참기름과 올리브유 등은 금지품목으로 명시되어 있어요.",
+      "reason": "참기름은 미국으로의 국제우편 발송 시 금지 품목에 해당해요. 따라서 미국으로 배송할 수 없답니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등"
+          "quote": "- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등"
         }
       ],
       "retrieved": [
@@ -338,8 +333,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.93,
-        "judge": 2.69
+        "retrieval": 1.2,
+        "judge": 2.62
       }
     },
     {
@@ -351,19 +346,24 @@
       "acceptable_statuses": [
         "restricted"
       ],
-      "predicted_status": "restricted",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "비타민과 같은 건강보조 식품은 미국으로의 국제우편 발송 시 제한 품목에 해당해요. 발송 가능 여부는 추가적인 서류나 검토가 필요할 수 있어요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "- 의약품(양약, 한약 등)/건강보조제(영양제, 비타민, 오메가3 등)/건강식품(홍삼, 인삼등)"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -397,8 +397,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.27,
-        "judge": 2.33
+        "retrieval": 1.22,
+        "judge": 3.65
       }
     },
     {
@@ -416,7 +416,7 @@
       "retrieval_hit": null,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "제공된 근거에는 앞치마와 관련된 제한이나 금지에 대한 내용이 없어서, 특별한 제한 없이 발송이 가능할 것으로 보여요.",
+      "reason": "제공된 근거에서는 앞치마에 대한 제한이나 금지 규정을 찾을 수 없었어요. 음식물이나 유학서류 등에 대한 제한 사항은 있지만, 앞치마는 별도 언급되지 않았습니다.",
       "quotes": [],
       "retrieved": [
         {
@@ -451,8 +451,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.36,
-        "judge": 3.26
+        "retrieval": 1.38,
+        "judge": 2.41
       }
     },
     {
@@ -464,19 +464,24 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "prohibited",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "노트북은 리튬 이온 배터리가 포함된 전자기기로, 이런 배터리가 있는 물품은 발송이 금지되어 있어요. 배터리를 분리 후 본체만 보내는 것도 허용되지 않습니다.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "리튬 이온·리튬 메탈 등의 배터리 및 해당 배터리가 포함된 모든 전자기기 | **불가** | ... \n*배터리 포함된 물품 예시 :  노트북..."
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1"
       ],
+      "raw_decision": {
+        "status": "prohibited",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "리튬 이온·리튬 메탈 등의 배터리 및 해당 배터리가 포함된 모든 전자기기 불가 ① 니켈류 배터리를 제외한 충전 사용하는 배터리는 종류, 용량에 상관없이 발송 불가 ② 배터리 분리가 가능할 경우에는 분리 후 배터리를 제외한 본체만 발송 가능 아이패드 등 일체(내장)형도 예외없이 발송 불가 \\*배터리 포함된 물품 예시 : 노트북,휴대폰무선충전기,태블릿PC,전자책,아이폰,이발기,전자담배,전자사전,체온기,호버보드,혈압계,휴대폰,블루투스헤드셋,완구·장난감 등"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -510,8 +515,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.92,
-        "judge": 2.43
+        "retrieval": 1.4,
+        "judge": 3.06
       }
     },
     {
@@ -529,7 +534,7 @@
       "retrieval_hit": false,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "향수는 '화장품'에 해당하므로, 미국으로 발송 시 제한품목으로 분류돼요. 통관 확인이 필요할 수 있어요.",
+      "reason": "향수는 화장품으로 분류되며, 제한 품목으로 지정되어 있습니다. 따라서, 발송 시 주의사항 및 관련 서류를 갖추는 것이 필요합니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
@@ -569,8 +574,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.18,
-        "judge": 2.39
+        "retrieval": 1.16,
+        "judge": 2.11
       }
     },
     {
@@ -589,15 +594,19 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "김치를 보낼 수 있는지 여부는 목적지에 따라 달라집니다. 미국으로 김치를 보낼 때는 알래스카와 하와이를 제외하고 접수가 가능합니다. 다만, 포장을 잘해야 하고 통관 사항을 신경 써야 합니다.",
+      "reason": "김치는 통관 과정에서 부패나 파손될 가능성이 있어 주의가 필요하며, 일부 제한이 있습니다. 특히 운송 중 기온과 기압 변화에 의해 악취가 생길 수 있어 상대국 세관에서 폐기할 수 있습니다. 또한, 미국으로 발송할 때는 특정 조건 하에 접수가 가능합니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "김치, 한약, 액젓, 된장 등 액체류를 포함한 음식은 포장 부실로 인해 운송ㆍ배달과정에서 파손 혹은 부패가 발생할 수 있으며 내용품이 훼손되어 재포장이 불가할 경우에는 수취인에게 통보 없이 폐기처리될 수 있습니다."
+          "quote": "* 김치, 한약, 액젓, 된장 등 액체류를 포함한 음식은 포장 부실로 인해 운송ㆍ배달과정에서 파손 혹은 부패가 발생할 수 있으며 내용품이 훼손되어 재포장이 불가할 경우에는 수취인에게 통보 없이 폐기처리될 수 있습니다."
         },
         {
           "evidence_id": "I1E3",
-          "quote": "- 김치 접수 가능(알래스카, 하와이 제외) - 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지 <우정사업본부 국제사업과, 2024. 10. 22.>"
+          "quote": "- 김치 접수 가능(알래스카, 하와이 제외) - 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지"
+        },
+        {
+          "evidence_id": "I1E2",
+          "quote": "- 금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초, 식용유(참기름, 올리브유 등), 모조품 등"
         }
       ],
       "retrieved": [
@@ -633,8 +642,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.06,
-        "judge": 3.69
+        "retrieval": 1.2,
+        "judge": 3.77
       }
     },
     {
@@ -650,9 +659,24 @@
       "correct": false,
       "strict_correct": false,
       "retrieval_hit": false,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "제공된 근거에는 담배의 국제우편 발송에 대한 명시적인 규정이 없어, 담배가 금지, 제한 또는 허용되는지를 판정할 수 없어요. 추가적인 근거가 필요해요.",
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1",
+        "근거에 없는 인용문: I1E2"
+      ],
+      "raw_decision": {
+        "status": "insufficient_evidence",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "음식물 (보험취급불가, EMS프리미엄 발송 불가) * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "미국 국제우편 발송조건\n\n- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시(실제 내용품과 신고서 내용품이 불일치하거나..."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
       "quotes": [],
       "retrieved": [
         {
@@ -687,8 +711,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.91,
-        "judge": 2.21
+        "retrieval": 0.88,
+        "judge": 3.15
       }
     },
     {
@@ -706,8 +730,17 @@
       "retrieval_hit": false,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "제공된 근거에서는 일회용 라이터에 관련된 명시적 규정이나 제한 사항을 찾을 수 없어요. 추가적인 정보를 확인해 보세요.",
-      "quotes": [],
+      "reason": "제공된 근거 자료에는 일회용 라이터의 국제 발송에 대한 명확한 금지 또는 제한 사항이 언급되지 않았어요. 따라서 이 근거만으로는 일회용 라이터의 발송 가능 여부를 판단하기에는 충분하지 않습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등"
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "금지 및 제한품목 발송 시 세관에서 통지없이 폐기 및 압수, 및 반송 가능 (폐기 승인 후 접수), 손해배상 불가"
+        }
+      ],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -741,8 +774,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.48,
-        "judge": 2.3
+        "retrieval": 0.9,
+        "judge": 2.54
       }
     },
     {
@@ -754,24 +787,19 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "insufficient_evidence",
-      "correct": false,
-      "strict_correct": false,
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
       "retrieval_hit": true,
-      "citation_errors": [
-        "근거에 없는 인용문: I1E1"
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "블루투스 이어폰은 리튬 배터리가 포함된 전자기기로, 이러한 배터리를 포함하는 기기는 항공 탑재가 금지되어 있습니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "**리튬 이온·리튬 메탈 등의 배터리 및 해당 배터리가 포함된 모든 전자기기** | **불가** | ① 니켈류 배터리를 제외한 충전 사용하는 배터리는 종류, 용량에 상관없이 발송 불가 ② 배터리 분리가 가능할 경우에는 분리 후 배터리를 제외한 본체만 발송 가능 아이패드 등 일체(내장)형도 예외없이 발송 불가 \\*배터리 포함된 물품 예시 :  노트북,휴대폰무선충전기,태블릿PC,전자책,아이폰,이발기,전자담배,전자사전,체온기,호버보드,혈압계,휴대폰,블루투스헤드셋,완구·장난감 등"
+        }
       ],
-      "raw_decision": {
-        "status": "prohibited",
-        "quotes": [
-          {
-            "evidence_id": "I1E1",
-            "quote": "리튬 이온·리튬 메탈 등의 배터리 및 해당 배터리가 포함된 모든 전자기기 | **불가** | ① 니켈류 배터리를 제외한 충전 사용하는 배터리는 종류, 용량에 상관없이 발송 불가 ② 배터리 분리가 가능할 경우에는 분리 후 배터리를 제외한 본체만 발송 가능 아이패드 등 일체(내장)형도 예외없이 발송 불가 \u001b배터리 포함된 물품 예시 :  노트북,휴대폰무선충전기,태블릿PC,전자책,아이폰,이발기,전자담배,전자사전,체온기,호버보드,혈압계,휴대폰,블루투스헤드셋,완구·장난감 등"
-          }
-        ]
-      },
-      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
-      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -805,8 +833,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.91,
-        "judge": 4.05
+        "retrieval": 1.15,
+        "judge": 3.03
       }
     },
     {
@@ -824,11 +852,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "일본으로 스킨 크림을 보내려면 화주가 수입허가서와 약품 취급 허가서를 제출해야 해요.",
+      "reason": "일본으로 스킨 크림을 보내려면 수입 허가서와 약품 취급 허가서를 제출해야 합니다. 이는 화장품이 제한적으로 허용되는 품목이기 때문입니다.",
       "quotes": [
         {
           "evidence_id": "I1E3",
-          "quote": "- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
+          "quote": "제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
         }
       ],
       "retrieved": [
@@ -864,8 +892,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.93,
-        "judge": 2.52
+        "retrieval": 0.95,
+        "judge": 2.56
       }
     },
     {
@@ -877,19 +905,29 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "restricted",
+      "predicted_status": "insufficient_evidence",
       "correct": false,
       "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "육포는 육류 가공품으로, 일본으로의 발송 시 제한 품목에 포함됩니다. 특히, 음식물은 10kg 미만일 경우에만 제한적으로 발송이 가능하며, 훈제제품은 금지되어 있습니다. 따라서, 육포를 발송하려면 일본의 통관 조건을 준수해야 하므로 제한 사항이 있습니다.",
-      "quotes": [
-        {
-          "evidence_id": "I1E2",
-          "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류)... - 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용)..."
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1",
+        "근거에 없는 인용문: I1E2"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "EMS 국가별 공통사항...음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류)..."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -923,8 +961,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.93,
-        "judge": 3.53
+        "retrieval": 1.1,
+        "judge": 3.42
       }
     },
     {
@@ -942,11 +980,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "일본으로의 국제우편 발송 시 씨앗(종자류)은 명시적으로 금지되어 있어요. 그러니 꽃씨는 보낼 수 없어요.",
+      "reason": "일본으로 꽃씨를 국제우편으로 보내는 것은 명시적으로 금지되어 있어요. 씨앗(종자류)은 일본의 금지품목에 포함됩니다.",
       "quotes": [
         {
           "evidence_id": "I1E2",
-          "quote": "금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지"
+          "quote": "금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류)"
         }
       ],
       "retrieved": [
@@ -982,8 +1020,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.91,
-        "judge": 2.76
+        "retrieval": 0.93,
+        "judge": 2.79
       }
     },
     {
@@ -995,32 +1033,27 @@
       "acceptable_statuses": [
         "no_restriction_found"
       ],
-      "predicted_status": "insufficient_evidence",
-      "correct": false,
-      "strict_correct": false,
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "strict_correct": true,
       "retrieval_hit": null,
-      "citation_errors": [
-        "근거에 없는 인용문: I1E3"
+      "citation_errors": [],
+      "raw_decision": null,
+      "reason": "제공된 근거에서는 스티커와 관련된 금지나 제한사항이 없어서 스티커는 국제우편 발송 시 특별한 제한이 없는 것으로 판단됩니다.",
+      "quotes": [
+        {
+          "evidence_id": "I1E1",
+          "quote": "음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지"
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지*시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의"
+        }
       ],
-      "raw_decision": {
-        "status": "no_restriction_found",
-        "quotes": [
-          {
-            "evidence_id": "I1E1",
-            "quote": "| 통관대행 불가 | * 세관 계류 시(서류 포함) 해당국의 수취인이 직접 통관해야 합니다.    - 통관으로 인한 배달지연에 대해서는 손해배상이 불가합니다. * EMS프리미엄은 통관대행 가능하며, 02-3700-5199로 문의주시기 바랍니다. |"
-          },
-          {
-            "evidence_id": "I1E2",
-            "quote": "* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다."
-          },
-          {
-            "evidence_id": "I1E3",
-            "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼)... 등의 물품 발송금지"
-          }
-        ]
-      },
-      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
-      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -1054,8 +1087,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.06,
-        "judge": 3.15
+        "retrieval": 1.05,
+        "judge": 3.83
       }
     },
     {
@@ -1073,11 +1106,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "인삼은 일본으로의 발송 시 6뿌리까지 허용되며, 제한이 있습니다. 그렇기 때문에 이 규정을 준수해야 해요.",
+      "reason": "일본으로 인삼을 보내는 경우, 6뿌리까지 허용됩니다. 그러나 이 양을 초과할 경우 제한이 있을 수 있으니 주의해야 합니다.",
       "quotes": [
         {
           "evidence_id": "I1E4",
-          "quote": "- 제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
+          "quote": "제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
         }
       ],
       "retrieved": [
@@ -1113,8 +1146,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.2,
-        "judge": 2.3
+        "retrieval": 1.52,
+        "judge": 2.72
       }
     },
     {
@@ -1126,19 +1159,28 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "restricted",
+      "predicted_status": "insufficient_evidence",
       "correct": false,
       "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "감기약은 의약품에 해당하므로, 일본에서는 발송이 금지된 의약품으로 분류됩니다. 따라서 수출에 제한이 있습니다.",
-      "quotes": [
-        {
-          "evidence_id": "I1E5",
-          "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품, 요리되지 않은(육류, 생선, 계란 또는 유제품)냉동식료품, 훈제제품 또는 생식품, 탄약 및 화기 부품 및 부속품등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E5"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "배달 국가에서 수입이나 유포를 금하는 물품    - 국가별 수입금지 물품은 각국의 관계 법률에 따라 다릅니다.    - 식품, 동식물류, 한약재, 건초·건어물, 의약품 등은 그 해석이 광범위하고, 통관여부는 해당국에서 판단하므로 우체국에서 접수되더라도 해당국의 통관불허로 반송되거나 폐기처분될 수 있습니다."
+          },
+          {
+            "evidence_id": "I1E5",
+            "quote": "금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류)..."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -1172,8 +1214,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.16,
-        "judge": 2.91
+        "retrieval": 1.08,
+        "judge": 2.71
       }
     },
     {
@@ -1192,7 +1234,7 @@
       "retrieval_hit": false,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "제공된 근거에는 AA 건전지를 특별히 금지하거나 제한하는 정보가 없습니다. 따라서 이 정보를 바탕으로는 AA 건전지의 국제우편 발송 여부를 명확히 판단할 수 없습니다.",
+      "reason": "제공된 문서에서는 AA 건전지에 대한 구체적인 언급이 없어서 국제우편 발송이 금지되거나 제한되는지 여부를 판단할 수 없습니다.",
       "quotes": [],
       "retrieved": [
         {
@@ -1227,8 +1269,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.16,
-        "judge": 2.37
+        "retrieval": 1.23,
+        "judge": 2.48
       }
     },
     {
@@ -1240,19 +1282,24 @@
       "acceptable_statuses": [
         "restricted"
       ],
-      "predicted_status": "restricted",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": false,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "매니큐어는 화장품에 해당되며, 일본으로 보낼 때는 수입허가서와 약품취급 허가서를 제출해야 해요. 따라서 조건부 발송이 가능해요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E4",
-          "quote": "제한품목: 알코올(10kg미만), 음식물(10kg미만), 인삼(6뿌리까지 허용), 화학제품, 화장품(화주가 수입허가서와 약품취급 허가서 제출)"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E2"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E2",
+            "quote": "임의용기에 포장된 액체/분말류 | 확인필요 | 검사용 시료,샘플용 화장품,토너,잉크,접착제, 각종 가루 등 내용물을 알수 없는 액체 또는 분말은 물질안전보건자료(MSDS) 첨부 필요"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -1286,8 +1333,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.07,
-        "judge": 3.0
+        "retrieval": 0.98,
+        "judge": 3.85
       }
     },
     {
@@ -1299,21 +1346,17 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "restricted",
-      "correct": false,
-      "strict_correct": false,
+      "predicted_status": "prohibited",
+      "correct": true,
+      "strict_correct": true,
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "근거에 따르면 금, 은, 귀석, 보석 등 귀중품은 국제특급 서비스에서 손해배상이 불가하며, 중국의 경우 금제품 자체가 발송 금지 품목으로 정의되어 있습니다. 따라서 금반지를 발송하려면 해당 국가의 통관 조건을 주의 깊게 확인해야 합니다.",
+      "reason": "금반지는 금이나 귀금속으로 분류되어 국제 특급 우편(EMS)으로 발송이 금지되어 있어요.",
       "quotes": [
         {
           "evidence_id": "I1E1",
           "quote": "주화, 은행권, 법정통화 또는 각종 지참인불유가증권, 여행자수표, 가공 또는 비가공의 백금, 금, 은, 귀석, 보석 등 귀중품"
-        },
-        {
-          "evidence_id": "I1E4",
-          "quote": "금지품목 : 중국정치, 경제, 문화, 도덕적으로유해한인쇄물, 사진, 영상, 녹음등, 각종무기류(탄약/폭발성물품), 위조화폐 및 유가증권, 골동품, 금/은제품, 마약류 및 마취 성분있는 약물, 독약, 위험/유해한 병균, 식/약품"
         }
       ],
       "retrieved": [
@@ -1349,8 +1392,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.46,
-        "judge": 3.0
+        "retrieval": 0.94,
+        "judge": 4.64
       }
     },
     {
@@ -1368,11 +1411,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "헌옷은 중국으로의 국제특급우편(EMS) 발송 시 금지된 품목이에요. 다른 법률에 명시된 금지사항에 따라 반입이 제한됩니다.",
+      "reason": "중국으로의 헌옷 발송은 금지되어 있습니다. 따라서 중국에 헌옷을 보낼 수 없습니다.",
       "quotes": [
         {
           "evidence_id": "I1E4",
-          "quote": "기타 반입금지 동식물 검역물품\n- 그외 : 헌옷, 자전거, 카메라, 침대보, 선풍기, 레코드, 재봉틀, 녹음기, TV, 손목시계, 개인선물, 곡류, 여권, 포르노 물품, 유골, 후추 스프레이 (UPU회람-71, ‘18.5.28.)"
+          "quote": "그외 : 헌옷, 자전거, 카메라, 침대보, 선풍기, 레코드, 재봉틀, 녹음기, TV, 손목시계, 개인선물, 곡류, 여권, 포르노 물품, 유골, 후추 스프레이 (UPU회람-71, ‘18.5.28.)"
         }
       ],
       "retrieved": [
@@ -1408,8 +1451,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.51,
-        "judge": 2.5
+        "retrieval": 1.07,
+        "judge": 2.54
       }
     },
     {
@@ -1427,7 +1470,7 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "소주는 주류에 해당하며, 중국으로 발송 시 제한 품목에 포함되어 있어 세관의 통제를 받을 수 있어요. 술 발송은 조건부로 제한되어 있기 때문에 사전에 세관 규정을 잘 확인하셔야 해요.",
+      "reason": "소주는 주류로서 중국으로 보낼 때 제한품목에 해당됩니다. 주류는 특수한 절차나 서류가 필요할 수 있으며, 세관에서 제한할 수 있는 품목으로 명시되어 있습니다.",
       "quotes": [
         {
           "evidence_id": "I1E2",
@@ -1467,8 +1510,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.21,
-        "judge": 2.44
+        "retrieval": 1.26,
+        "judge": 2.46
       }
     },
     {
@@ -1480,19 +1523,24 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "prohibited",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "호주로 쌀을 국제우편으로 발송하는 것은 금지되어 있어요. 호주의 검역당국에서 쌀의 원물 및 분말 형태의 반입을 허용하지 않기 때문이에요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E4",
-          "quote": "오스트레일리아(호주) 검역당국의 식물위생조치(수입금지)로 다음 대상식물의 원물 및 분말 접수금지 - 쌀(Rice)..."
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E4"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E4",
+            "quote": "오스트레일리아(호주) 검역당국의 식물위생조치(수입금지)로 다음 대상식물의 원물 및 분말 접수금지 - 쌀(Rice), 병아리콩(Chickpeas), 호박씨(Cucurbit seed), 쿠민씨(Cumin seed), 잇꽃씨(Safflower seed), 야생콩(Bean seed), 대두(Soybean), 녹두 및 동부콩(Mung beans/cowpeas), 렌틸콩(Lentils), 밀(Wheat), 고수씨(Coriander seed), 셀러리씨(Celery seed), 땅콩(Peanuts), 건고추(Dried chillies/capsicum), 누에콩(Faba bean), 비둘기콩(Pigeon Pea), 완두(Pea seedd), 회향씨(Fennel seed)"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -1526,8 +1574,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.98,
-        "judge": 2.22
+        "retrieval": 0.91,
+        "judge": 2.95
       }
     },
     {
@@ -1539,23 +1587,29 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "prohibited",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "강아지 육포 간식은 동물성 성분이 포함된 사료 및 육가공품의 일종으로 국제우편을 통한 수입이 불가능합니다.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "대부분의 육류, 육가공품, 동물성 성분이 포함된 있는 사료, 알 등은 국제우편으로 수입이 불가   * (식육) 쇠고기, 면양육, 사슴육, 돼지고기, 닭고기, 오리고기, 쥐고기, 삶거나 튀긴 고기 등 * (식육가공품) : 소고기가 포함된 카레 및 스프, 소시지, 햄, 육포, 식육성분이 포함된 과자류, 식육이 포함된 라면 등 * (사료) 동물성 성분이 포함된 애완동물사료, 간식류, 조사료 * (유가공품) 5kg의 이상 상업적으로 제조된 유가공품, 상업적으로 제조되지 않은 유가공품 * (알 및 알가공품) 종란, 식품용란, 난백분, 난분 등 * (기타 동물 생산물) 녹용, 뼈, 뿔 등"
-        },
-        {
-          "evidence_id": "I1E5",
-          "quote": "동물을 재료로한 반려동물 음식(발견 시 즉시 폐기처분, 22.10.17)"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1",
+        "근거에 없는 인용문: I1E5"
       ],
+      "raw_decision": {
+        "status": "prohibited",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "| 동물검역 대상물건 | 대부분의 육류, 육가공품, 동물성 성분이 포함된 있는 사료, 알 등은 국제우편으로 수입이 불가   * (식육가공품) : 소고기가 포함된 카레 및 스프, 소시지, 햄, 육포, 식육성분이 포함된 과자류, 식육이 포함된 라면 등 * (사료) 동물성 성분이 포함된 애완동물사료, 간식류, 조사료"
+          },
+          {
+            "evidence_id": "I1E5",
+            "quote": "- 금지품목... 동물을 재료로한 반려동물 음식(발견 시 즉시 폐기처분, 22.10.17)"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -1589,8 +1643,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.91,
-        "judge": 4.22
+        "retrieval": 0.9,
+        "judge": 3.12
       }
     },
     {
@@ -1609,15 +1663,19 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "한약은 한약방이나 건강원에서 제조·포장된 경우에 한해 발송이 가능해요. 하지만 자가제조한 한약은 발송이 불가해요. 각 국가의 통관 규정에 따라 반송이나 폐기될 수 있으며, 손해배상은 불가하다는 점을 유의해야 해요.",
+      "reason": "한약은 보낼 수 있으나, 한약방이나 건강원에서 제조·포장된 것으로 증명서와 포장재를 통해 한약임이 확인되고 완전 밀봉된 상태여야 합니다. 자가 제조한 한약은 발송할 수 없습니다. 또한, 일부 국가에서는 한약 발송이 제한되거나 금지될 수 있으므로, 통관 여부는 해당국에서 최종 결정됩니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "한약재, 건초·건어물, 의약품 등은 그 해석이 광범위하고, 통관여부는 해당국에서 판단하므로 우체국에서 접수되더라도 해당국의 통관불허로 반송되거나 폐기처분될 수 있습니다."
+          "quote": "식품, 동식물류, 한약재, 건초·건어물, 의약품 등은 그 해석이 광범위하고, 통관여부는 해당국에서 판단하므로 우체국에서 접수되더라도 해당국의 통관불허로 반송되거나 폐기처분될 수 있습니다."
         },
         {
           "evidence_id": "I1E3",
-          "quote": "한약 | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로, 한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가"
+          "quote": "| **한약** | 가능 | ① 한약방 또는 건강원에서 제조·포장한 것으로,   한약증명서 또는 포장재 등 육안으로 한약임이 확인 가능하고 완전 밀봉한 상태여야 함 ② 자가제조 한약은 발송 불가 |"
+        },
+        {
+          "evidence_id": "I1E4",
+          "quote": "- 음식물(한약, 김치 등)과 담배 등은 세관에서 통지없이 폐기, 액체류(화장품, 한약 등) 접수불가"
         }
       ],
       "retrieved": [
@@ -1653,8 +1711,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.94,
-        "judge": 2.85
+        "retrieval": 1.3,
+        "judge": 3.61
       }
     },
     {
@@ -1673,7 +1731,7 @@
       "retrieval_hit": false,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "제공된 근거 자료에는 핫팩의 발송에 관한 명확한 정보가 없습니다. 핫팩이 리튬 배터리나 위험 물질을 포함한 경우 제한이 있을 수 있지만, 해당 사항을 확인할 수 있는 근거가 발견되지 않았습니다.",
+      "reason": "제공된 정보를 통해 핫팩의 국제 배송에 대한 명확한 규정을 찾을 수 없습니다. 제시된 문서들에서는 관련 내용이 없어 판정이 어렵습니다.",
       "quotes": [],
       "retrieved": [
         {
@@ -1708,8 +1766,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.2,
-        "judge": 2.24
+        "retrieval": 1.04,
+        "judge": 2.14
       }
     },
     {
@@ -1721,19 +1779,24 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "prohibited",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "제시된 근거에 따르면 보조배터리는 리튬 배터리가 포함된 물품으로 간주되어 독일로의 국제우편 발송이 금지되어 있어요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E3",
-          "quote": "- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E3"
       ],
+      "raw_decision": {
+        "status": "prohibited",
+        "quotes": [
+          {
+            "evidence_id": "I1E3",
+            "quote": "- 금지품목 : ... 리튬 배터리/셀,"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -1767,8 +1830,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.35,
-        "judge": 3.22
+        "retrieval": 0.91,
+        "judge": 2.84
       }
     },
     {
@@ -1786,7 +1849,7 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "독일로 수출되는 손목시계는 금지품목에 해당해 발송이 불가능해요.",
+      "reason": "제공된 문서에 따르면, 독일로 발송하는 국제우편에서 손목시계는 금지품목으로 지정되어 있습니다. 따라서 독일로의 발송은 금지됩니다.",
       "quotes": [
         {
           "evidence_id": "I1E5",
@@ -1826,8 +1889,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.9,
-        "judge": 2.36
+        "retrieval": 0.98,
+        "judge": 2.71
       }
     },
     {
@@ -1845,7 +1908,7 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "립밤이 화장품에 속할 수 있으며, 독일로 보낼 때에는 화장품의 성분 및 제품설명이 독일어로 기재되어야 통관이 가능해요. 따라서, 해당 조건을 충족해야 립밤을 보낼 수 있습니다.",
+      "reason": "립밤은 화장품에 해당하여, 독일로 보낼 때 성분 및 제품 설명이 독일어로 기재되어 있지 않으면 통관이 불가능합니다. 따라서 독일어로 제품 정보가 표시될 필요가 있어 제한적으로 발송 가능합니다.",
       "quotes": [
         {
           "evidence_id": "I1E3",
@@ -1885,8 +1948,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.06,
-        "judge": 2.39
+        "retrieval": 0.93,
+        "judge": 2.89
       }
     },
     {
@@ -1898,23 +1961,32 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "prohibited",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "향수는 국제우편 항공탑재금지물품으로 명시되어 있어 발송이 불가능해요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E3",
-          "quote": "| **향수** | 불가 |"
-        },
-        {
-          "evidence_id": "I1E4",
-          "quote": "- 금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약(의약품), 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1"
       ],
+      "raw_decision": {
+        "status": "prohibited",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "UPU에서 정한 금지물품(UPU 협약 제19조, 통상·소포 공통) - 폭발성·가연성(스프레이, 향수, 부탄가스) 물질, 방사성 물질 또는 기타 위험한 물질"
+          },
+          {
+            "evidence_id": "I1E3",
+            "quote": "| **향수** | 불가 |"
+          },
+          {
+            "evidence_id": "I1E4",
+            "quote": "금지품목 : 청소년 및 공공질서에 해로운 물건, 향수, 색소물, 도박용 물품, 목재, 밤(식용), 의류(모조상품인 경우), 광물성제품, 전기매트 및 장판(통관 불가), 알코올, 약(의약품), 현재 프랑스에서 유통되는 지폐, 동전 및 법정통화를 삽입한 등기 및 보험우편물 포함 우편물 발송 금지"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -1948,8 +2020,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.9,
-        "judge": 2.7
+        "retrieval": 1.12,
+        "judge": 3.65
       }
     },
     {
@@ -1967,11 +2039,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "프랑스로 장난감을 보내려면 적합성 인증서가 필요해요. 따라서 장난감을 보낼 때 주의가 필요합니다.",
+      "reason": "장난감은 프랑스로 발송할 때 적합성인증서가 필요하다고 명시되어 있어 조건부로 제한됩니다.",
       "quotes": [
         {
           "evidence_id": "I1E4",
-          "quote": "제한품목 : 장난감, 안전모자, 자전거, 모터자전거는 적합성인증서 필요"
+          "quote": "- 제한품목 : 장난감, 안전모자, 자전거, 모터자전거는 적합성인증서 필요"
         }
       ],
       "retrieved": [
@@ -2007,8 +2079,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.18,
-        "judge": 2.45
+        "retrieval": 0.9,
+        "judge": 2.25
       }
     },
     {
@@ -2027,7 +2099,7 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "프랑스로 전기장판을 보낼 수 없어요. 전기매트 및 장판은 통관 불가 품목으로 명시되어 있답니다.",
+      "reason": "전기장판은 프랑스로의 국제우편 발송이 금지되어 있습니다.",
       "quotes": [
         {
           "evidence_id": "I1E4",
@@ -2067,8 +2139,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.2,
-        "judge": 2.54
+        "retrieval": 0.91,
+        "judge": 3.15
       }
     },
     {
@@ -2086,11 +2158,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "캐나다로의 국제우편물 발송 조건에 따르면 식물과 꽃은 금지품목으로 분류되어 있어요. 따라서 생화 꽃다발을 캐나다로 보낼 수 없어요.",
+      "reason": "캐나다 국제우편 발송조건에 따르면 식물과 꽃은 금지품목으로 명시되어 있습니다. 따라서 생화 꽃다발은 국제우편으로 캐나다에 발송할 수 없습니다.",
       "quotes": [
         {
           "evidence_id": "I1E4",
-          "quote": "금지품목 : 유골, 살아있는 동물(조류 및 곤충), 식물, 꽃 현금, 유가증권, 8피트(ft) 이상 물건, 담배 및 주류, 칼, 총기류 및 그 부품, 위험한 물건, 보행기(안전상 이유로 사용금지)"
+          "quote": "- 금지품목 : 유골, 살아있는 동물(조류 및 곤충), 식물, 꽃 현금, 유가증권, 8피트(ft) 이상 물건, 담배 및 주류, 칼, 총기류 및 그 부품, 위험한 물건, 보행기(안전상 이유로 사용금지)"
         }
       ],
       "retrieved": [
@@ -2126,8 +2198,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.9,
-        "judge": 2.47
+        "retrieval": 1.24,
+        "judge": 2.81
       }
     },
     {
@@ -2145,15 +2217,11 @@
       "retrieval_hit": false,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "주머니칼에 대한 명확한 금지 또는 제한 규정이 제공된 자료에서 확인되지 않았어요. 따라서 주머니칼에 대한 명확한 판정을 내리기는 어려워요.",
+      "reason": "제공된 근거에서는 주머니칼의 국제 우편 발송에 대한 직접적인 금지 또는 제한 사항이 명시되어 있지 않습니다. 주머니칼이 위험 물품으로 분류되는지 여부나 특정 국가의 규정에 따라 제한될 수 있을 가능성을 확인하기 위한 정보가 부족합니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "UPU에서 정한 금지물품(UPU 협약 제19조, 통상·소포 공통) - 마약류, 향정신성물질, 외설적이거나 비도덕적인 물품 - 폭발성·가연성(스프레이, 향수, 부탄가스) 물질, 방사성 물질 또는 기타 위험한 물질"
-        },
-        {
-          "evidence_id": "I1E1",
-          "quote": "배달 국가에서 수입이나 유포를 금하는 물품 - 국가별 수입금지 물품은 각국의 관계 법률에 따라 다릅니다."
+          "quote": "UPU에서 정한 금지물품(UPU 협약 제19조, 통상·소포 공통) - 마약류, 향정신성물질, 외설적이거나 비도덕적인 물품 - 폭발성·가연성(스프레이, 향수, 부탄가스) 물질, 방사성 물질 또는 기타 위험한 물질 * 배달 국가에서 수입이나 유포를 금하는 물품 - 국가별 수입금지 물품은 각국의 관계 법률에 따라 다릅니다."
         }
       ],
       "retrieved": [
@@ -2189,8 +2257,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.41,
-        "judge": 3.27
+        "retrieval": 1.05,
+        "judge": 3.29
       }
     },
     {
@@ -2208,11 +2276,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "연하장은 베트남으로의 국제우편물 발송 시 금지품목에 해당하여 보낼 수 없어요.",
+      "reason": "제공된 자료에 따르면, 베트남으로 연하장을 보내는 것은 금지되어 있습니다. 명백하게 금지품목으로 명시되어 있으므로 발송이 불가능합니다.",
       "quotes": [
         {
           "evidence_id": "I1E2",
-          "quote": "- 금지품목 : 중고물품(used goods), 전자제품, 담배, 건어물, 육가공품, 혈액, 본드, 송금수표(money order), 주식, 신용카드, 처방약품, 미술품, 정치적인쇄물, 신문, 담배,캔 이외의 음식물, 연하장, 마이크로필름/카드, 라벨, 초대장, 보석, 잡지, 지도, 개인서신(서류발송 시 항공우편봉투에 넣지 말것),동전, 은행권, 수표, 유가증권, 금,은, 보석류, 기타 귀중품, 무기·폭죽·독성 화학물질··금지 문화상품,·우측 핸들 차량·폐기물·석면 제품"
+          "quote": "금지품목 : 중고물품(used goods), 전자제품, 담배, 건어물, 육가공품, 혈액, 본드, 송금수표(money order), 주식, 신용카드, 처방약품, 미술품, 정치적인쇄물, 신문, 담배,캔 이외의 음식물, 연하장, 마이크로필름/카드, 라벨, 초대장, 보석, 잡지, 지도, 개인서신(서류발송 시 항공우편봉투에 넣지 말것),동전, 은행권, 수표, 유가증권, 금,은, 보석류, 기타 귀중품, 무기·폭죽·독성 화학물질··금지 문화상품,·우측 핸들 차량·폐기물·석면 제품"
         }
       ],
       "retrieved": [
@@ -2248,8 +2316,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.43,
-        "judge": 3.45
+        "retrieval": 1.23,
+        "judge": 3.27
       }
     },
     {
@@ -2261,23 +2329,32 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "no_restriction_found",
+      "predicted_status": "insufficient_evidence",
       "correct": false,
       "strict_correct": false,
       "retrieval_hit": false,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "잡지에 대한 명시적인 제한이나 금지 사항이 발견되지 않았어요. 따라서, 관련 규정에서는 잡지를 EMS로 보낼 수 있는 것으로 보입니다.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로... 취급합니다."
-        },
-        {
-          "evidence_id": "I1E4",
-          "quote": "통관이 필요하지 않는 서류(우편물 접수번호가 EE로 시작됨)의 경우에 한해서만... 배달됩니다."
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E1"
       ],
+      "raw_decision": {
+        "status": "no_restriction_found",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편으로..."
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다."
+          },
+          {
+            "evidence_id": "I1E5",
+            "quote": "세관 규정 강화로 통관지연 발생 빈번함(세관계류 시 1주~3주 소요, 서류도 통관함)"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -2311,8 +2388,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.21,
-        "judge": 2.65
+        "retrieval": 1.3,
+        "judge": 2.43
       }
     },
     {
@@ -2324,27 +2401,32 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "restricted",
+      "predicted_status": "insufficient_evidence",
       "correct": false,
       "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "과자와 같은 음식물은 통관 보류 및 불허 판정을 받는 경우가 많아 주의가 필요하며, 태국으로 보낼 경우 음식물에 대한 특정 제한이 있을 수 있습니다. 개인적인 용도로 적절한 양만 보낼 경우에는 FDA 허가가 필요하지 않지만, 기타 상황에서는 주의가 필요합니다.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "* 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
-        },
-        {
-          "evidence_id": "I1E3",
-          "quote": "- 금지품목 : ... 음식물, 곡물, ..."
-        },
-        {
-          "evidence_id": "I1E2",
-          "quote": "- 개인 음식물: 적절한 양(세관에 의해 판단)은 FDA허가서 필요 없음"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E3"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "음식물 (보험취급불가, EMS프리미엄 발송 불가) | * 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "약품, 식품, 화장품, 의학품, 영양식품, 위험품, 휘발성물품은 FDA 승인을 받아야 함. 수입자는 화물 도착전에 수입허가를 받아야함."
+          },
+          {
+            "evidence_id": "I1E3",
+            "quote": "금지품목... 음식물, 곡물... 태국 세관 추가 제한품목 (해당 정부기관 허가 필요)... 식품·의약품·화장품·건강보조식품 (식품의약품안전처)"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -2378,8 +2460,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.2,
-        "judge": 3.92
+        "retrieval": 1.37,
+        "judge": 3.68
       }
     },
     {
@@ -2397,11 +2479,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "편지지는 태국으로의 국제우편 발송 시 금지 품목에 포함되어 있어요.",
+      "reason": "태국으로 보내는 국제우편물에는 사용하지 않은 편지지를 포함할 수 없습니다. 이는 금지 품목으로 명시되어 있어요.",
       "quotes": [
         {
           "evidence_id": "I1E4",
-          "quote": "금지품목 : (UPU 회람 2019-70)리튭배터리/셀 포함 금지 전자게임, 모조수공품, 미사용 우편엽서 및 편지지, 독극물, 연쇄편지, 산동물(꿀벌,거머리,누에는 제외), 총기류, 외설잡지, 술, 혈액, 의약품, 음식물, 곡물, 귀금속, 담배, 비디오게임, 액체(LIQUIDS), China 원산지 제품 발송 불가"
+          "quote": "- 금지품목 : (UPU 회람 2019-70)리튭배터리/셀 포함 금지\n전자게임, 모조수공품, 미사용 우편엽서 및 편지지, 독극물, 연쇄편지, 산동물(꿀벌,거머리,누에는 제외), 총기류, 외설잡지, 술, 혈액, 의약품, 음식물, 곡물, 귀금속, 담배, 비디오게임, 액체(LIQUIDS), China 원산지 제품 발송 불가"
         }
       ],
       "retrieved": [
@@ -2437,8 +2519,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.92,
-        "judge": 2.88
+        "retrieval": 0.98,
+        "judge": 2.92
       }
     },
     {
@@ -2456,7 +2538,7 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "싱가포르로 보내는 국제우편에서 껌은 금지 품목으로 명시되어 있습니다.",
+      "reason": "싱가포르로의 국제 특급 우편(EMS) 발송 시 껌은 금지 품목입니다. 따라서 껌은 싱가포르로 발송할 수 없습니다.",
       "quotes": [
         {
           "evidence_id": "I1E4",
@@ -2496,8 +2578,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.21,
-        "judge": 3.27
+        "retrieval": 0.91,
+        "judge": 3.66
       }
     },
     {
@@ -2515,7 +2597,7 @@
       "retrieval_hit": false,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "김치는 발송 가능하지만, 발효식품 특성으로 인해 운송 중 부패 위험이 있으며 상대국 세관에서 악취를 이유로 폐기될 수 있어요. 포장을 철저히 하고, 발송 국가의 통관 요건을 확인해야 해요.",
+      "reason": "김치는 발효식품으로 운송 중 부패 위험이 있으며, 일부 국가만 발송 가능합니다. 포장 및 통관 절차를 철저히 준수해야 하며, 통관 과정에서 폐기될 수 있습니다. 특히 미국과 같은 국가에서는 운송 중 부패 및 파손이 발생할 수 있어 폐기될 위험이 있습니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
@@ -2523,7 +2605,11 @@
         },
         {
           "evidence_id": "I1E5",
-          "quote": "김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지"
+          "quote": "- 김치 접수 가능\n- 용기는 금속 재질의 포장 용기(캔)로 한정, 내용물은 전체 용량의 70% 이하 유지"
+        },
+        {
+          "evidence_id": "I1E3",
+          "quote": "③ 김치 발송가능국가 한정 김치 접수 가능."
         }
       ],
       "retrieved": [
@@ -2559,8 +2645,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.03,
-        "judge": 3.66
+        "retrieval": 0.93,
+        "judge": 3.41
       }
     },
     {
@@ -2572,19 +2658,24 @@
       "acceptable_statuses": [
         "restricted"
       ],
-      "predicted_status": "restricted",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "홍삼 및 인삼 가공품은 수취인이 수입면허를 제출한 후에만 통관이 가능하다고 해요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E4",
-          "quote": "제한품목: 의류(제조자와 원산지가 표시돼 있어야 하고 중국이 원산지면 반입금지), 음식물(10kg 이하(유통기한/제조일자/원산지)), 인삼 및 인삼가공품은 수취인이 수입면허 제출 후 통관가능"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E3"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E3",
+            "quote": "홍삼농축액 | **확인필요** | ① 시중 판매 완제품은 가능 ② 샘플/임의용기 포장 제품은 **식품품목제조보고서**/MSDS 등 **확인** 필요"
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -2619,7 +2710,7 @@
       ],
       "latency_s": {
         "retrieval": 1.14,
-        "judge": 3.29
+        "judge": 3.16
       }
     },
     {
@@ -2631,23 +2722,24 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "restricted",
+      "predicted_status": "insufficient_evidence",
       "correct": false,
       "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "EMS 공통사항에 따르면 음식물류의 경우 통관 문제로 주의가 필요하며, 타이완의 경우 차는 금지 품목에 해당됩니다. 따라서 녹차는 해외 발송 시 제한이 있으며, 특히 타이완으로 보낼 수 없습니다.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "* 음식물류는 통관보류 및 불허판정을 받는 경우가 다수 발생하니 주의하시기 바랍니다."
-        },
-        {
-          "evidence_id": "I1E3",
-          "quote": "- 금지품목... 차 및 농축액"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E3"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E3",
+            "quote": "금지품목 - ... 설탕, 차 및 농축액, ..."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -2681,8 +2773,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.97,
-        "judge": 2.98
+        "retrieval": 0.92,
+        "judge": 2.51
       }
     },
     {
@@ -2700,11 +2792,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "홍콩(중국) 국제우편 발송조건에 따르면 향수는 금지품목으로 지정되어 있어 발송할 수 없어요.",
+      "reason": "향수는 홍콩으로 보내는 국제우편에서 금지품목으로 지정되어 있습니다. 따라서 발송이 허용되지 않습니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "- 금지품목 : 음식물(육류, 해류), 향수, 폭약, 음란물(잡지, 서적, 그림), 자동차관련 부품은 통관불가"
+          "quote": "금지품목 : 음식물(육류, 해류), 향수, 폭약, 음란물(잡지, 서적, 그림), 자동차관련 부품은 통관불가"
         }
       ],
       "retrieved": [
@@ -2740,8 +2832,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.06,
-        "judge": 2.14
+        "retrieval": 0.96,
+        "judge": 2.7
       }
     },
     {
@@ -2759,15 +2851,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "전자담배는 항공 탑재가 금지된 품목이며, 뉴질랜드로의 국제우편 발송 시 금지 품목으로 분류되어 있어 보낼 수 없어요.",
+      "reason": "전자담배는 뉴질랜드 국제우편 발송조건에 명시된 금지품목에 포함되어 있어 발송이 불가합니다.",
       "quotes": [
         {
-          "evidence_id": "I1E1",
-          "quote": "배터리 포함된 물품 예시 : 노트북,휴대폰무선충전기,태블릿PC,전자책,아이폰,이발기,전자담배,전자사전,체온기,호버보드,혈압계,휴대폰,블루투스헤드셋,완구·장난감 등"
-        },
-        {
           "evidence_id": "I1E2",
-          "quote": "금지품목 : 흡연·약물 기구 (대마초·메탐페타민용 파이프, 전자담배(Vaporisers) 등)"
+          "quote": "금지품목 : 흡연·약물 기구 (대마초·메탐페타민용 파이프, 전자담배(Vaporisers) 등), 특정 무기류-플릭 나이프(flick knives), 버터플라이 나이프, 소드스틱(swordsticks), 너클더스터(knuckle dusters), 고출력 소형 자석( “buckyballs”), 범죄 목적 물품"
         }
       ],
       "retrieved": [
@@ -2803,8 +2891,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.95,
-        "judge": 3.04
+        "retrieval": 1.08,
+        "judge": 3.64
       }
     },
     {
@@ -2822,11 +2910,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "과자는 국제우편을 통해 미국으로 보낼 수 있지만, 식품은 통관 절차가 까다로울 수 있습니다. 특히 과자에 육류 성분이 포함되어 있으면 반입이 불가합니다. 따라서 정확한 성분을 사전 확인하고, 미국 FDA에 사전신고를 해야 합니다.",
+      "reason": "과자는 음식물로 분류되며, 미국으로 발송 시 여러 조건을 충족해야 합니다. 특히 미국 FDA에 사전신고가 필요하며, 통관 과정에서 검역이나 제약을 받을 수 있습니다. 따라서 발송 전에 조건을 정확히 확인하고 준비해야 합니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등"
+          "quote": "금지품목 : 음식물, 육가공품(햄, 레토르트 식품), 라면(스프 포함) 등, 담배 및 담배상품(종류불문), 위험한 물건, 복권 및 복권관련 광고, 종자류, 건초 , 식용유(참기름, 올리브유 등), 모조품 등"
         },
         {
           "evidence_id": "I1E2",
@@ -2835,10 +2923,6 @@
         {
           "evidence_id": "I1E4",
           "quote": "미국 FDA 사전신고 사이트 접속 → 사전신고용 계정개설 → 식품발송 사전신고 및 승인번호 획득 → 우편물 접수(주소 기표지에 FDA 승인번호 기재)"
-        },
-        {
-          "evidence_id": "I1E5",
-          "quote": "(식육가공품) : 소고기가 포함된 카레 및 스프, 소시지, 햄, 육포, 식육성분이 포함된 과자류"
         }
       ],
       "retrieved": [
@@ -2874,8 +2958,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.22,
-        "judge": 3.62
+        "retrieval": 1.07,
+        "judge": 4.18
       }
     },
     {
@@ -2887,19 +2971,24 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "prohibited",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": true,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "감기약은 일반적으로 의료용 제품으로 분류되며, 일본에서는 의약품의 국제우편 발송이 금지되어 있어요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E3",
-          "quote": "금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼), 특허 또는 상표 위반 물품, 위조상품,\n요리되지 않은(육류, 생선, 계란 또는 유제품) 냉동식료품, 훈제제품 또는 생식품, 화기, 부품 및 부속품, 탄약 등 총기류 및 마약류, 마약성 진통제, 향정신성물질 등 불법적인 물품 발송금지"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E3"
       ],
+      "raw_decision": {
+        "status": "restricted",
+        "quotes": [
+          {
+            "evidence_id": "I1E3",
+            "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), ..."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -2933,8 +3022,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.02,
-        "judge": 2.63
+        "retrieval": 0.92,
+        "judge": 2.68
       }
     },
     {
@@ -2952,11 +3041,11 @@
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "보조배터리에 사용되는 리튬 배터리는 독일로 보내는 모든 우편물에 대해 접수가 금지되어 있어요.",
+      "reason": "리튬 배터리가 포함된 제품은 독일로의 국제우편 발송이 금지되어 있습니다.",
       "quotes": [
         {
           "evidence_id": "I1E2",
-          "quote": "모든 우편물에 대해 리튬 배터리/셀 접수 금지(UPU 회람 2019-47)(20190430)"
+          "quote": "- 모든 우편물에 대해 리튬 배터리/셀 접수 금지(UPU 회람 2019-47)(20190430)"
         }
       ],
       "retrieved": [
@@ -2992,8 +3081,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.24,
-        "judge": 2.15
+        "retrieval": 1.21,
+        "judge": 2.54
       }
     },
     {
@@ -3005,13 +3094,13 @@
       "acceptable_statuses": [
         "prohibited"
       ],
-      "predicted_status": "conflicting",
+      "predicted_status": "restricted",
       "correct": false,
       "strict_correct": false,
       "retrieval_hit": true,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "김치는 일부 국가로 보낼 수 있지만, 호주로는 금지된 품목이네요. 자세한 정보가 필요해요.",
+      "reason": "일부 국가에서는 김치의 발송이 제한되거나 조건부로 허용됩니다. 예를 들어, 김치는 호주로 발송이 금지되어 있으며, 김치를 발송하려면 허가가 필요할 수도 있습니다. 따라서 김치를 국제적으로 보낼 때는 해당 국가의 규정을 사전에 확인하여 조건을 준수해야 합니다.",
       "quotes": [
         {
           "evidence_id": "I1E2",
@@ -3019,7 +3108,7 @@
         },
         {
           "evidence_id": "I1E5",
-          "quote": "- 금지품목 : 식품류(특히 김치류)..."
+          "quote": "- 금지품목 : 식품류(특히 김치류)"
         }
       ],
       "retrieved": [
@@ -3055,8 +3144,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.34,
-        "judge": 2.27
+        "retrieval": 1.09,
+        "judge": 2.41
       }
     },
     {
@@ -3068,19 +3157,28 @@
       "acceptable_statuses": [
         "no_restriction_found"
       ],
-      "predicted_status": "no_restriction_found",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": null,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "제공된 근거에는 책에 대한 금지나 제한 사항이 명시되지 않았어요. 따라서 책은 EMS를 통해 국제적으로 발송하는 데 특별한 제한이 없는 것으로 보여요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "* 통관운송도중 폐기 시 동봉물품도 함께 폐기되거나 오염될 수 있으므로 서류, 서적 등 중요물품 및 고가품은 별도로 발송할 것을 권장합니다."
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E2"
       ],
+      "raw_decision": {
+        "status": "no_restriction_found",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "* 통관운송도중 폐기 시 동봉물품도 함께 폐기되거나 오염될 수 있으므로 서류, 서적 등 중요물품 및 고가품은 별도로 발송할 것을 권장합니다."
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "- 세관통관검사 강화로 금지 및 제한품목을 발송하거나, 세관신고서 허위 및 불충분 작성 시..."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -3114,8 +3212,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.91,
-        "judge": 2.58
+        "retrieval": 0.9,
+        "judge": 3.93
       }
     },
     {
@@ -3127,35 +3225,41 @@
       "acceptable_statuses": [
         "no_restriction_found"
       ],
-      "predicted_status": "no_restriction_found",
-      "correct": true,
-      "strict_correct": true,
+      "predicted_status": "insufficient_evidence",
+      "correct": false,
+      "strict_correct": false,
       "retrieval_hit": null,
-      "citation_errors": [],
-      "raw_decision": null,
-      "reason": "제공된 근거 자료에는 손수건에 대한 금지나 제한 사항이 명시되어 있지 않아요. 따라서 손수건은 국제우편 발송에 특별한 제한 없이 보낼 수 있을 것으로 보여요.",
-      "quotes": [
-        {
-          "evidence_id": "I1E1",
-          "quote": "EMS 국가별 공통사항"
-        },
-        {
-          "evidence_id": "I1E2",
-          "quote": "보낼 수 있는 물품 / 보낼 수 없는 물품(항공탑재금지물품)"
-        },
-        {
-          "evidence_id": "I1E3",
-          "quote": "국제특급(EMS) 서비스 안내"
-        },
-        {
-          "evidence_id": "I1E4",
-          "quote": "일본 국제우편 발송조건"
-        },
-        {
-          "evidence_id": "I1E5",
-          "quote": "일본 국제우편 발송조건"
-        }
+      "citation_errors": [
+        "근거에 없는 인용문: I1E4",
+        "근거에 없는 인용문: I1E5"
       ],
+      "raw_decision": {
+        "status": "no_restriction_found",
+        "quotes": [
+          {
+            "evidence_id": "I1E1",
+            "quote": "| 통관대행 불가 | * 세관 계류 시(서류 포함) 해당국의 수취인이 직접 통관해야 합니다."
+          },
+          {
+            "evidence_id": "I1E2",
+            "quote": "MSDS 첨부 필요 (수량 제한 없음)"
+          },
+          {
+            "evidence_id": "I1E3",
+            "quote": "* 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다."
+          },
+          {
+            "evidence_id": "I1E4",
+            "quote": "- 금지품목: 동물부산물(가죽, 깃털), 의약품, 육류, 흙, 씨앗(종자류), 검(15Cm 이상 긴칼)..."
+          },
+          {
+            "evidence_id": "I1E5",
+            "quote": "- 모든 상품이나 선물은 상업송장(invoice) 사본2장 동봉, 상업송장(invoice)은 영문으로 기재되어야 하고 우편물 외관에 부착..."
+          }
+        ]
+      },
+      "reason": "판정 인용문을 원문에서 확인하지 못했습니다.",
+      "quotes": [],
       "retrieved": [
         {
           "evidence_id": "I1E1",
@@ -3189,8 +3293,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.92,
-        "judge": 2.61
+        "retrieval": 0.93,
+        "judge": 3.19
       }
     },
     {
@@ -3208,23 +3312,15 @@
       "retrieval_hit": null,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "제공된 근거들에서는 엽서의 금지나 제한에 대한 언급이 없습니다. 따라서 엽서는 특별한 제한 없이 발송할 수 있어요.",
+      "reason": "주어진 근거에는 엽서와 관련된 제한 사항이나 금지 목록이 명시되어 있지 않아요. 따라서 엽서는 특별한 제한 없이 발송이 가능한 것으로 보입니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
           "quote": "* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다."
         },
         {
-          "evidence_id": "I1E2",
-          "quote": ") - 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실) - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능"
-        },
-        {
           "evidence_id": "I1E3",
-          "quote": "- 금지품목 : 부도덕한 내용의 서류, 광물성 제품, 외설비디오, 외설적인 음반 및 인쇄물..."
-        },
-        {
-          "evidence_id": "I1E4",
-          "quote": "EMS란 급한 편지, 서류나 소포 등을 가장 빠르고 안전하게 외국으로 배달해 주는 국제특급우편"
+          "quote": "- 금지품목 : 부도덕한 내용의 서류, 광물성 제품, 외설비디오, 외설적인 음반 및 인쇄물, 칼날이 나오는 칼, 감옥에서 만든 상품, 전파송신기, 복권 및 관련 광고,물개 가죽제품, 진공포장 안된 음식물, 사람 또는 동물 유해/유골"
         }
       ],
       "retrieved": [
@@ -3260,8 +3356,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 0.9,
-        "judge": 3.01
+        "retrieval": 0.92,
+        "judge": 2.7
       }
     },
     {
@@ -3278,6 +3374,7 @@
       "strict_correct": false,
       "retrieval_hit": null,
       "citation_errors": [
+        "근거에 없는 인용문: I1E1",
         "근거에 없는 인용문: I1E2"
       ],
       "raw_decision": {
@@ -3285,11 +3382,11 @@
         "quotes": [
           {
             "evidence_id": "I1E1",
-            "quote": "금제품 (손해배상 불가) | * UPU에서 정한 금지물품(UPU 협약 제19조, 통상·소포 공통) - 마약류, 향정신성물질, 외설적이거나 비도덕적인 물품 - 폭발성·가연성(스프레이, 향수, 부탄가스) 물질, 방사성 물질 또는 기타 위험한 물질 * 배달 국가에서 수입이나 유포를 금하는 물품 - 국가별 수입금지 물품은 각국의 관계 법률에 따라 다릅니다."
+            "quote": "* UPU에서 정한 금지물품(UPU 협약 제19조, 통상·소포 공통) ... * 배달 국가에서 수입이나 유포를 금하는 물품 ... * 내용물의 성질이나 포장으로 인해 직원에게 위험을 주거나 ... 줄 수 있는 물품"
           },
           {
             "evidence_id": "I1E2",
-            "quote": "상품과 유가물품에는 '세관신고서(CN23)'가 인쇄된 상품용 주소기표지를 사용하여야 합니다."
+            "quote": "국제특급(EMS) 서비스 안내 ... * 상품과 유가물품에는 \"세관신고서(CN23)\"가 인쇄된 상품용 주소기표지를 사용하여야 합니다."
           }
         ]
       },
@@ -3328,8 +3425,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.18,
-        "judge": 3.84
+        "retrieval": 0.91,
+        "judge": 2.72
       }
     },
     {
@@ -3347,15 +3444,15 @@
       "retrieval_hit": null,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "제공된 여러 규정 자료를 검토한 결과, 새 티셔츠에 대한 금지나 제한 규정은 찾아볼 수 없었어요. 따라서 특별한 제한 없이 국제 우편으로 보낼 수 있을 것 같아요.",
+      "reason": "제공된 문서에서는 새 티셔츠에 대한 금지나 제한 사항이 명시되어 있지 않아요. 따라서 새 티셔츠는 특별한 제한 없이 발송 가능할 것으로 보입니다.",
       "quotes": [
         {
           "evidence_id": "I1E1",
-          "quote": "* 통관대행 불가 | * 세관 계류 시(서류 포함) 해당국의 수취인이 직접 통관해야 합니다."
+          "quote": "- 발송동의서 작성 및 첨부시 가능(EMS프리미엄 홈페이지 자료실)    - 예외로 중동 및 아프리카 일부 국가에 한해 접수 가능    ※ EMS 사서함 미취급국가 : 중국, 독일, 프랑스, 영국, 인도, 터키, 스웨덴, 말레이시아 등"
         },
         {
           "evidence_id": "I1E5",
-          "quote": "- 식품류,침구(털제품),의약품,헌옷,통조림,축산물,과일류,동물부산물,귀금속,여권 등 밀짚과 기타 식물재료가 포함된 생산품, 동식물 관련 생산품 등"
+          "quote": "- 금지품목 - 통관 불허로 인한 배달불능 우편물은 손해배상 불가(압수, 폐기 또는 반송처리 될 수 있으며 세관 결정에 따름) - 담배 :담배 제품 수입 금지 (2019.7.1) 허위로 세관신고서 작성하거나 담배 제품이 전체 또는 일부 포함된 소포 모두 세관 압류, 폐기조치(담배 제외한 물품만 일부 배달 및 반송 불가)"
         }
       ],
       "retrieved": [
@@ -3391,8 +3488,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.6,
-        "judge": 3.91
+        "retrieval": 1.31,
+        "judge": 4.04
       }
     },
     {
@@ -3410,19 +3507,11 @@
       "retrieval_hit": null,
       "citation_errors": [],
       "raw_decision": null,
-      "reason": "제공된 근거 중 '책'에 대한 금지 또는 제한 규정은 없습니다. 따라서 현재 확인되는 바로는 책은 특별한 제한 없이 발송 가능합니다.",
+      "reason": "제공된 문서들에는 '책'에 대한 특별한 제한이나 금지 사항이 명시되어 있지 않아요. 따라서 책은 일반적인 규정 하에 EMS로 보낼 수 있을 것으로 판단돼요. 다만, 기본적인 서류 작성 (예: CN22 또는 CN23 작성) 요구사항을 준수하시면 됩니다.",
       "quotes": [
         {
-          "evidence_id": "I1E1",
-          "quote": "지연될 수 있음에 유의하시기 바랍니다. * 물품을 포함한 국제우편물에 대한 통관정보 사전제공의무 시행(‘21.1.1.자)"
-        },
-        {
-          "evidence_id": "I1E4",
-          "quote": "- 금지품목 : 총기류, 불법선전물, 외설적이거나 부도덕한 물건, 위조상품, 동물제품, 동물 부산물품,살아있는 동물, 무기류, 음료,리튬 배터리/셀, 식물 및 씨앗, 귀금석, 보석류, 시계"
-        },
-        {
-          "evidence_id": "I1E5",
-          "quote": "- 유학서류, 선적서류(선하증권/Shipping document 등) EMS 접수 금지* 시한성/재발급 불가 우편물은 반드시 EMS 프리미엄으로 접수 문의"
+          "evidence_id": "I1E2",
+          "quote": "* 업무용 서류 또는 인쇄물에는 \"세관표지(CN22)\"가 인쇄된 서류용 주소기표지를 사용하여야 합니다."
         }
       ],
       "retrieved": [
@@ -3458,8 +3547,8 @@
         }
       ],
       "latency_s": {
-        "retrieval": 1.26,
-        "judge": 3.84
+        "retrieval": 0.91,
+        "judge": 2.92
       }
     }
   ]
