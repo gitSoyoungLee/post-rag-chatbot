@@ -53,12 +53,15 @@ def judge_case(case: dict, retriever: RegulationRetriever, judge: ItemJudge, k: 
 
     started = time.perf_counter()
     citation_errors: list[str] = []
+    raw_decision = None
     if not evidence:
         decision = ItemDecision(item=item.normalized_name, status="insufficient_evidence", reason="근거 없음")
     else:
         decision = judge.judge(item, evidence)
         citation_errors = validate_decision(decision, evidence)
         if citation_errors:
+            # 인용 검증 실패 원인을 분석할 수 있도록 원래 판정을 남긴다
+            raw_decision = {"status": decision.status.value, "quotes": [q.model_dump() for q in decision.evidence]}
             decision = ItemDecision(
                 item=item.normalized_name,
                 status="insufficient_evidence",
@@ -79,6 +82,7 @@ def judge_case(case: dict, retriever: RegulationRetriever, judge: ItemJudge, k: 
         "strict_correct": status == case["expected_status"],
         "retrieval_hit": retrieval_hit,
         "citation_errors": citation_errors,
+        "raw_decision": raw_decision,
         "reason": decision.reason,
         "quotes": [quote.model_dump() for quote in decision.evidence],
         "retrieved": [
@@ -125,11 +129,14 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--cases", type=Path, default=DEFAULT_CASES)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--ids", nargs="+", help="지정한 사례 id만 평가")
     parser.add_argument("--k", type=int, default=5, help="품목당 근거 수(Top-k)")
     parser.add_argument("--output", type=Path, help="기본값: evals/results/judgments_<날짜>_<커밋>.json")
     args = parser.parse_args()
 
     cases = json.loads(args.cases.read_text(encoding="utf-8"))["cases"]
+    if args.ids:
+        cases = [case for case in cases if case["id"] in set(args.ids)]
     if args.limit:
         cases = cases[: args.limit]
     retriever = RegulationRetriever()
