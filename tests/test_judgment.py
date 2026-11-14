@@ -102,3 +102,7 @@ def test_skipped_text_without_ellipsis_is_rejected() -> None:
         "근거에 없는 인용문: E1"
     ]
     assert validate_decision(_prohibited("김치 접수 가능 [...] 포장 용기(캔)로 한정"), SOURCE_WITH_BULLETS) == []
+
+
+def test_quote_ignores_control_characters() -> None:
+    assert validate_decision(_prohibited("리튬 이온·리튬\x00 메탈 등의 배터리"), TABLE_EVIDENCE) == []

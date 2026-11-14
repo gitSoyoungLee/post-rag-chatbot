@@ -40,9 +40,12 @@ _BULLET_RE = re.compile(r"(?:^|(?<=\s))[-•·ㅇ](?=\s)")
 # 생략 표시로 이어 붙인 인용은 조각마다 원문에 있어야 한다.
 _ELLIPSIS_RE = re.compile(r"\[\s*(?:\.{2,}|…)\s*\]|\(\s*(?:\.{2,}|…)\s*\)|\.{2,}|…|⋯")
 _MIN_FRAGMENT_CHARS = 2
+# 모델 출력에 가끔 섞이는 보이지 않는 제어 문자(\x00 등)
+_CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 
 
 def normalize_quote(text: str) -> str:
+    text = _CONTROL_RE.sub(" ", text)
     text = _MARKUP_RE.sub(" ", text)
     text = _BULLET_RE.sub(" ", text)
     return re.sub(r"\s+", " ", text).strip(" -·:")
