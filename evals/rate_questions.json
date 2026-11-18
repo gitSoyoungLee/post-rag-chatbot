@@ -1,0 +1,75 @@
+{
+  "description": "EMS 비서류 예상 기본요금 질문 10개. 정답은 「국제우편에 관한 요금」 고시(2026-07-01 시행) 별표 5 원문에서 직접 확인한 값이다.",
+  "cases": [
+    {
+      "id": "us-500g",
+      "country_code": "US",
+      "country_name": "미국",
+      "weight_g": 500,
+      "expected_krw": 39000
+    },
+    {
+      "id": "us-1500g",
+      "country_code": "US",
+      "country_name": "미국",
+      "weight_g": 1500,
+      "expected_krw": 57000
+    },
+    {
+      "id": "jp-800g",
+      "country_code": "JP",
+      "country_name": "일본",
+      "weight_g": 800,
+      "expected_krw": 28500
+    },
+    {
+      "id": "jp-3000g",
+      "country_code": "JP",
+      "country_name": "일본",
+      "weight_g": 3000,
+      "expected_krw": 38000
+    },
+    {
+      "id": "cn-1000g",
+      "country_code": "CN",
+      "country_name": "중국",
+      "weight_g": 1000,
+      "expected_krw": 20000
+    },
+    {
+      "id": "au-2000g",
+      "country_code": "AU",
+      "country_name": "호주",
+      "weight_g": 2000,
+      "expected_krw": 55000
+    },
+    {
+      "id": "de-2500g",
+      "country_code": "DE",
+      "country_name": "독일",
+      "weight_g": 2500,
+      "expected_krw": 64500
+    },
+    {
+      "id": "gb-5000g",
+      "country_code": "GB",
+      "country_name": "영국",
+      "weight_g": 5000,
+      "expected_krw": 91000
+    },
+    {
+      "id": "vn-1200g",
+      "country_code": "VN",
+      "country_name": "베트남",
+      "weight_g": 1200,
+      "expected_krw": 20500
+    },
+    {
+      "id": "th-700g",
+      "country_code": "TH",
+      "country_name": "태국",
+      "weight_g": 700,
+      "expected_krw": 21000
+    }
+  ]
+}
