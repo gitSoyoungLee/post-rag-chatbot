@@ -1,0 +1,734 @@
+{
+  "meta": {
+    "run_at": "2026-11-18T06:39:29",
+    "git_commit": "a4407ee",
+    "git_dirty": false,
+    "llm_base_url": "https://gms.ssafy.io/gmsapi/api.openai.com/v1",
+    "chat_model": "gpt-4o",
+    "temperature": 0.0,
+    "embedding_model": "text-embedding-3-small",
+    "cases": "evals/golden_items.json",
+    "limit": null
+  },
+  "summary": {
+    "judgment_accuracy": {
+      "correct": 23,
+      "total": 55,
+      "rate": 0.418
+    },
+    "dangerous_errors": [
+      "us-ems-ramen",
+      "us-ems-laptop",
+      "us-ems-earphone",
+      "de-ems-watch",
+      "vn-ems-greeting-card",
+      "vn-ems-magazine",
+      "th-ems-letter-paper",
+      "sg-ems-gum"
+    ],
+    "rate_exact_match": {
+      "correct": 0,
+      "total": 10
+    },
+    "rate_mean_error_rate": 0.3
+  },
+  "judgments": [
+    {
+      "id": "us-ems-snack",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted",
+        "conflicting"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": false,
+      "reason": "미국으로 과자를 보내는 것은 특별한 금지나 제한이 없어요. 다만, 통관 과정에서 지연될 수 있으니 주의하세요."
+    },
+    {
+      "id": "us-ems-lipbalm",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": false,
+      "reason": "미국으로 립밤을 보내는 것은 특별한 금지나 제한이 없어요. 일반적으로 개인용 화장품은 문제없이 보낼 수 있어요."
+    },
+    {
+      "id": "us-ems-ramen",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "conflicting"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "미국으로 라면을 보내는 것은 특별한 금지나 제한이 없어요. 다만, 식품이므로 포장이 잘 되어 있어야 하고, 통관 시 지연될 수 있다는 점을 유의하세요."
+    },
+    {
+      "id": "us-ems-sesame-oil",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "conflicting"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "참기름은 미국으로 보낼 때 식품으로 분류되어 제한이 있을 수 있어. 특히, 식품은 사전 신고가 필요할 수 있고, 포장이나 성분에 따라 제한이 있을 수 있어. 따라서 조건을 확인하고 보내는 것이 좋아."
+    },
+    {
+      "id": "us-ems-vitamin",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "비타민 영양제는 미국으로 보낼 때 수량이나 성분에 따라 제한이 있을 수 있어요. 정확한 규정을 확인하고 필요한 서류를 준비하는 것이 좋아요."
+    },
+    {
+      "id": "us-ems-apron",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "앞치마는 미국으로 보내는 국제우편에서 금지나 제한 품목에 해당하지 않아요. 따라서 특별한 제한 없이 보낼 수 있어요."
+    },
+    {
+      "id": "us-ems-laptop",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "노트북은 미국으로 보내는 데 특별한 금지나 제한이 없어요. 안전하게 포장해서 보내시면 됩니다."
+    },
+    {
+      "id": "us-ems-perfume",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "향수는 알코올 함량 때문에 미국으로 보낼 때 제한이 있어. 보낼 수는 있지만, 알코올 함량과 용량에 따라 제한이 있을 수 있으니 주의해야 해."
+    },
+    {
+      "id": "us-ems-kimchi",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted",
+        "conflicting"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "김치는 미국으로 보낼 때 캔 용기에만 허용되는 제한 품목이에요. 따라서 캔 용기에 담아 보내야 해요."
+    },
+    {
+      "id": "us-ems-cigarette",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "dangerous": false,
+      "reason": "미국으로 담배는 금지 품목에 해당해요. 따라서 보낼 수 없어요."
+    },
+    {
+      "id": "us-ems-lighter",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "dangerous": false,
+      "reason": "일회용 라이터는 항공탑재금지 물품으로, 어느 나라로도 보낼 수 없어요."
+    },
+    {
+      "id": "us-ems-earphone",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "블루투스 이어폰은 미국으로 보내는 국제우편에서 금지나 제한 품목에 해당하지 않아요. 따라서 보낼 수 있어요."
+    },
+    {
+      "id": "jp-ems-skincare",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "일본으로 스킨 크림을 보낼 때는 성분에 따라 제한이 있을 수 있어요. 화장품은 일반적으로 보낼 수 있지만, 특정 성분이 포함된 경우 제한될 수 있으니 성분을 확인하고 보내는 것이 좋아요."
+    },
+    {
+      "id": "jp-ems-jerky",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "일본으로 육포를 보낼 때는 검역 증명서가 필요해요. 따라서 조건부로 보낼 수 있어요."
+    },
+    {
+      "id": "jp-ems-seeds",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "일본으로 꽃씨를 보낼 때는 식물 검역 증명서가 필요해요. 따라서 조건부로 보낼 수 있어요."
+    },
+    {
+      "id": "jp-ems-sticker",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "스티커는 일본의 금지 또는 제한 품목에 포함되지 않아서 보낼 수 있어요."
+    },
+    {
+      "id": "jp-ems-ginseng",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "일본으로 인삼을 보낼 때는 식품검역 증명서가 필요해. 조건을 갖추면 보낼 수 있어."
+    },
+    {
+      "id": "jp-ems-cold-medicine",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "일본으로 감기약을 보낼 때는 성분과 수량에 따라 제한이 있을 수 있어. 사전에 일본의 관련 규정을 확인하고 필요한 서류를 준비해야 해."
+    },
+    {
+      "id": "jp-ems-aa-battery",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found",
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "일본으로 AA 건전지를 보낼 때는 수량이나 포장에 제한이 있을 수 있어. 정확한 조건을 확인하고 보내는 게 좋아."
+    },
+    {
+      "id": "jp-ems-nail-polish",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "일본으로 매니큐어를 보낼 때는 화학물질로 분류되어 제한이 있을 수 있어. 보통 항공 운송 시 위험물로 취급되기 때문에, 수량이나 포장에 대한 조건을 확인해야 해. 따라서 제한 품목으로 분류돼."
+    },
+    {
+      "id": "cn-ems-gold-ring",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "중국으로 금반지를 보낼 때는 세관 신고와 관련 서류가 필요할 수 있어요. 따라서 제한 품목으로 분류됩니다."
+    },
+    {
+      "id": "cn-ems-used-clothes",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "중국으로 헌옷을 보낼 때는 검역 및 위생 관련 규정에 따라 제한이 있을 수 있어요. 따라서 조건을 확인하고 보내는 것이 좋습니다."
+    },
+    {
+      "id": "cn-ems-liquor",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "중국으로 주류를 보낼 때는 수량과 용기에 제한이 있으며, 사전 허가가 필요할 수 있어요. 따라서 소주는 제한 품목에 해당해요."
+    },
+    {
+      "id": "au-ems-rice",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "호주로 쌀을 보낼 때는 검역 허가가 필요해. 따라서 제한 품목으로 분류돼."
+    },
+    {
+      "id": "au-ems-pet-treat",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "호주는 동물성 제품에 대해 엄격한 검역 규정을 가지고 있어, 강아지 육포 간식은 제한 품목에 해당해. 수입 허가서나 검역 절차를 거쳐야 할 가능성이 높아."
+    },
+    {
+      "id": "gb-ems-herbal-medicine",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "한약은 영국으로 보낼 때 성분에 따라 제한이 있을 수 있어요. 특정 성분이 포함된 경우에는 허가가 필요할 수 있으니, 성분을 확인하고 필요한 절차를 따르는 것이 좋아요."
+    },
+    {
+      "id": "gb-ems-hand-warmer",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found",
+        "restricted"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "영국의 금지 및 제한 품목 목록을 확인했지만 핫팩이나 관련 분류가 없어서 특별한 제한 없이 보낼 수 있을 것 같아."
+    },
+    {
+      "id": "de-ems-power-bank",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "보조배터리는 항공 운송 시 제한이 있으며, 용량과 포장 기준을 충족해야 합니다. 따라서 조건부로 보낼 수 있습니다."
+    },
+    {
+      "id": "de-ems-watch",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "손목시계는 독일의 금지 또는 제한 품목에 포함되지 않아서 보낼 수 있어요."
+    },
+    {
+      "id": "de-ems-lipbalm",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": false,
+      "reason": "독일의 금지 또는 제한 품목 목록에 립밤이나 화장품 관련 제한이 없어서 보낼 수 있어."
+    },
+    {
+      "id": "fr-ems-perfume",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "프랑스는 향수를 보낼 수 있지만, 알코올 함량과 용량에 따라 제한이 있을 수 있어. 보낼 때는 반드시 해당 조건을 확인하고 보내야 해."
+    },
+    {
+      "id": "fr-ems-toy",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": false,
+      "reason": "장난감은 프랑스로 보내는 데 특별한 금지나 제한이 없어요. 안심하고 보내셔도 됩니다."
+    },
+    {
+      "id": "fr-ems-electric-mat",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited",
+        "conflicting"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "프랑스는 전자제품을 보낼 때 특정 조건을 요구할 수 있어. 전기장판도 전자제품에 해당하니까, 수입 규정이나 인증서가 필요할 수 있어. 그래서 제한 품목으로 판단했어."
+    },
+    {
+      "id": "ca-ems-flowers",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "캐나다로 생화를 보낼 때는 검역 증명서가 필요해요. 따라서 조건부로 보낼 수 있어요."
+    },
+    {
+      "id": "ca-ems-pocket-knife",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "캐나다로 주머니칼을 보낼 때는 제한이 있을 수 있어. 특히 칼의 길이나 종류에 따라 규제가 있을 수 있으니, 정확한 규정을 확인하고 보내는 것이 좋아."
+    },
+    {
+      "id": "vn-ems-greeting-card",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "연하장은 베트남의 금지 또는 제한 품목에 해당하지 않아요. 따라서 보낼 수 있어요."
+    },
+    {
+      "id": "vn-ems-magazine",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "잡지는 베트남의 금지 또는 제한 품목에 포함되지 않아서 보낼 수 있어요."
+    },
+    {
+      "id": "th-ems-snack",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted",
+        "conflicting"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "태국으로 과자를 보낼 때는 식품 관련 규정에 따라 제한이 있을 수 있어요. 수량이나 성분에 따라 조건이 있을 수 있으니, 정확한 규정을 확인하고 보내는 것이 좋아요."
+    },
+    {
+      "id": "th-ems-letter-paper",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "편지지는 태국의 금지 또는 제한 품목에 해당하지 않아서 보낼 수 있어요."
+    },
+    {
+      "id": "sg-ems-gum",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": true,
+      "reason": "싱가포르의 금지 및 제한 품목 목록을 확인했지만 껌이나 관련 분류가 없어요. 따라서 껌을 보내는 데 특별한 제한이 없는 것으로 보여요."
+    },
+    {
+      "id": "sg-ems-kimchi",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "싱가포르로 김치를 보낼 때는 캔 용기에만 허용된다고 해. 따라서 캔 용기에 담긴 김치라면 보낼 수 있어."
+    },
+    {
+      "id": "tw-ems-red-ginseng",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted"
+      ],
+      "predicted_status": "restricted",
+      "correct": true,
+      "dangerous": false,
+      "reason": "대만으로 홍삼을 보낼 때는 식품으로 분류되어 제한이 있을 수 있어. 수량이나 성분에 따라 조건이 있을 수 있으니, 정확한 규정을 확인하고 필요한 서류를 준비하는 것이 좋아."
+    },
+    {
+      "id": "tw-ems-green-tea",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "대만으로 차를 보낼 때는 식품 관련 규정에 따라 제한이 있을 수 있어. 수량이나 성분에 따라 조건이 있을 수 있으니, 정확한 규정을 확인하고 보내는 게 좋아."
+    },
+    {
+      "id": "hk-ems-perfume",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "홍콩으로 향수를 보낼 때는 알코올 함량에 따라 제한이 있을 수 있어. 보통 일정량 이상의 알코올이 포함된 향수는 제한되거나 특별한 허가가 필요할 수 있어. 따라서 향수를 보낼 때는 해당 규정을 확인하고 조건을 충족해야 해."
+    },
+    {
+      "id": "nz-ems-e-cigarette",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "prohibited",
+      "correct": true,
+      "dangerous": false,
+      "reason": "뉴질랜드에서는 전자담배의 수입이 금지되어 있어요. 따라서 전자담배는 보낼 수 없어요."
+    },
+    {
+      "id": "us-parcel-snack",
+      "expected_status": "restricted",
+      "acceptable_statuses": [
+        "restricted",
+        "conflicting"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": false,
+      "dangerous": false,
+      "reason": "미국으로 과자를 보내는 것은 특별한 금지나 제한이 없어요. 다만, 포장이 잘 되어 있어야 하고, 유통기한이 명확히 표시되어 있어야 해요."
+    },
+    {
+      "id": "jp-parcel-cold-medicine",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "일본으로 감기약을 보낼 때는 성분과 수량에 따라 제한이 있을 수 있어요. 일반적으로 개인 사용 목적의 소량만 허용되며, 특정 성분이 포함된 약은 금지될 수 있으니 주의가 필요해요. 정확한 규정을 확인하고 필요한 서류를 준비하는 것이 좋아요."
+    },
+    {
+      "id": "de-letter-power-bank",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "보조배터리는 항공 운송 시 제한이 있을 수 있어, 용량과 포장 기준을 충족해야 합니다. 따라서 조건부로 보낼 수 있습니다."
+    },
+    {
+      "id": "au-letter-kimchi",
+      "expected_status": "prohibited",
+      "acceptable_statuses": [
+        "prohibited"
+      ],
+      "predicted_status": "restricted",
+      "correct": false,
+      "dangerous": false,
+      "reason": "호주로 김치를 보낼 때는 캔 용기에만 허용된다고 해. 따라서 캔 용기에 담긴 김치라면 보낼 수 있어."
+    },
+    {
+      "id": "us-ems-book",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "책은 미국으로 보내는 데 특별한 제한이 없어요. 안심하고 보내셔도 됩니다."
+    },
+    {
+      "id": "jp-ems-handkerchief",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "손수건은 일본의 금지 또는 제한 품목에 해당하지 않아서 보낼 수 있어요."
+    },
+    {
+      "id": "gb-ems-postcard",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "엽서는 금지나 제한 품목에 해당하지 않아서 보낼 수 있어요."
+    },
+    {
+      "id": "ca-ems-keyring",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "캐나다의 금지·제한품목을 확인했지만 키링이나 관련 분류가 없어서 보낼 수 있어요."
+    },
+    {
+      "id": "au-ems-new-tshirt",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "새 티셔츠는 호주의 금지 또는 제한 품목에 해당하지 않아요. 따라서 보낼 수 있어요."
+    },
+    {
+      "id": "de-ems-book",
+      "expected_status": "no_restriction_found",
+      "acceptable_statuses": [
+        "no_restriction_found"
+      ],
+      "predicted_status": "no_restriction_found",
+      "correct": true,
+      "dangerous": false,
+      "reason": "책은 독일로 보내는 데 특별한 금지나 제한이 없어요. 안심하고 보내셔도 됩니다."
+    }
+  ],
+  "rates": [
+    {
+      "id": "us-500g",
+      "question": "미국으로 비서류 0.5kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 39000,
+      "answered_krw": 37200,
+      "correct": false,
+      "error_rate": 0.046
+    },
+    {
+      "id": "us-1500g",
+      "question": "미국으로 비서류 1.5kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 57000,
+      "answered_krw": 53300,
+      "correct": false,
+      "error_rate": 0.065
+    },
+    {
+      "id": "jp-800g",
+      "question": "일본으로 비서류 0.8kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 28500,
+      "answered_krw": 25300,
+      "correct": false,
+      "error_rate": 0.112
+    },
+    {
+      "id": "jp-3000g",
+      "question": "일본으로 비서류 3kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 38000,
+      "answered_krw": 51000,
+      "correct": false,
+      "error_rate": 0.342
+    },
+    {
+      "id": "cn-1000g",
+      "question": "중국으로 비서류 1kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 20000,
+      "answered_krw": 30500,
+      "correct": false,
+      "error_rate": 0.525
+    },
+    {
+      "id": "au-2000g",
+      "question": "호주으로 비서류 2kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 55000,
+      "answered_krw": 67500,
+      "correct": false,
+      "error_rate": 0.227
+    },
+    {
+      "id": "de-2500g",
+      "question": "독일으로 비서류 2.5kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 64500,
+      "answered_krw": 83000,
+      "correct": false,
+      "error_rate": 0.287
+    },
+    {
+      "id": "gb-5000g",
+      "question": "영국으로 비서류 5kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 91000,
+      "answered_krw": 124000,
+      "correct": false,
+      "error_rate": 0.363
+    },
+    {
+      "id": "vn-1200g",
+      "question": "베트남으로 비서류 1.2kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 20500,
+      "answered_krw": 37500,
+      "correct": false,
+      "error_rate": 0.829
+    },
+    {
+      "id": "th-700g",
+      "question": "태국으로 비서류 0.7kg을 EMS로 보내면 예상 기본요금은 얼마인가요?",
+      "expected_krw": 21000,
+      "answered_krw": 25300,
+      "correct": false,
+      "error_rate": 0.205
+    }
+  ]
+}
