@@ -39,7 +39,7 @@ PAGES = {
     "extra-service-fees": ("국제우편 부가취급 수수료", "/front.Delivery03.postal", MAIN),
     "commercial-invoice": ("상업송장 쓰는 법", "/front.Info_01.postal", MAIN),
     "export-confirmation": ("수출우편물 발송확인", "/front.Info_05.postal", MAIN),
-    "us-food-prior-notice": ("미국행 식품 사전신고", "/front.Info_06.postal", MAIN),
+    "us-food-prior-notice": ("미국행 식품 사전신고", "/front.Info_06.postal", MAIN, "US"),
     "quarantine": ("국제우편물 동·식물 검역 안내", "/front.Info_07.postal", MAIN),
     "rate-zones": ("국가별 요금적용 지역", "/front.EmsDeliveryDelivery04.postal", MAIN),
 }
@@ -81,7 +81,8 @@ def html_to_md(html: str, selector: str) -> str:
 def main() -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     MD_DIR.mkdir(parents=True, exist_ok=True)
-    for slug, (title, path, selector) in PAGES.items():
+    for slug, (title, path, selector, *country) in PAGES.items():
+        country_code = country[0] if country else "ALL"  # 특정 국가에만 해당하는 안내
         raw = RAW_DIR / f"{slug}.html"
         if not raw.exists():
             time.sleep(DELAY_SEC)
@@ -93,7 +94,7 @@ def main() -> None:
             f"title: {title}",
             "source_type: 우체국안내",
             f"source_url: {BASE + path}",
-            "country_codes: [ALL]",
+            f"country_codes: [{country_code}]",
             f"collected_at: {date.today().isoformat()}",
             f"license: {LICENSE}",
             "---",

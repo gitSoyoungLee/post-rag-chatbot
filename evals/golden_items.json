@@ -63,13 +63,15 @@
       },
       "expected_status": "prohibited",
       "acceptable_statuses": [
-        "prohibited"
+        "prohibited",
+        "conflicting"
       ],
       "expected_sources": [
         "epost-country-US"
       ],
       "expected_phrase": "라면(스프 포함)",
-      "rationale": "미국 EMS 금지품목에 라면(스프 포함)이 명시돼 있다."
+      "rationale": "미국 EMS 금지품목에 라면(스프 포함)이 이름으로 명시돼 있다. 다만 우체국 「미국행 식품 사전신고」 안내는 개인 간 비상업적 식품의 예로 라면을 들며 적용을 완화한다고 해, 출처 충돌도 인정한다.",
+      "label_revision": "2026-11-18 작성자 검토로 출처 충돌 함께 인정"
     },
     {
       "id": "us-ems-sesame-oil",

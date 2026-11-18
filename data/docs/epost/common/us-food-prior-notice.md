@@ -3,7 +3,7 @@ doc_id: epost-common-us-food-prior-notice
 title: 미국행 식품 사전신고
 source_type: 우체국안내
 source_url: https://ems.epost.go.kr/front.Info_06.postal
-country_codes: [ALL]
+country_codes: [US]
 collected_at: 2026-11-13
 license: 공공저작물(과학기술정보통신부 우정사업본부), 출처 표시 후 비상업적 교육 목적 이용
 ---
